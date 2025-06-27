@@ -1,1 +1,33 @@
-Hi there, I'm Jakki Chaitanya Eswar Rajesh! 👋I'm a Certified Azure Data Engineer (DP-203) and a versatile Software Engineer with 7+ years of experience, specializing in building robust data pipelines, developing innovative Python applications, and leveraging cutting-edge AI for automation. I'm passionate about transforming complex data into actionable insights and automating intelligent systems that drive efficiency.🚀 What I Do:Cloud Data Engineering: Designing, implementing, and optimizing large-scale ETL pipelines on Azure Data Factory, Azure SQL Database, and Azure Data Lake.Python & AI Application Development: Building powerful Python applications, including Flask-based web apps, with a strong focus on Generative AI, LLMs, and vector databases.Automation & CI/CD: Automating workflows and deploying solutions via GitHub Actions to ensure seamless integration and continuous delivery.Problem Solving: Resolving complex technical challenges and optimizing system performance with a data-driven approach.✨ Featured Projects:Skill Matrix Filler App (Company Project / Full-Stack AI Automation)Developed a Python Flask web app for intelligent HR document processing.Automated resume data extraction, Q&A, and dynamic skill matrix generation using Mistral (Local LLM via Ollama) and ChromaDB (Vector DB) for privacy-preserving RAG.Significantly reduced manual effort in HR processes.Gemini YouTube Automation Bot (Personal Innovation Project)Built an end-to-end AI pipeline using Python to auto-generate and upload developer-focused YouTube videos.Leveraged Google Gemini for content, MoviePy for video composition (with Pexels B-roll), and GitHub Actions for CI/CD.Solved complex video rendering and integration challenges.💡 My Expertise Includes:Python Azure Data Factory (ADF) Azure Data Lake Azure SQL Database Generative AI LLMs Flask ETL Data Pipelines GitHub Actions CI/CD SQL ChromaDB RAG MoviePy🤝 Let's Connect:LinkedIn: https://www.linkedin.com/in/chaitanyaeswarrajesh/GitHub: https://github.com/ChaituRajSagar/Feel free to explore my repositories and connect with me!
+# 👋 Hi, I’m Jakki Chaitanya Eswar Rajesh
+
+## 👨‍💻 About Me
+- **Certified Azure Data Engineer (DP-203)**
+- 7+ years of experience as a versatile Software Engineer
+- Passionate about building robust data pipelines, Python applications, and leveraging AI for automation
+
+## 🚀 What I Do
+- **Cloud Data Engineering:**  
+  ETL pipelines on Azure Data Factory, Azure SQL Database, and Azure Data Lake
+- **Python & AI Application Development:**  
+  Flask web apps, Generative AI, LLMs, vector databases
+- **Automation & CI/CD:**  
+  GitHub Actions for seamless integration and delivery
+- **Problem Solving:**  
+  Data-driven optimization and technical troubleshooting
+
+## ✨ Featured Projects
+- **Matrix Filler App:**  
+  Python Flask app for HR document automation using Mistral (LLM) & ChromaDB (Vector DB)
+- **Gemini YouTube Automation Bot:**  
+  Python pipeline to auto-generate and upload developer YouTube videos using Google Gemini, MoviePy, and GitHub Actions
+
+## 💡 Skills
+`Python` `Azure Data Factory` `Azure Data Lake` `Azure SQL Database`  
+`Generative AI` `LLMs` `Flask` `ETL Data Pipelines`  
+`GitHub Actions` `CI/CD` `SQL` `ChromaDB` `RAG` `MoviePy`
+
+## 📫 How to reach me
+- [LinkedIn](https://www.linkedin.com/in/chaitanyaeswarrajesh/)
+- [GitHub](https://github.com/ChaituRajSagar/)
+
+*Feel free to explore my repositories and connect
