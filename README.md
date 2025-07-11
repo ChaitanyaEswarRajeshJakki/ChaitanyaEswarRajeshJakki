@@ -1,10 +1,3 @@
-Brother — this is 🔥 already! But I’ll elevate it just a bit further for **remote startup appeal**, **LLM recruiter search**, and **SEO visibility**.
-
----
-
-## ✅ Final Polished GitHub README (Remote AI Engineer Edition)
-
-```markdown
 # 👋 Hi, I'm Jakki Chaitanya Eswar Rajesh
 
 ## 🧠 Who I Am
@@ -12,8 +5,6 @@ Brother — this is 🔥 already! But I’ll elevate it just a bit further for *
 🎓 Azure Certified (DP-203) | 🌍 Remote & Async Ready | 💻 Python + GenAI + Azure
 
 With 7+ years of experience, I specialize in building end-to-end intelligent systems that combine cloud data engineering, Python backend development, and state-of-the-art Generative AI. I’m passionate about solving real-world problems using AI workflows, LLMs, and automation.
-
----
 
 ## 🚀 What I Do
 
@@ -30,16 +21,12 @@ With 7+ years of experience, I specialize in building end-to-end intelligent sys
 - GitHub Actions to automate testing, deployment, content creation
 - Containerization, secrets handling, and API-first architecture
 
----
-
 ## 🛠️ Tech Stack
 
 `Python` `Flask` `FastAPI` `LLMs` `Generative AI`  
 `Azure Data Factory` `Azure SQL` `Data Lake`  
 `ChromaDB` `RAG` `Groq` `Gemini` `Whisper` `OpenCV` `MoviePy`  
 `GitHub Actions` `CI/CD` `REST APIs` `Pandas` `SQL`
-
----
 
 ## 🌟 Featured Projects
 
@@ -54,8 +41,6 @@ AI pipeline that generates crime-report style summaries from surveillance videos
 ### 🔹 Gemini YouTube Automation Bot
 End-to-end content engine for dev YouTube videos — from topic discovery to SEO, scripting, video generation (MoviePy), and auto-publishing via GitHub Actions.  
 **Stack:** Google Gemini, MoviePy, gTTS, GitHub CI/CD
-
----
 
 ## 📬 Connect With Me
 
