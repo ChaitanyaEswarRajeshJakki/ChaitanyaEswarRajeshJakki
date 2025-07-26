@@ -31,18 +31,22 @@ With 7+ years of experience, I specialize in building end-to-end intelligent sys
 ## 🌟 Featured Projects
 
 ### 🔹 Skill Matrix Filler (LLM + Automation)
+
 Flask app that auto-extracts resume data (PDF/DOCX), performs QA using Mistral LLM, and dynamically fills HR templates using ChromaDB-based RAG.  
 **Stack:** Flask, Ollama, Sentence Transformers, ChromaDB, python-docx
 
 ### 🔹 Flask-Based Bodycam Video Summarizer
+
 AI pipeline that generates crime-report style summaries from surveillance videos using Whisper (STT), ViT-GPT2 (captioning), and Groq (LLM).  
 **Stack:** OpenCV, FFmpeg, HuggingFace, Groq API, JSON output
 
 ### 🔹 Gemini YouTube Automation Bot
+
 End-to-end content engine for dev YouTube videos — from topic discovery to SEO, scripting, video generation (MoviePy), and auto-publishing via GitHub Actions.  
 **Stack:** Google Gemini, MoviePy, gTTS, GitHub CI/CD
 
 ### 🔹 Video Frame Extractor
+
 A Python script using OpenCV for efficient batch extraction and organization of frames from multiple video files. Configurable via `.env` for input/output paths and frame rate.
 **Stack:** Python, OpenCV, python-dotenv, MoviePy
 
@@ -51,6 +55,5 @@ A Python script using OpenCV for efficient batch extraction and organization of 
 - 📫 [LinkedIn → chaitanyaeswarrajesh](https://www.linkedin.com/in/chaitanyaeswarrajesh/)
 - 💻 [GitHub → ChaituRajSagar](https://github.com/ChaituRajSagar/)
 - 📂 Resume & Repositories available upon request
-
 
 ![Jakki Chaitanya Eswar Rajesh Profile](https://github.com/ChaituRajSagar/ChaituRajSagar/blob/main/assets/profile.jpg?raw=true)
