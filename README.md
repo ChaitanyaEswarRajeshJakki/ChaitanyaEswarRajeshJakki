@@ -50,10 +50,15 @@ End-to-end content engine for dev YouTube videos — from topic discovery to SEO
 A Python script using OpenCV for efficient batch extraction and organization of frames from multiple video files. Configurable via `.env` for input/output paths and frame rate.
 **Stack:** Python, OpenCV, python-dotenv, MoviePy
 
+
+## 📈 Interactive Career Infographic
+
+Explore my skills, experience, and projects in an engaging, interactive format. This single-page application provides a dynamic overview of my professional journey.
+
+[**Launch Interactive Infographic Here!**](https://ChaituRajSagar.github.io/interactive-resume-infographic/infographic.html)
+
 ## 📬 Connect With Me
 
 - 📫 [LinkedIn → chaitanyaeswarrajesh](https://www.linkedin.com/in/chaitanyaeswarrajesh/)
 - 💻 [GitHub → ChaituRajSagar](https://github.com/ChaituRajSagar/)
 - 📂 Resume & Repositories available upon request
-
-![Jakki Chaitanya Eswar Rajesh Profile](https://github.com/ChaituRajSagar/ChaituRajSagar/blob/main/assets/profile.jpg?raw=true)
