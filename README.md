@@ -135,16 +135,11 @@ Gemini scripts → gTTS voiceover → MoviePy video → YouTube API auto-publish
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Activity
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ChaituRajSagar&show_icons=true&theme=tokyonight&hide_border=true" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChaituRajSagar&layout=compact&theme=tokyonight&hide_border=true" height="150"/>
-</p>
-
----
-
-<p align="center">
-  <i>📫 chaitanyaeswar.rajesh@gmail.com · +91 9908856899 · Hyderabad, India</i><br/>
-  <i>Open to AI Engineer and Azure Data Engineer roles — Remote or Hyderabad</i>
+  <img src="https://img.shields.io/badge/Contributions%20Last%20Year-232-2E75B6?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Stars%20on%20gemini--youtube--bot-251-F59E0B?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Public%20Repos-12-10B981?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Python-Primary%20Language-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 </p>
