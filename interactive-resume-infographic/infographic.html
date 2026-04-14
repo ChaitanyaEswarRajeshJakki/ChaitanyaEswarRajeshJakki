@@ -37,7 +37,7 @@ body{
   min-height:100vh;
   display:flex;align-items:center;justify-content:center;
   text-align:center;
-  padding:100px 24px 60px;
+  padding:60px 24px;
   background:radial-gradient(ellipse 80% 60% at 50% -10%,#1e3a6e55,transparent),
              radial-gradient(ellipse 40% 40% at 80% 80%,#06b6d415,transparent),
              var(--navy);
@@ -230,7 +230,7 @@ body{
 /* ─── NAV ─── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:#0a0f1ecc;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  background:#0a0f1ecc;backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
   padding:0 32px;
   display:flex;align-items:center;justify-content:space-between;height:60px;
@@ -263,7 +263,7 @@ nav{
 </nav>
 
 <!-- ═══════════ HERO ═══════════ -->
-<section class="hero">
+<section class="hero" style="padding-top:100px;">
   <div>
     <div class="hero-tag">Open to AI Engineer · Azure Data Engineer Roles</div>
     <h1>Jakki <span>Chaitanya</span><br/>Eswar Rajesh</h1>
@@ -491,8 +491,8 @@ nav{
     <h2>Let's Build Something Together</h2>
     <p>Open to AI Engineer and Azure Data Engineer roles — Remote or Hyderabad</p>
     <div class="contact-links">
-      <a href="https://www.linkedin.com/in/chaitanyaeswarrajesh/" class="contact-btn btn-primary" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-      <a href="https://github.com/ChaituRajSagar" class="contact-btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/chaitanyaeswarrajesh/" class="contact-btn btn-primary" target="_blank">LinkedIn Profile</a>
+      <a href="https://github.com/ChaituRajSagar" class="contact-btn btn-outline" target="_blank">GitHub</a>
       <a href="mailto:chaitanyaeswar.rajesh@gmail.com" class="contact-btn btn-outline">Email Me</a>
     </div>
   </div>
@@ -532,19 +532,22 @@ const techData = [
 const svg = document.getElementById('donutSvg');
 const legend = document.getElementById('donutLegend');
 const r=70, cx=100, cy=100, circ=2*Math.PI*r;
-let cumulativePct = 0;
+let offset = -Math.PI/2;
 techData.forEach(d=>{
+  const angle = (d.pct/100)*2*Math.PI;
   const dash = (d.pct/100)*circ;
   const gap = circ - dash;
+  const x1 = cx+r*Math.cos(offset), y1=cy+r*Math.sin(offset);
+  offset += angle;
   const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
   c.setAttribute('cx',cx);c.setAttribute('cy',cy);c.setAttribute('r',r);
   c.setAttribute('fill','none');c.setAttribute('stroke',d.color);
   c.setAttribute('stroke-width','28');
   c.setAttribute('stroke-dasharray',`${dash} ${gap}`);
-  c.setAttribute('stroke-dashoffset', -(cumulativePct/100)*circ);
-  c.setAttribute('transform',`rotate(-90 ${cx} ${cy})`);
+  c.setAttribute('stroke-dashoffset', -((1-d.pct/100)*circ - circ*techData.slice(0,techData.indexOf(d)).reduce((a,b)=>a+b.pct/100,0)*1));
+  c.style.transformOrigin='center';
+  c.style.transform='rotate(-90deg)';
   svg.appendChild(c);
-  cumulativePct += d.pct;
   legend.innerHTML+=`<div class="legend-item"><div class="legend-dot" style="background:${d.color}"></div><span class="legend-name">${d.name}</span><span class="legend-pct">${d.pct}%</span></div>`;
 });
 
