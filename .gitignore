@@ -2,8 +2,6 @@
 video_frame_extractor.zip
 video_to_narrative.7z
 
-# Nested git repo (has its own GitHub repo)
-/interactive-resume-infographic/
 
 # Python cache
 __pycache__/
