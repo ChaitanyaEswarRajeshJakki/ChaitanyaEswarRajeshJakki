@@ -1,6 +1,29 @@
+# Documents & resumes
 *.pdf
 *.docx
-*.ipynb_checkpoints
+*.doc
+
+# Archives (project zips / backups)
+*.zip
+*.7z
+*.rar
+*.tar.gz
+*.gz
+
+# Images (personal photos, passport scans)
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+
+# Config & misc local files
+*.txt
+*.html
+
+# Folders
 /Docs/
-/Docs/
-/.pdf
+/interactive-resume-infographic/
+__pycache__/
+*.pyc
+.env
