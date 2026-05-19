@@ -2,7 +2,7 @@
 
 <p align="center">
   <b>AI Engineer · Azure Data Engineer (DP-203) · Python Developer</b><br/>
-  <i>Building production multi-agent LLM systems, RAG pipelines, and cloud-scale ETL solutions</i>
+  <i>Building production multi-agent LLM systems, voice AI pipelines, and cloud-scale ETL solutions</i>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 
 - 🏆 **Microsoft Certified Azure Data Engineer Associate (DP-203)**
 - 🤖 **4+ years** building production Generative AI — multi-agent platforms, RAG pipelines, voice AI, LLM orchestration
-- ☁️ **7+ years** backend engineering — Azure Data Factory, ETL pipelines, cloud migration
+- ☁️ **4Y 9M** hands-on IT experience — Azure Data Factory, ETL pipelines, cloud migration
 - 🏛️ Delivered solutions for **U.S. government clients** — Contra Costa County, LA County, California State Agencies
 - 🌐 Open to **AI Engineer** and **Azure Data Engineer** roles — Remote or Hyderabad
 
@@ -52,125 +52,126 @@
 - **LLM Cascade:** Claude → Gemini → Groq (LLaMA 3) → Ollama — automatic key rotation across 25+ API keys, zero-downtime fallback
 - **RAG:** ChromaDB with AST file summaries, corpus deduplication, SHA-256 content fingerprinting
 - **Features:** Spectator Mode, DOCX/PDF export, self-correcting agents, batch context via Gemini's 1M-token window
-- **Documentation:** Comprehensive docs site with architecture diagrams and guides
 
-[![AppNova](https://img.shields.io/badge/GitHub-AppNova%20AI-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/AppNovaAI)
-[![AppNova Docs](https://img.shields.io/badge/Docs-AppNova%20Documentation-FF6B35?style=flat-square)](https://github.com/ChaituRajSagar/AppNova_Docs)
+[![AppNova Docs](https://img.shields.io/badge/GitHub-AppNova%20Docs-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/AppNova_Docs)
+
+### 🔷 SmartHire AI — AI-Powered Hiring Platform
+
+> FastAPI backend + TalentCore React Native/Expo candidate app — LLM resume-job fitment, dual-role recruiter/candidate chat
+
+- **Resume Analysis:** LLM generates match score, candidate strengths, and skill gaps against job descriptions
+- **Dual-Role Chat:** Separate recruiter and candidate chat flows with context-aware responses
+- **Mobile App:** TalentCore (React Native/Expo) — candidate-facing companion app
+- **Data Layer:** SQLAlchemy-backed user, resume, and job models with JWT auth
+- **LLM:** OpenAI-compatible endpoint — designed for drop-in local Ollama replacement
 
 ---
 
-## 🛠️ Featured Projects
+## 🛠️ All Repositories
 
 | Project | What it does | Stack | Repository |
 |---|---|---|---|
-| 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases in parallel; full-stack FastAPI + React/TypeScript/Vite | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaituRajSagar/AppNova_Docs) |
+| 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases; FastAPI + React/TypeScript/Vite full-stack | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaituRajSagar/AppNova_Docs) |
 | 🎙️ **AriesGPT** | 5-microservice AI platform: VoiceBot (Whisper→Groq→gTTS), Video-to-Narrative, facial & vehicle deblur | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
 | 🏛️ **GovGenie** | RAG-powered RFP generator — reduces bid writing time by ~70% | FastAPI · Ollama · LangChain · ChromaDB | Private |
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
-| 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative](https://github.com/ChaituRajSagar/video_to_narrative) |
-| 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App](https://github.com/ChaituRajSagar/Skill_Matrix_App) |
-| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube ★268 | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
-| 🖼️ **Interactive Resume** | Live interactive infographic showcasing career, skills, and timeline | HTML · JavaScript | [interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic) |
-| 🖼️ **GFPGAN Integration** | Practical algorithms for real-world face restoration | Python · Deep Learning | [GFPGAN](https://github.com/ChaituRajSagar/GFPGAN) |
-| 🎥 **Video to Frames** | Extract and process video frames for computer vision tasks | Python · OpenCV | [video_to_frames](https://github.com/ChaituRajSagar/video_to_frames) |
+| 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaituRajSagar/video_to_narrative) |
+| 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaituRajSagar/Skill_Matrix_App) |
+| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★268](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
+| 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
+| 🖼️ **Interactive Resume** | Live interactive career infographic — skills, projects, timeline | HTML · CSS · JavaScript | [interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic) |
+| 🖼️ **GFPGAN** | Real-world face restoration algorithms — used in AriesGPT facial enhancement | Python · PyTorch · Deep Learning | [GFPGAN](https://github.com/ChaituRajSagar/GFPGAN) |
+| 🎥 **Video to Frames** | Extract and process individual frames from video files | Python · OpenCV | [video_to_frames](https://github.com/ChaituRajSagar/video_to_frames) |
+| 📺 **OpenCV** | Open Source Computer Vision Library (fork) | C++ · Computer Vision | [opencv](https://github.com/ChaituRajSagar/opencv) |
 
 <details>
 <summary><b>📂 Detailed Project Breakdowns (click to expand)</b></summary>
 
 ### 🤖 AppNova AI — Enterprise Code Modernization
-**AI-driven code modernization studio** with 14 specialist agents running in parallel across a DAG orchestration. Converts legacy codebases into modern, runnable target stacks.
+**Full-stack AI-driven code modernization studio** with 12 specialist LangGraph agents running in parallel. FastAPI backend + React/TypeScript/Vite frontend.
 
-- **Agent Specialization:** Each agent focuses on a specific modernization concern (security, performance, architecture, testing, etc.)
-- **Real-time Streaming:** Server-Sent Events (SSE) pipeline for live agent reasoning
-- **Multi-LLM Fallback:** Automatic cascade from Claude → Gemini → Groq → Ollama with zero downtime
-- **RAG Engine:** ChromaDB stores AST-generated code summaries with SHA-256 fingerprinting to avoid hallucinations
-- **Export Formats:** DOCX reports, Markdown guides, and JSON archives
+- **Agent Specialization:** Architecture · Code-Analysis · Code-Generation · Business-Rules · Security · DevOps · Documentation · Testing · Data-Migration · UI/UX · Integration · Migration-Planner
+- **Real-time Streaming:** SSE fan-out queue with per-agent cancellation and Spectator Mode
+- **Multi-LLM Fallback:** Automatic cascade from Claude → Gemini → Groq → Ollama, round-robin key rotation across 25+ API keys
+- **RAG Engine:** ChromaDB with AST-generated code summaries, SHA-256 fingerprinting, sub-200ms retrieval
+- **Export Formats:** DOCX reports, PDF exports, JSON archives
 
-[![Repo](https://img.shields.io/badge/GitHub-AppNova%20AI-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/AppNovaAI)
+[![Docs](https://img.shields.io/badge/GitHub-AppNova%20Docs-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/AppNova_Docs)
 
-### 🎬 AriesGPT — AI Media Workflow Suite
-**Unified Angular + FastAPI system** for AI-powered media enhancement and narrative generation.
+### 🎙️ AriesGPT — AI Media Workflow Suite (Private)
+**Unified Angular + FastAPI monorepo** with 5 independent AI microservices.
 
-- **Facial Enhancement:** GFPGAN-powered face restoration from low-quality surveillance footage
-- **Vehicle Deblurring:** DeblurGANv2 for license plate and vehicle detail restoration
-- **Video Narratives:** Automated incident report generation from security camera footage
-- **VoiceBot UI:** Interactive voice-controlled interface for media queries
-- **Git Submodules:** Clean dependency management for rapid local prototyping
+- **VoiceBot:** Browser audio → Whisper STT → Groq LLaMA 3 (structured JSON) → gTTS TTS → Angular frontend; async FastAPI with confidence threshold and escalation logic
+- **Video to Narrative:** OpenCV frame extraction + ViT-GPT2 captions + Whisper audio → Groq law-enforcement report generation
+- **Facial Deblur:** GFPGAN-powered face restoration from surveillance footage
+- **Vehicle Deblur:** DeblurGANv2 for license plate and vehicle detail recovery
+- **Aries GPT:** Conversational AI assistant integrated into the Angular dashboard
 
-[![Repo](https://img.shields.io/badge/GitHub-AriesGPT-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/AriesGPT)
+### 🏛️ GovGenie — AI RFP Response Generator (Private)
+**RAG system** that reads government RFP PDFs and auto-drafts section-by-section responses.
+
+- ConversationBufferMemory for follow-up clause questions
+- Per-stage token metrics via tiktoken for cost visibility
+- ~70% reduction in RFP preparation time
+
+### 📄 ReferenceFiller — DOCX Automation (Private)
+**HR automation** that turns a resume upload into a filled DOCX template in 2 minutes (vs 45-minute manual task).
 
 ### 🎥 Video to Narrative — Surveillance Intelligence
-**Flask-based system** that transforms surveillance video into structured law enforcement reports.
+**Flask-based system** transforming surveillance video into structured law enforcement reports.
 
-- **Frame Extraction:** OpenCV for frame-by-frame analysis
-- **Visual Captioning:** ViT-GPT2 vision-language model for frame descriptions
-- **Audio Transcription:** Whisper for speech-to-text from video audio
-- **Report Generation:** Groq LLaMA 3 synthesizes general and formal law-enforcement narratives
-- **Structured Output:** JSON with timestamps, transcript, and dual narrative formats
+- GPU/CPU auto-detection via PyTorch; automatic frame/video cleanup post-processing
+- Structured JSON output with timestamps, transcript, and dual narrative formats
 
 [![Repo](https://img.shields.io/badge/GitHub-video__to__narrative-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/video_to_narrative)
 
 ### 📊 Skill Matrix App — HR Automation
 **RAG-powered HR automation** that extracts skills from resumes into structured matrices.
 
-- **Privacy-First:** Fully local LLM (Mistral via Ollama) — zero candidate data sent to external APIs
-- **RAG Pipeline:** ChromaDB reduces hallucination to near-zero vs baseline LLM-only approaches
-- **Document Parsing:** Supports PDF and DOCX resumes with robust text extraction
-- **Skill Mapping:** Semantic matching for skill categorization and normalization
-- **Session Management:** UUID-based session storage with rotating log handlers
+- Fully local LLM (Mistral via Ollama) — zero candidate data sent to external APIs
+- UUID-based session storage with rotating log handlers
 
 [![Repo](https://img.shields.io/badge/GitHub-Skill__Matrix__App-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/Skill_Matrix_App)
 
 ### 🎬 Gemini YouTube Automation — Hands-Off Content Creation
 **Fully autonomous AI agent** for generating, producing, and publishing educational videos.
 
-- **Script Generation:** Gemini generates educational scripts on demand
-- **Audio Synthesis:** gTTS converts scripts to natural-sounding voiceovers
-- **Video Composition:** MoviePy combines frames, overlays, and audio
-- **Auto-Publishing:** YouTube API integration for direct uploads with metadata
-- **GitHub Actions:** Runs entirely on serverless cron — no infrastructure needed
-- **Custom Thumbnails:** Dynamic thumbnail generation with TextClip overlays
+- Zero-input pipeline: Gemini script → gTTS voiceover → MoviePy composition → YouTube API auto-publish
+- Runs entirely on GitHub Actions cron — no server required
+- Evolved into a modular AI Educational Template with dedicated stages for curriculum, slides, code demos, animations, and narration
 
 [![Repo](https://img.shields.io/badge/GitHub-gemini--youtube--automation-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/gemini-youtube-automation)
 
-### 🖼️ Interactive Resume Infographic
-**Live interactive career profile** showcasing skills, projects, timeline, and achievements as an engaging single-page experience.
+### 💼 SmartHire AI — AI Hiring Platform (In Development)
+**Full-stack recruitment platform** with FastAPI backend and TalentCore React Native/Expo mobile app.
 
-- **Canvas-Based:** Performance-optimized interactive visualization
-- **Responsive Design:** Works across desktop and mobile browsers
-- **Career Timeline:** Visual representation of professional journey
-- **Project Showcase:** Clickable project cards with links and descriptions
-- **Skill Matrix:** Interactive visualization of technical expertise areas
+- LLM generates resume-job match score, strengths, and gap analysis
+- Dual-role chat (recruiter + candidate) with SQLAlchemy-backed data layer
+- Designed for local Ollama LLM deployment (privacy-first)
+
+### 🖼️ Interactive Resume Infographic
+**Live interactive career profile** — single-page infographic with animated skill bars, project cards, timeline, and donut chart.
+
+- Served via GitHub Pages at: `https://chaiturajsagar.github.io/interactive-resume-infographic/infographic.html`
+- Zero dependencies — pure HTML/CSS/JS, works from any local path
 
 [![Repo](https://img.shields.io/badge/GitHub-interactive--resume--infographic-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/interactive-resume-infographic)
+[![Live](https://img.shields.io/badge/Live-GitHub%20Pages-10B981?style=flat-square)](https://chaiturajsagar.github.io/interactive-resume-infographic/infographic.html)
 
-### 🖼️ GFPGAN — Face Restoration Research
-**Research integration** for practical face restoration algorithms.
-
-- **Real-world Applications:** Surveillance footage enhancement, legacy photo restoration
-- **Deep Learning:** State-of-the-art neural network architectures for blind face restoration
-- **Integration:** Core technology used in AriesGPT for facial enhancement
+### 🖼️ GFPGAN — Face Restoration
+**Research fork** for practical blind face restoration algorithms. Core technology powering the facial enhancement microservice in AriesGPT.
 
 [![Repo](https://img.shields.io/badge/GitHub-GFPGAN-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/GFPGAN)
 
 ### 🎥 Video to Frames — Frame Extraction Pipeline
-**Computer vision utility** for extracting, processing, and analyzing individual video frames.
-
-- **Batch Processing:** Efficient frame extraction for large video files
-- **Format Support:** Works with common video formats (MP4, AVI, MOV, etc.)
-- **Integration Point:** Foundation layer for video analysis projects like AriesGPT and Video to Narrative
+**Computer vision utility** for extracting and processing individual frames from video files. Foundation layer used by AriesGPT and Video to Narrative.
 
 [![Repo](https://img.shields.io/badge/GitHub-video__to__frames-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/video_to_frames)
 
-### 🎓 ModernizeAI — Full-Stack Modernization Platform
-**Complete ecosystem** for AI-assisted application and workflow modernization.
+### 📺 OpenCV — Computer Vision Library (Fork)
+Fork of the Open Source Computer Vision Library. Used as a reference and integration base for frame extraction and image processing tasks.
 
-- **Backend:** FastAPI for high-performance async operations
-- **Frontend:** TypeScript/React for responsive UI
-- **AI Integration:** Multi-agent system for modernization analysis
-- **Enterprise Ready:** Production-grade error handling and logging
-
-[![Repo](https://img.shields.io/badge/GitHub-ModernizeAI-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/ModernizeAI)
+[![Repo](https://img.shields.io/badge/GitHub-opencv-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/opencv)
 
 </details>
 
@@ -198,6 +199,8 @@
 <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
 <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white"/>
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/React%20Native-61DAFB?style=flat-square&logo=react&logoColor=black"/>
 <img src="https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white"/>
 <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/>
 <img src="https://img.shields.io/badge/LangGraph-FF6B35?style=flat-square&logoColor=white"/>
@@ -207,14 +210,16 @@
 <img src="https://img.shields.io/badge/Groq-F55036?style=flat-square&logoColor=white"/>
 <img src="https://img.shields.io/badge/Ollama-000000?style=flat-square&logoColor=white"/>
 <img src="https://img.shields.io/badge/Mistral-FF7000?style=flat-square&logoColor=white"/>
+<img src="https://img.shields.io/badge/Whisper-412991?style=flat-square&logo=openai&logoColor=white"/>
+<img src="https://img.shields.io/badge/gTTS-34A853?style=flat-square&logo=google&logoColor=white"/>
 <img src="https://img.shields.io/badge/Azure%20Data%20Factory-0078D4?style=flat-square&logo=microsoftazure&logoColor=white"/>
 <img src="https://img.shields.io/badge/Azure%20Data%20Lake-0078D4?style=flat-square&logo=microsoftazure&logoColor=white"/>
 <img src="https://img.shields.io/badge/Azure%20SQL-0078D4?style=flat-square&logo=microsoftazure&logoColor=white"/>
 <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
 <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white"/>
-<img src="https://img.shields.io/badge/Whisper-412991?style=flat-square&logo=openai&logoColor=white"/>
 <img src="https://img.shields.io/badge/ViT--GPT2-412991?style=flat-square&logoColor=white"/>
 <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black"/>
+<img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logoColor=white"/>
 <img src="https://img.shields.io/badge/RAG-2E75B6?style=flat-square&logoColor=white"/>
 <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
 <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
@@ -225,8 +230,8 @@
 ## 📊 GitHub Activity
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Contributions%20Last%20Year-232-2E75B6?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Public%20Repos-9-10B981?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Most%20Starred-gemini--youtube--automation%20%E2%98%85268-FFD700?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Primary%20Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Focus%20Areas-AI%20%26%20Cloud-FF6B35?style=for-the-badge"/>
 </p>
@@ -235,50 +240,48 @@
 
 ## 🎯 Repository Overview
 
-### Core AI/ML Projects
-- **AppNovaAI** — Multi-agent code modernization platform
-- **AriesGPT** — AI media workflows (deblurring, video-to-narrative, VoiceBot)
-- **AppNova_Docs** — Comprehensive documentation and guides
-- **ModernizeAI** — Full-stack modernization platform
+### 🤖 AI / GenAI Projects (Public)
+- **[AppNova_Docs](https://github.com/ChaituRajSagar/AppNova_Docs)** — AppNova AI documentation: 12-agent LLM platform, architecture diagrams, migration guides
+- **[gemini-youtube-automation](https://github.com/ChaituRajSagar/gemini-youtube-automation)** ★268 — Autonomous AI video generator & YouTube publisher
+- **[video_to_narrative](https://github.com/ChaituRajSagar/video_to_narrative)** ★2 — Surveillance video → law-enforcement incident report
+- **[Skill_Matrix_App](https://github.com/ChaituRajSagar/Skill_Matrix_App)** ★3 — Resume → HR skill matrix via local RAG
 
-### Automation & Productivity
-- **gemini-youtube-automation** — Autonomous video generation & publishing
-- **Skill_Matrix_App** — Resume-to-HR matrix automation (RAG-powered)
-- **video_to_narrative** — Surveillance video intelligence system
+### 🤖 AI / GenAI Projects (Private / In Development)
+- **AriesGPT** — 5-microservice AI platform: VoiceBot, Video-to-Narrative, GFPGAN, DeblurGANv2, Aries GPT
+- **GovGenie** — RAG-powered RFP response generator for government bids
+- **ReferenceFiller** — LLM + ChromaDB DOCX template automation
+- **SmartHire AI** — AI hiring platform with TalentCore React Native mobile app
 
-### Computer Vision & Media
-- **video_to_frames** — Video frame extraction pipeline
-- **GFPGAN** — Face restoration research integration
-- **AriesGPT** — Facial and vehicle deblurring workflows
+### 🖥️ Web & Visualization
+- **[interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic)** — Live career infographic (GitHub Pages: [view live](https://chaiturajsagar.github.io/interactive-resume-infographic/infographic.html))
 
-### Web & Visualization
-- **interactive-resume-infographic** — Live career profile showcase
-- **opencv** — Computer vision library (fork)
+### 🎥 Computer Vision & Media
+- **[video_to_frames](https://github.com/ChaituRajSagar/video_to_frames)** — Video frame extraction pipeline
+- **[GFPGAN](https://github.com/ChaituRajSagar/GFPGAN)** — Face restoration algorithms (fork, used in AriesGPT)
+- **[opencv](https://github.com/ChaituRajSagar/opencv)** — Open Source Computer Vision Library (fork)
 
 ---
 
 ## 💡 Key Highlights
 
 🔬 **AI Research & Production Systems**
-- Multi-agent LLM orchestration with state-of-the-art fallback strategies
-- RAG pipelines with semantic search and deduplication
-- Real-time streaming architectures (SSE, WebSockets)
+- 12-agent LLM orchestration with SSE streaming and zero-downtime fallback across 5 LLM providers
+- RAG pipelines with semantic search, corpus deduplication, and SHA-256 fingerprinting
+- End-to-end voice AI pipeline: Whisper STT → Groq LLaMA 3 → gTTS TTS
 
 ⚡ **Performance & Scalability**
 - 50% improvement in Azure data processing with optimized Mapping Data Flows
 - Async-first backend design with FastAPI and asyncio
-- Zero-downtime LLM API failover across multiple providers
+- Sub-200ms ChromaDB retrieval regardless of codebase size
 
 🏛️ **Enterprise Solutions**
-- 30+ production pipelines for U.S. government agencies
-- Data migration and ETL optimization at scale
-- Security-first design with local LLM options (Ollama, Mistral)
+- 30+ production pipelines for U.S. government agencies (Contra Costa, LA County, California State)
+- ARIES cloud migration — 40+ tables, zero data loss
+- Privacy-first AI: local LLM options (Ollama, Mistral) for sensitive HR and government data
 
 ---
 
 ## 🤝 Let's Connect
-
-I'm always open to discussing AI engineering, cloud architecture, and building production-grade systems. Feel free to reach out:
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/chaitanyaeswarrajesh/)
 - 💻 [GitHub](https://github.com/ChaituRajSagar)
