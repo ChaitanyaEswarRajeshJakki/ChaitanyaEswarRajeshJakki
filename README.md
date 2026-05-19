@@ -33,7 +33,7 @@
 ## 🧠 Who I Am
 
 - 🏆 **Microsoft Certified Azure Data Engineer Associate (DP-203)**
-- 🤖 **3+ years** building production Generative AI — multi-agent platforms, RAG pipelines, LLM orchestration
+- 🤖 **4+ years** building production Generative AI — multi-agent platforms, RAG pipelines, voice AI, LLM orchestration
 - ☁️ **7+ years** backend engineering — Azure Data Factory, ETL pipelines, cloud migration
 - 🏛️ Delivered solutions for **U.S. government clients** — Contra Costa County, LA County, California State Agencies
 - 🌐 Open to **AI Engineer** and **Azure Data Engineer** roles — Remote or Hyderabad
@@ -44,13 +44,14 @@
 
 ### 🔷 AppNova AI — Enterprise Multi-Agent Code Modernisation Platform
 
-> AI-driven code modernization studio that drives Claude Code headless through a DAG of 14 specialist agents to convert legacy codebases into runnable target stacks
+> Full-stack AI platform (FastAPI + React/TypeScript/Vite) with 12 specialized LangGraph agents running in parallel to analyse legacy codebases and generate structured modernisation reports
 
-- **Agents:** Architecture · Security · Code Generation · DevOps · Testing · Migration Planning · Documentation · UI/UX · Business Rules · Integration · Data Migration
+- **Agents:** Architecture · Code-Analysis · Code-Generation · Business-Rules · Security · DevOps · Documentation · Testing · Data-Migration · UI/UX · Integration · Migration-Planner
 - **Backend:** FastAPI + LangGraph + asyncio + SSE real-time streaming
+- **Frontend:** React + TypeScript + Vite — live agent reasoning dashboard
 - **LLM Cascade:** Claude → Gemini → Groq (LLaMA 3) → Ollama — automatic key rotation across 25+ API keys, zero-downtime fallback
 - **RAG:** ChromaDB with AST file summaries, corpus deduplication, SHA-256 content fingerprinting
-- **Features:** Spectator Mode, DOCX/MD export, self-correcting agents, batch context via Gemini's 1M-token window
+- **Features:** Spectator Mode, DOCX/PDF export, self-correcting agents, batch context via Gemini's 1M-token window
 - **Documentation:** Comprehensive docs site with architecture diagrams and guides
 
 [![AppNova](https://img.shields.io/badge/GitHub-AppNova%20AI-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/AppNovaAI)
@@ -62,16 +63,16 @@
 
 | Project | What it does | Stack | Repository |
 |---|---|---|---|
-| 🤖 **AppNova AI** | 14 AI agents analyze legacy codebases in parallel for modernization | FastAPI · LangGraph · Claude · Gemini · ChromaDB | [AppNovaAI](https://github.com/ChaituRajSagar/AppNovaAI) |
-| 🎬 **AriesGPT** | Angular + FastAPI suite for AI media workflows: facial deblurring, vehicle deblurring, video-to-narrative | Angular · FastAPI · GFPGAN · DeblurGANv2 | [AriesGPT](https://github.com/ChaituRajSagar/AriesGPT) |
+| 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases in parallel; full-stack FastAPI + React/TypeScript/Vite | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaituRajSagar/AppNova_Docs) |
+| 🎙️ **AriesGPT** | 5-microservice AI platform: VoiceBot (Whisper→Groq→gTTS), Video-to-Narrative, facial & vehicle deblur | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
+| 🏛️ **GovGenie** | RAG-powered RFP generator — reduces bid writing time by ~70% | FastAPI · Ollama · LangChain · ChromaDB | Private |
+| 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative](https://github.com/ChaituRajSagar/video_to_narrative) |
-| 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | FastAPI · Ollama · ChromaDB · Mistral | [Skill_Matrix_App](https://github.com/ChaituRajSagar/Skill_Matrix_App) |
-| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
-| 🖼️ **Interactive Resume** | Live interactive infographic showcasing career, skills, and timeline | HTML · JavaScript · Canvas | [interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic) |
+| 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App](https://github.com/ChaituRajSagar/Skill_Matrix_App) |
+| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube ★268 | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
+| 🖼️ **Interactive Resume** | Live interactive infographic showcasing career, skills, and timeline | HTML · JavaScript | [interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic) |
 | 🖼️ **GFPGAN Integration** | Practical algorithms for real-world face restoration | Python · Deep Learning | [GFPGAN](https://github.com/ChaituRajSagar/GFPGAN) |
 | 🎥 **Video to Frames** | Extract and process video frames for computer vision tasks | Python · OpenCV | [video_to_frames](https://github.com/ChaituRajSagar/video_to_frames) |
-| 🎓 **ModernizeAI** | Full-stack AI-assisted platform for modernizing workflows and applications | Python · TypeScript · FastAPI | [ModernizeAI](https://github.com/ChaituRajSagar/ModernizeAI) |
-| 📺 **OpenCV** | Open Source Computer Vision Library (fork) | C++ · Computer Vision | [opencv](https://github.com/ChaituRajSagar/opencv) |
 
 <details>
 <summary><b>📂 Detailed Project Breakdowns (click to expand)</b></summary>
@@ -225,7 +226,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Contributions%20Last%20Year-232-2E75B6?style=for-the-badge&logo=github"/>
-  <img src="https://img.shields.io/badge/Public%20Repos-14-10B981?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Public%20Repos-9-10B981?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Primary%20Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Focus%20Areas-AI%20%26%20Cloud-FF6B35?style=for-the-badge"/>
 </p>
