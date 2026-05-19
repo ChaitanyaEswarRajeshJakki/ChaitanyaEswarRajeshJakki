@@ -1,29 +1,11 @@
-# Documents & resumes
-*.pdf
-*.docx
-*.doc
+# Too large for GitHub (>100 MB)
+video_frame_extractor.zip
+video_to_narrative.7z
 
-# Archives (project zips / backups)
-*.zip
-*.7z
-*.rar
-*.tar.gz
-*.gz
-
-# Images (personal photos, passport scans)
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.webp
-
-# Config & misc local files
-*.txt
-*.html
-
-# Folders
-/Docs/
+# Nested git repo (has its own GitHub repo)
 /interactive-resume-infographic/
+
+# Python cache
 __pycache__/
 *.pyc
 .env

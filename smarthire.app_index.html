@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+	    <script>
+        (function (exports, d) {
+            var _isReady = false,
+                _event,
+                _fns = [];
+
+            function onReady(event) {
+                d.removeEventListener("DOMContentLoaded", onReady);
+                _isReady = true;
+                _event = event;
+                _fns.forEach(function (_fn) {
+                    var fn = _fn[0],
+                        context = _fn[1];
+                    fn.call(context || exports, window.jQuery);
+                });
+            }
+
+            function onReadyIe(event) {
+                if (d.readyState === "complete") {
+                    d.detachEvent("onreadystatechange", onReadyIe);
+                    _isReady = true;
+                    _event = event;
+                    _fns.forEach(function (_fn) {
+                        var fn = _fn[0],
+                            context = _fn[1];
+                        fn.call(context || exports, event);
+                    });
+                }
+            }
+
+            d.addEventListener && d.addEventListener("DOMContentLoaded", onReady) ||
+            d.attachEvent && d.attachEvent("onreadystatechange", onReadyIe);
+
+            function domReady(fn, context) {
+                if (_isReady) {
+                    fn.call(context, _event);
+                }
+
+                _fns.push([fn, context]);
+            }
+
+            exports.mesmerizeDomReady = domReady;
+        })(window, document);
+    </script>
+	<title>SmartHire</title>
+<meta name='robots' content='max-image-preview:large' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="SmartHire &raquo; Feed" href="https://smarthire.app/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="SmartHire &raquo; Comments Feed" href="https://smarthire.app/?feed=comments-rss2" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/smarthire.app\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\ud83d\udd25","\ud83d\udc26\u200b\ud83d\udd25")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel='stylesheet' id='companion-bundle-css' href="" data-href='https://smarthire.app/wp-content/plugins/mesmerize-companion/theme-data/mesmerize/assets/css/companion.bundle.min.css?ver=1.6.146' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://smarthire.app/wp-includes/css/dist/block-library/style.min.css?ver=6.8.1' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<link rel='stylesheet' id='mediaelement-css' href='https://smarthire.app/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://smarthire.app/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.8.1' type='text/css' media='all' />
+<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
+.jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='mesmerize-style-css' href='https://smarthire.app/wp-content/themes/mesmerize/style.min.css?ver=1.6.116' type='text/css' media='all' />
+<style id='mesmerize-style-inline-css' type='text/css'>
+img.logo.dark, img.custom-logo{width:auto;max-height:75px !important;}
+/** cached kirki style */@media screen and (min-width: 768px){.header-homepage{background-position:center center;}}.header.color-overlay:before{background:#000000;}.header .background-overlay,.header.color-overlay::before{opacity:0.6;}.header.color-overlay:after{filter:invert(0%) ;}.header-homepage .header-description-row{padding-top:0%;padding-bottom:20%;}.inner-header-description{padding-top:8%;padding-bottom:8%;}.mesmerize-front-page .navigation-bar.bordered{border-bottom-color:rgba(255, 255, 255, 0.5);border-bottom-width:1px;border-bottom-style:solid;}.mesmerize-inner-page .navigation-bar.bordered{border-bottom-color:rgba(255, 255, 255, 0.5);border-bottom-width:1px;border-bottom-style:solid;}@media screen and (max-width:767px){.header-homepage .header-description-row{padding-top:0%;padding-bottom:100%;}}@media only screen and (min-width: 768px){.header-content .align-holder{width:100%!important;}.inner-header-description{text-align:center!important;}}
+</style>
+<link rel='stylesheet' id='mesmerize-style-bundle-css' href='https://smarthire.app/wp-content/themes/mesmerize/assets/css/theme.bundle.min.css?ver=1.6.116' type='text/css' media='all' />
+<link rel='stylesheet' id='mesmerize-fonts-css' href="" data-href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%7CMuli%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C900%2C900italic%7CPlayfair+Display%3A400%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext&#038;display=swap' type='text/css' media='all' />
+<script type="text/javascript" src="https://smarthire.app/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://smarthire.app/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="jquery-js-after">
+/* <![CDATA[ */
+    
+        (function () {
+            function setHeaderTopSpacing() {
+
+                setTimeout(function() {
+                  var headerTop = document.querySelector('.header-top');
+                  var headers = document.querySelectorAll('.header-wrapper .header,.header-wrapper .header-homepage');
+
+                  for (var i = 0; i < headers.length; i++) {
+                      var item = headers[i];
+                      item.style.paddingTop = headerTop.getBoundingClientRect().height + "px";
+                  }
+
+                    var languageSwitcher = document.querySelector('.mesmerize-language-switcher');
+
+                    if(languageSwitcher){
+                        languageSwitcher.style.top = "calc( " +  headerTop.getBoundingClientRect().height + "px + 1rem)" ;
+                    }
+                    
+                }, 100);
+
+             
+            }
+
+            window.addEventListener('resize', setHeaderTopSpacing);
+            window.mesmerizeSetHeaderTopSpacing = setHeaderTopSpacing
+            mesmerizeDomReady(setHeaderTopSpacing);
+        })();
+    
+    
+/* ]]> */
+</script>
+<link rel="https://api.w.org/" href="https://smarthire.app/index.php?rest_route=/" /><link rel="alternate" title="JSON" type="application/json" href="https://smarthire.app/index.php?rest_route=/wp/v2/pages/405" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://smarthire.app/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.8.1" />
+<link rel="canonical" href="https://smarthire.app/" />
+<link rel='shortlink' href='https://smarthire.app/' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://smarthire.app/index.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fsmarthire.app%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://smarthire.app/index.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fsmarthire.app%2F&#038;format=xml" />
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v10.2.5-->
+			<script type="text/javascript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+				<style data-name="header-overlap-with">
+		@media screen and (min-width: 768px) {
+			.mesmerize-front-page.overlap-first-section:not(.mesmerize-front-page-with-slider) .header-homepage {
+				padding-bottom: 95px;
+			}
+
+			.mesmerize-front-page.overlap-first-section:not(.mesmerize-front-page-with-slider) .page-content div[data-overlap]:first-of-type > div:not([class*="section-separator"]) {
+				margin-top: -95px;
+			}
+		}
+	</style>
+			<style>img#wpstats{display:none}</style>
+		
+    
+    <style type="text/css" data-name="custom-mobile-image-position">
+        @media screen and (max-width: 767px) {
+            /*Custom mobile position*/
+        .header-homepage {
+            background-position: 50% 0px;
+        }
+        }
+    </style>
+
+    
+        <script type="text/javascript" data-name="async-styles">
+        (function () {
+            var links = document.querySelectorAll('link[data-href]');
+            for (var i = 0; i < links.length; i++) {
+                var item = links[i];
+                item.href = item.getAttribute('data-href')
+            }
+        })();
+    </script>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	<link rel="icon" href="https://smarthire.app/wp-content/uploads/2020/05/cropped-SH-Round-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://smarthire.app/wp-content/uploads/2020/05/cropped-SH-Round-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://smarthire.app/wp-content/uploads/2020/05/cropped-SH-Round-180x180.png" />
+<meta name="msapplication-TileImage" content="https://smarthire.app/wp-content/uploads/2020/05/cropped-SH-Round-270x270.png" />
+	<style id="page-content-custom-styles">
+			</style>
+	    <style data-name="background-content-colors">
+        .mesmerize-inner-page .page-content,
+        .mesmerize-inner-page .content,
+        .mesmerize-front-page.mesmerize-content-padding .page-content {
+            background-color: #ffffff;
+        }
+    </style>
+    </head>
+
+<body class="home wp-singular page-template page-template-page-templates page-template-homepage page-template-page-templateshomepage-php page page-id-405 custom-background wp-custom-logo wp-theme-mesmerize overlap-first-section mesmerize-front-page mesmerize-content-no-padding ">
+<style>
+.screen-reader-text[href="#page-content"]:focus {
+   background-color: #f1f1f1;
+   border-radius: 3px;
+   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+   clip: auto !important;
+   clip-path: none;
+   color: #21759b;
+
+}
+</style>
+<a class="skip-link screen-reader-text" href="#page-content">Skip to content</a>
+<div id="page-top" class="header-top homepage">
+		<div class="navigation-bar coloured-nav bordered homepage"  data-sticky='0'  data-sticky-mobile='1'  data-sticky-to='top' >
+    <div class="navigation-wrapper ">
+    	<div class="row basis-auto">
+	        <div class="logo_col col-xs col-sm-fit">
+	            <a href="https://smarthire.app/" class="custom-logo-link" data-type="group"  data-dynamic-mod="true" rel="home" aria-current="page"><img width="1043" height="361" src="https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735.png" class="custom-logo" alt="SmartHire" decoding="async" fetchpriority="high" srcset="https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735.png 1043w, https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735-300x104.png 300w, https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735-1024x354.png 1024w, https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735-768x266.png 768w" sizes="(max-width: 1043px) 100vw, 1043px" /></a>	        </div>
+	        <div class="main_menu_col col-xs">
+	            <div id="mainmenu_container" class="row"><ul id="main_menu" class="active-line-bottom main-menu dropdown-menu"><li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-240"><a href="https://smarthire.app/#page-top" aria-current="page">Home</a></li>
+<li id="menu-item-386" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-386"><a href="https://smarthire.app/#features-4" aria-current="page">Features</a></li>
+<li id="menu-item-387" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-387"><a href="https://smarthire.app/#features-3" aria-current="page">Benefits</a></li>
+<li id="menu-item-389" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-389"><a target="_blank" href="https://beta.smarthire.app/">App Login</a></li>
+</ul></div>    <a href="#" data-component="offcanvas" data-target="#offcanvas-wrapper" data-direction="right" data-width="300px" data-push="false">
+        <div class="bubble"></div>
+        <i class="fa fa-bars"></i>
+    </a>
+    <div id="offcanvas-wrapper" class="hide force-hide  offcanvas-right">
+        <div class="offcanvas-top">
+            <div class="logo-holder">
+                <a href="https://smarthire.app/" class="custom-logo-link" data-type="group"  data-dynamic-mod="true" rel="home" aria-current="page"><img width="1043" height="361" src="https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735.png" class="custom-logo" alt="SmartHire" decoding="async" srcset="https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735.png 1043w, https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735-300x104.png 300w, https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735-1024x354.png 1024w, https://smarthire.app/wp-content/uploads/2020/05/cropped-1588537670735-768x266.png 768w" sizes="(max-width: 1043px) 100vw, 1043px" /></a>            </div>
+        </div>
+        <div id="offcanvas-menu" class="menu-main-menu-container"><ul id="offcanvas_menu" class="offcanvas_menu"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-240"><a href="https://smarthire.app/#page-top" aria-current="page">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-386"><a href="https://smarthire.app/#features-4" aria-current="page">Features</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-387"><a href="https://smarthire.app/#features-3" aria-current="page">Benefits</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-389"><a target="_blank" href="https://beta.smarthire.app/">App Login</a></li>
+</ul></div>
+            </div>
+    	        </div>
+	    </div>
+    </div>
+</div>
+</div>
+
+
+<div id="page" class="site">
+
+	<div class="header-wrapper">
+   <div  class='header-homepage  header-full-height' style='; background-image:url(&quot;https://smarthire.app/wp-content/uploads/2020/04/My-Post-42.png&quot;); background-color:#FFFFFF' data-parallax-depth='20'>
+                  
+    <div class="header-description gridContainer content-on-left">
+        <div class="row header-description-row">
+    <div class="header-content header-content-left col-sm-12 col-xs-12">
+        <div class="align-holder left">
+            <h1 class="hero-title">Save time and money Interviewing.</h1>        </div>
+    </div>
+</div>
+    </div>
+    
+        <script>
+		if (window.mesmerizeSetHeaderTopSpacing) {
+			window.mesmerizeSetHeaderTopSpacing();
+		}
+    </script>
+    
+               </div>
+</div>
+
+    <div id='page-content' class="page-content">
+        <div class="content">
+            <div  data-label="Content" data-id="content--1" data-export-id="content-12" data-category="content" class="content-12 content-section content-section-spacing" id="content-1" style="background-color: rgb(245, 250, 253); background-image: none;"><div  class="gridContainer"> <div  class="row text-center"><div  class="section-title-col" data-type="column"> <h2  class="">How does it work?</h2> <p  class="lead">Explore SmartHire Video Interview Platform with no AI, only HI (Human Intelligence)</p></div> </div> <div  class="row center-xs middle-xs"> <div  class="col-sm-9" data-type="column"> <a  data-cp-link="1" href="https://youtu.be/y5aR6Kcic8c" class="" target="_self" rel="noopener noreferrer"><img decoding="async"  class="shadow-large" src="https://smarthire.app/wp-content/uploads/2020/04/shutterstock_479802580-600x410-1.jpg" alt="" title="shutterstock_479802580-600x410"></a></div> </div></div> </div><div  id="overlappable-4" style="background-color: #ffffff;" data-label="Overlappable" data-id="overlappable-4" data-export-id="overlappable-4" data-category="overlappable" class="overlappable-4 content-section content-section-spacing" data-overlap="true"><div  class="gridContainer"> <div  data-type="row" class="row spaced-cols text-center"><div  class="col-xs-12 col-sm-4 col-padding"> <i  class="fa icon shadow-large-black aligncenter color1 fa-tv reverse round large"></i> <div  data-type="column" class=""> <h3  class="">Step 1</h3><h5  class="">CREATE AN ACCOUNT</h5> <p  class="">Create a set of questions you want the    candidates to answer and you are all set.</p></div> </div> <div  class="col-xs-12 col-sm-4 col-padding"> <i  class="fa icon shadow-large-black aligncenter color1 fa-link reverse round large"></i> <div  data-type="column" class=""><h3  class="">Step 2</h3><h5  class="">CREATE THE LINK</h5> <p  class="">Create, Share and Post the Link along with your Job Ad on your Job Boards/Broadcast, LinkedIn or any other social media platform.</p></div> </div> <div  class="col-xs-12 col-sm-4 col-padding"> <i  class="fa icon shadow-large-black aligncenter color1 fa-suitcase reverse round large"></i> <div  data-type="column" class=""><h3  class="">Step 3</h3><h5  class="">HIRE’EM</h5> <p  class="">Wait for the right candidates to take the video interview. Screen and Hire. </p></div> </div></div> </div></div><div  data-label="Features" data-id="features--1" data-export-id="features-13-card-bordered" data-category="features" class="features-13 content-section content-section-spacing" id="features-4" style="background-color: rgb(255, 255, 255);"><div  class="gridContainer"> <div  class="row text-center"><div  class="section-title-col" data-type="column"> <h2  class="">Core App Features</h2> </div> </div> <div  class="row spaced-cols content-center-sm" data-type="row"> <div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-eercast reverse round big"></i> <h4  class="">Quick and Easy</h4> <p  class="">Saving time and ease of use has been one of the core design philosophies behind Smarthire. Our simple and intuitive user interface gets you up and running instantly.</p> </div> </div> <div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-mobile reverse round big"></i> <h4  class="">Mobile Friendly:</h4> <p  class="">The video interview works across all devices. It doesn’t matter if you do not have a webcam on a PC, you can easily use your Phone. Smarthire works across all devices.</p> </div> </div><div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-dollar reverse round big"></i> <h4  class="">Pricing</h4> <p  class="">Simple product at an insanely low price. Affordable for everyone  – Startups to Established ones</p> </div> </div><div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-soundcloud reverse round big"></i> <h4  class="">Cloud Based Storage</h4> <p  class="">Cloud based storage of video responses makes it accessible anywhere, anytime</p> </div> </div> <div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-bar-chart-o reverse round big"></i> <h4  class="">Consistent Interview</h4> <p  class="">Same set of interview questions can be given to multiple candidates giving the same opportunity and assessment</p> </div> </div><div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-child reverse round big"></i> <h4  class="">Convenient for Candidates</h4> <p  class="">Candidates don’t have to miss the opportunity because of their busy schedule. They can attend interviews at their own convenience.</p> </div> </div><div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-suitcase reverse round big"></i> <h4  class="">Convenient for Hiring Managers</h4> <p  class="">We believe hiring is a team effort. Share video interviews, review candidates, compare responses, decide for a two way or in-person interview and take the final decision to HIRE.</p> </div> </div><div  class="col-sm-4 col-md-6 "> <div  class="card bordered y-move" data-type="column"> <i  class="fa icon color1 fa-calendar-times-o reverse round big"></i> <h4  class="">No more scheduling</h4> <p  class="">Candidates can respond to your interview questions on their own time so you don’t have to worry about scheduling.</p> </div> </div></div> </div></div><div  data-label="Features" data-id="features--3" data-export-id="features-16-card-bordered" data-category="features" class="features-16-card-bordered content-section content-section-spacing" id="features-6" style="background-color: rgb(245, 250, 253);"><div  class="gridContainer"> <div  class="row text-center"><div  class="section-title-col" data-type="column"> <h2  class="">Upcoming Features</h2> </div> </div> <div  class="row spaced-cols" data-type="row"> <div  class="col-xs-12 col-sm-6 col-md-4"> <div  class="card no-padding bordered y-move"> <a  data-cp-link="1" href="https://smarthire.app" target="_self" rel="noopener noreferrer"><img decoding="async"  class="face" src="https://smarthire.app/wp-content/uploads/2020/04/cropped-WordPress-List-plugin-2.jpg"></a> <div  data-type="column" class="col-padding-small col-padding-small-xs description-container"> <h4  class="font-500">Hotlist</h4> <p  class="">Hiring managers can select recorded interviews of the candidates as a list and share it with prospective employers. So that they can watch the recorded interviews and can ask for two way or in-person interview for final selection.</p></div> <div  data-type="column" class="col-padding-small col-padding-small-xs read-more-container"></div> </div></div> <div  class="col-xs-12 col-sm-6 col-md-4"><div  class="card no-padding bordered y-move"> <a  data-cp-link="1" href="https://smarthire.app" target="_self" rel="noopener noreferrer"><img decoding="async"  class="face" src="https://smarthire.app/wp-content/uploads/2020/04/cropped-virtual-tutor-4.gif" alt="" title="cropped-virtual-tutor-4.gif"></a> <div  data-type="column" class="col-padding-small col-padding-small-xs description-container"> <h4  class="font-500">Live Interview</h4> <p  class="">A live interview is a job interview that takes place remotely and uses live video technology as the communication medium</p></div> <div  data-type="column" class="col-padding-small col-padding-small-xs read-more-container"></div> </div></div> <div  class="col-xs-12 col-sm-6 col-md-4"><div  class="card no-padding bordered y-move"> <a  data-cp-link="1" href="https://smarthire.app" target="_self" rel="noopener noreferrer"><img decoding="async"  class="face" src="https://smarthire.app/wp-content/uploads/2020/05/cropped-branding-concept.jpg" alt="" title="cropped-https___blogs-images.forbes.com_allbusiness_files_2017_09_business-branding-1200x800-1.jpg"></a> <div  data-type="column" class="col-padding-small col-padding-small-xs description-container"> <h4  class="font-500">Personalised Branding</h4> <p  class="">You can personalize the branding and give the candidates an experience of your company. Make it unique. Make it yours.</p></div> <div  data-type="column" class="col-padding-small col-padding-small-xs read-more-container"></div> </div></div> </div></div> </div><div  id="features-3" style="background-color: #ffffff;" data-label="Features" data-id="features-12-card-bordered" data-export-id="features-12-card-bordered" data-category="features" class="features-12-card-bordered content-section content-section-spacing "><div  class="gridContainer"> <div  class="row text-center"><div  class="section-title-col" data-type="column"> <h2  class="">App Benefits</h2> </div> </div> <div  class="row spaced-cols" data-type="row"> <div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Reduction in travel cost</h4></div> </div></div> </div> <div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Increase efficient use of recruiting time</h4></div> </div></div> </div> <div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Reduction in administrative cost</h4></div> </div></div> </div> <div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Increase pace of candidate response</h4></div> </div></div> </div><div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Reduction in “time to hire”</h4></div> </div></div> </div><div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Increase in Interview speed</h4></div> </div></div> </div><div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Reduction in time lost screening fake candidates</h4></div> </div></div> </div><div  class="col-sm-6"> <div  class="card row-card bordered y-move"> <div  class="row"> <div  class="col-sm-fit icon-column" data-preview-empty="1">  </div> <div  class="col-sm" data-type="column">  <h4  class="">Increase the “quality of hire”</h4></div> </div></div> </div></div> </div></div>        </div>
+    </div>
+
+<div  class='footer footer-simple'>
+    <div  class='footer-content center-xs'>
+        <div class="gridContainer">
+	        <div class="row middle-xs footer-content-row">
+	            <div class="footer-content-col col-xs-12">
+	                    <p  class="copyright">&copy;&nbsp;&nbsp;2025&nbsp;SmartHire.&nbsp;Built using WordPress and the <a rel="nofollow" target="_blank" href="https://extendthemes.com/go/built-with-mesmerize/" class="mesmerize-theme-link">Mesmerize Theme</a></p>	            </div>
+	        </div>
+	    </div>
+    </div>
+</div>
+	</div>
+<script type="text/javascript"  defer="defer" src="https://smarthire.app/wp-content/plugins/mesmerize-companion/theme-data/mesmerize/assets/js/companion.bundle.min.js?ver=1.6.146" id="companion-bundle-js"></script>
+<script type="text/javascript" id="leadin-script-loader-js-js-extra">
+/* <![CDATA[ */
+var leadin_wordpress = {"userRole":"visitor","pageType":"home","leadinPluginVersion":"10.2.5"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://js.hs-scripts.com/6573455.js?integration=WordPress&amp;ver=10.2.5" id="leadin-script-loader-js-js"></script>
+<script type="text/javascript"  defer="defer" src="https://smarthire.app/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript"  defer="defer" src="https://smarthire.app/wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
+<script type="text/javascript"  defer="defer" src="https://smarthire.app/wp-content/themes/mesmerize/assets/js/theme.bundle.min.js?ver=1.6.116" id="mesmerize-theme-js"></script>
+<script type="text/javascript" src="https://stats.wp.com/e-202528.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="jetpack-stats-js-after">
+/* <![CDATA[ */
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"191570181\",\"post\":\"405\",\"tz\":\"0\",\"srv\":\"smarthire.app\",\"j\":\"1:14.1\"}") ]);
+_stq.push([ "clickTrackerInit", "191570181", "405" ]);
+/* ]]> */
+</script>
+    <script>
+        /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function () {
+            var t, e = location.hash.substring(1);
+            /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t.tagName) || (t.tabIndex = -1), t.focus())
+        }, !1);
+    </script>
+	</body>
+</html>
