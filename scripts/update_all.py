@@ -84,7 +84,7 @@ def fetch_repos():
     repos, page = [], 1
     while True:
         batch = gh("/user/repos",
-                   {"per_page": 100, "page": page, "type": "owner", "affiliation": "owner"})
+                   {"per_page": 100, "page": page, "type": "owner"})
         if not batch:
             break
         repos.extend(r for r in batch if not r["fork"])
