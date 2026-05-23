@@ -22,7 +22,7 @@
 ## 🎯 Interactive Career Infographic
 
 <!-- GitHub blocks iframes — this is the best inline approach: full-width clickable banner -->
-<a href="https://chaitanyaeswarrajeshjaki.github.io/Chaitanya/interactive-resume-infographic/infographic.html" target="_blank">
+<a href="https://chaitanyaeswarrajeshjaki.github.io/ChaitanyaEswarRajeshJakki/interactive-resume-infographic/infographic.html" target="_blank">
   <img src="https://img.shields.io/badge/🚀%20Open%20Interactive%20Career%20Profile%20%E2%86%92%20Click%20to%20Explore-2E75B6?style=for-the-badge&logoColor=white" width="100%"/>
 </a>
 
@@ -167,11 +167,11 @@
 ### 🖼️ Interactive Resume Infographic
 **Live interactive career profile** — single-page infographic with animated skill bars, project cards, timeline, and donut chart.
 
-- Served via GitHub Pages at: `https://chaitanyaeswarrajeshjaki.github.io/Chaitanya/interactive-resume-infographic/infographic.html`
+- Served via GitHub Pages at: `https://chaitanyaeswarrajeshjaki.github.io/ChaitanyaEswarRajeshJakki/interactive-resume-infographic/infographic.html`
 - Zero dependencies — pure HTML/CSS/JS, works from any local path
 
 [![Repo](https://img.shields.io/badge/GitHub-interactive--resume--infographic-2E75B6?style=flat-square&logo=github)](https://github.com/ChaitanyaEswarRajeshJakki/interactive-resume-infographic)
-[![Live](https://img.shields.io/badge/Live-GitHub%20Pages-10B981?style=flat-square)](https://chaitanyaeswarrajeshjaki.github.io/Chaitanya/interactive-resume-infographic/infographic.html)
+[![Live](https://img.shields.io/badge/Live-GitHub%20Pages-10B981?style=flat-square)](https://chaitanyaeswarrajeshjaki.github.io/ChaitanyaEswarRajeshJakki/interactive-resume-infographic/infographic.html)
 
 ### 🖼️ GFPGAN — Face Restoration
 **Research fork** for practical blind face restoration algorithms. Core technology powering the facial enhancement microservice in AriesGPT.
@@ -274,7 +274,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 - **SmartHire AI** — AI hiring platform with TalentCore React Native mobile app
 
 ### 🖥️ Web & Visualization
-- **[interactive-resume-infographic](https://github.com/ChaitanyaEswarRajeshJakki/interactive-resume-infographic)** — Live career infographic (GitHub Pages: [view live](https://chaitanyaeswarrajeshjaki.github.io/Chaitanya/interactive-resume-infographic/infographic.html))
+- **[interactive-resume-infographic](https://github.com/ChaitanyaEswarRajeshJakki/interactive-resume-infographic)** — Live career infographic (GitHub Pages: [view live](https://chaitanyaeswarrajeshjaki.github.io/ChaitanyaEswarRajeshJakki/interactive-resume-infographic/infographic.html))
 
 ### 🎥 Computer Vision & Media
 - **[video_to_frames](https://github.com/ChaitanyaEswarRajeshJakki/video_to_frames)** — Video frame extraction pipeline
