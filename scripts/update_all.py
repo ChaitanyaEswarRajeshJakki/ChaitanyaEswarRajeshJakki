@@ -38,11 +38,11 @@ RESUME_DATA   = ROOT / "scripts" / "resume_data.json"
 BUILD_PDF     = ROOT / "scripts" / "build_pdf.py"
 
 # ─── Config ───────────────────────────────────────────────────────────────────
-USERNAME       = "ChaituRajSagar"
+USERNAME       = "Chaitanya"
 GEMINI_MODEL   = "gemini-2.5-flash"
 CLAUDE_MODEL   = "claude-haiku-4-5-20251001"
 COMMIT_DAYS    = 30          # how far back to look for commits
-SKIP_REPOS     = {"ChaituRajSagar", "opencv", "GFPGAN"}
+SKIP_REPOS     = {"Chaitanya", "opencv", "GFPGAN"}
 # Skip repos whose names contain a date (e.g. AppNova_Working_09-04-2026)
 _DATE_IN_NAME  = re.compile(r'\d{2}-\d{2}-\d{4}')
 
@@ -159,7 +159,7 @@ def analyse_commits_for_project(repo_name, commits, current_description):
         f"  [{c['date']}] {c['message']}" for c in commits
     )
     prompt = textwrap.dedent(f"""
-        You are maintaining a GitHub profile README for a developer called ChaituRajSagar.
+        You are maintaining a GitHub profile README for a developer called Chaitanya.
         Below is the current one-sentence description for the project "{repo_name}" and the
         recent commit history. If the commits reveal meaningful new features, new tech, or
         significantly improved functionality that is NOT already reflected in the description,
@@ -190,7 +190,7 @@ def generate_new_repo_entry(repo):
     readme = fetch_repo_readme(name)
 
     prompt = textwrap.dedent(f"""
-        You are updating a GitHub profile README for ChaituRajSagar.
+        You are updating a GitHub profile README for Chaitanya.
         A new public repository just appeared. Produce EXACTLY two lines, nothing else:
 
         LINE 1 — Markdown table row (keep | separators):
@@ -307,7 +307,7 @@ def infographic_update_project_desc(content, proj_title, new_desc):
 
 def infographic_update_cert_repos(content, count):
     new = re.sub(
-        r'(GitHub · ChaituRajSagar · )\d+( public repos)',
+        r'(GitHub · Chaitanya · )\d+( public repos)',
         lambda m: f'{m.group(1)}{count}{m.group(2)}', content)
     return new, new != content
 
@@ -375,7 +375,7 @@ def build_pdf():
 # ─── Main ─────────────────────────────────────────────────────────────────────
 def main():
     log("═══════════════════════════════════════════")
-    log(" ChaituRajSagar Profile Auto-Updater")
+    log(" Chaitanya Profile Auto-Updater")
     log(f" Run at: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     log("═══════════════════════════════════════════")
 
