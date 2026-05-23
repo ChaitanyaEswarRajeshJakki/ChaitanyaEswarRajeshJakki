@@ -261,6 +261,54 @@ def generate_new_project_bullets(repo_name, commits, readme_text):
         return []
     return [l.lstrip("•-– ").strip() for l in result.splitlines() if l.strip()]
 
+
+def generate_new_repo_breakdown(repo, commits, readme_text):
+    """Use AI to generate a Detailed Project Breakdowns entry for a new repo.
+
+    Returns a markdown string ready to insert before </details>, or None.
+    """
+    if not (GEMINI_KEY or ANTHROPIC_KEY):
+        return None
+    name        = repo["name"]
+    desc        = repo.get("description") or ""
+    commit_text = "\n".join(f"  [{c['date']}] {c['message']}" for c in commits[:10])
+    badge_name  = name.replace("-", "--").replace("_", "__")
+    badge_url   = (
+        f"https://img.shields.io/badge/GitHub-{badge_name}"
+        f"-2E75B6?style=flat-square&logo=github"
+    )
+    repo_url = f"https://github.com/{USERNAME}/{name}"
+
+    prompt = textwrap.dedent(f"""
+        You are updating the "Detailed Project Breakdowns" section of a GitHub profile
+        README for a developer called Chaitanya. Write a breakdown entry for the new
+        project "{name}" using EXACTLY this markdown format — no extra text before or after:
+
+        ### <emoji> {name} — <short tagline ≤8 words>
+        **<one bold summary sentence, ≤25 words>**
+
+        - **<Key aspect>:** <detail>
+        - **<Key aspect>:** <detail>
+        - **<Key aspect>:** <detail (optional, include only if genuinely distinct)>
+
+        [![Repo]({badge_url})]({repo_url})
+
+        Context:
+        GitHub description: {desc}
+        Recent commits:
+        {commit_text}
+        README excerpt:
+        {readme_text[:1200]}
+
+        Rules:
+        - Pick a fitting emoji for the ### heading.
+        - Bold labels on bullet points (e.g. **Stack:**, **Key Feature:**).
+        - Keep it factual — do NOT invent features not present in the context.
+        - Do NOT wrap the output in code fences or add any preamble.
+    """).strip()
+
+    return ai_call(prompt)
+
 # ─── 3a. Patch README ─────────────────────────────────────────────────────────
 def readme_find_mentioned_repos(content):
     """Find repos already present in the All Repositories TABLE only.
@@ -341,6 +389,23 @@ def readme_insert_after(content, anchor_pattern, new_line):
         pos = m.end()
         return content[:pos] + new_line + "\n" + content[pos:], True
     return content, False
+
+def readme_insert_detailed_breakdown(content, repo_name, breakdown_md):
+    """Insert a new breakdown entry before </details>.
+
+    Skips silently if an entry for this repo already exists.
+    """
+    if f"### " in content and repo_name in content:
+        # Check if a heading for this repo already exists inside <details>
+        details_match = re.search(r'<details>.*?</details>', content, re.DOTALL)
+        if details_match and repo_name in details_match.group(0):
+            return content, False
+    close_tag = "</details>"
+    if close_tag not in content:
+        return content, False
+    idx = content.index(close_tag)
+    insert = "\n" + breakdown_md.strip() + "\n\n"
+    return content[:idx] + insert + content[idx:], True
 
 # ─── 3b. Repository Overview — full rebuild ───────────────────────────────────
 def readme_rebuild_repo_overview(content, repos):
@@ -437,7 +502,7 @@ def resume_add_project(data, repo_name, subtitle, stack, year, bullets):
     })
 
 # ─── 3e. Infographic — add new project card ───────────────────────────────────
-NEW_CARD_TEMPLATE = """
+_CARD_PUBLIC = """
     <!-- {name} -->
     <div class="proj-card">
       <div class="proj-top">
@@ -452,12 +517,29 @@ NEW_CARD_TEMPLATE = """
     </div>
 """
 
-def infographic_add_project_card(content, repo_name, subtitle, desc, stack_tags):
+_CARD_PRIVATE = """
+    <!-- {name} -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">{emoji}</div>
+        <span class="proj-badge badge-ai">AI · Automation</span>
+      </div>
+      <div class="proj-title">{name}</div>
+      <div class="proj-sub">{subtitle}</div>
+      <div class="proj-desc">{desc}</div>
+      <div class="proj-tags">{tags}</div>
+      <div class="proj-footer"><span class="proj-link" style="opacity:.5;cursor:default">Private Repository</span></div>
+    </div>
+"""
+
+def infographic_add_project_card(content, repo_name, subtitle, desc, stack_tags,
+                                  is_private=False):
     if f'<!-- {repo_name} -->' in content:
         return content, False
     tags_html = "".join(f'<span class="tag">{t.strip()}</span>'
                         for t in stack_tags.split("·") if t.strip())
-    card = NEW_CARD_TEMPLATE.format(
+    template = _CARD_PRIVATE if is_private else _CARD_PUBLIC
+    card = template.format(
         name=repo_name, subtitle=subtitle, desc=desc,
         emoji="🤖", tags=tags_html, username=USERNAME, repo=repo_name
     )
@@ -535,8 +617,12 @@ def main():
             name = repo["name"]
             log(f"  → Processing '{name}' …")
 
-            # README table + overview
-            table_row, overview_line = generate_new_repo_entry(repo)
+            # Fetch shared context once for all downstream generators
+            commits  = fetch_recent_commits(name)
+            readme_t = fetch_repo_readme(name)
+
+            # README table row
+            table_row, _ = generate_new_repo_entry(repo)
             if table_row:
                 readme_content, ok = readme_insert_after(
                     readme_content,
@@ -544,24 +630,30 @@ def main():
                     table_row)
                 log(f"    README table row: {'added' if ok else 'anchor missing'}.")
 
+            # README detailed breakdown (<details> section)
+            breakdown = generate_new_repo_breakdown(repo, commits, readme_t)
+            if breakdown:
+                readme_content, ok = readme_insert_detailed_breakdown(
+                    readme_content, name, breakdown)
+                log(f"    README breakdown: {'added' if ok else 'already exists or </details> missing'}.")
+
             # Resume data
-            commits  = fetch_recent_commits(name)
-            readme_t = fetch_repo_readme(name)
-            bullets  = generate_new_project_bullets(name, commits, readme_t)
+            bullets = generate_new_project_bullets(name, commits, readme_t)
             if bullets:
                 desc  = repo.get("description") or name
                 stack = ", ".join(repo.get("topics", [])) or "Python"
                 resume_add_project(resume_data, name, desc, stack, "2025", bullets)
                 log(f"    Resume project entry added ({len(bullets)} bullets).")
 
-            # Infographic card
+            # Infographic card — public repos only (already filtered), no private link needed
             if GEMINI_KEY or ANTHROPIC_KEY:
                 desc_text  = (repo.get("description") or
                               f"Automated {name.replace('-', ' ')} pipeline.")
                 topics     = repo.get("topics") or []
                 stack_tags = " · ".join(topics[:6]) if topics else "Python · GitHub Actions"
                 infographic_content, ok = infographic_add_project_card(
-                    infographic_content, name, desc_text, desc_text, stack_tags
+                    infographic_content, name, desc_text, desc_text, stack_tags,
+                    is_private=repo["private"],
                 )
                 log(f"    Infographic card: {'added' if ok else 'already exists or anchor missing'}.")
 
