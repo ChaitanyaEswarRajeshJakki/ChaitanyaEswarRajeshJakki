@@ -174,7 +174,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "Engineered AppNovaAI modernizes legacy codebases using Claude Code agents for code review, manifests, blueprints, parallel codegen, and staleness-aware re-run management.",
+        "AppNovaAI modernizes legacy codebases via Claude Code agents, offering comprehensive review, auto-generated manifests, blueprints, parallel codegen, and smart staleness re-run.",
         "Implemented advanced features in AppNovaAI including auto-generated build manifests and parallel chunk code generation, while resolving critical UI and pipeline stability issues."
       ]
     },
@@ -206,7 +206,7 @@
       "stack": "ai, angular, chromadb, fastapi, langchain, local-llm, ollama, rag, resume-parser, rfp-generator",
       "year": "2025",
       "bullets": [
-        "Developed an AI-powered RFP Generator automating proposals from PDF/DOCX inputs, integrating RAG for experience retrieval and section export, now with Linux deployment.",
+        "AI-powered RFP Generator automating proposals from PDF/DOCX inputs, integrating RAG for experience retrieval and section export, now with an updated UI and Linux deployment.",
         "Engineered a Skill Matrix Filler leveraging LLMs to auto-populate resume data into DOCX templates, generating contextual content for placeholders.",
         "Built a full-stack AI platform, GovGenie, automating RFP responses and resume population using a local LLM (Ollama), eliminating external API costs."
       ]
@@ -227,9 +227,20 @@
       "stack": "config, github-config",
       "year": "2025",
       "bullets": [
-        "Dynamically generates an interactive career infographic, leveraging AI to showcase skills, projects, and achievements from public and private repositories.",
+        "Dynamically generates an interactive career infographic, leveraging dual AI (Gemini, Claude) to showcase skills, projects, and achievements from public and private repositories.",
         "Corrected GitHub Pages path and updated project username, ensuring proper deployment and improved project accessibility.",
         "Upgraded to google-genai SDK and optimized commit analysis logic, enhancing internal profile update processes."
+      ]
+    },
+    {
+      "name": "Skill_Matrix_Streamlit_App",
+      "subtitle": "AI-powered skill matrix filler using Streamlit, FastAPI, ChromaDB RAG, and local Ollama LLM \u2014 no cloud API keys needed.",
+      "stack": "chromadb, document-automation, fastapi, llm, local-llm, ollama, python, rag, resume, skill-matrix, streamlit",
+      "year": "2025",
+      "bullets": [
+        "Developed an AI-powered Streamlit and FastAPI application that automatically fills skill matrix and document templates using uploaded resume data and a local Ollama LLM for inference.",
+        "Engineered robust resume parsing from DOCX/PDF via sequential prompting, integrated ChromaDB for RAG Q&A, and enabled browser preview and download of filled documents.",
+        "Implemented session isolation with unique IDs and dedicated ChromaDB collections per upload, ensuring data privacy and preventing cross-session data leakage."
       ]
     }
   ],
