@@ -73,7 +73,7 @@
 |---|---|---|---|
 | 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases; FastAPI + React/TypeScript/Vite full-stack | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
 | 🎙️ **AriesGPT** | 5-microservice AI platform: VoiceBot (Whisper→Groq→gTTS), Video-to-Narrative, facial & vehicle deblur | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
-| 🏛️ **GovGenie** | RAG-powered RFP generator — reduces bid writing time by ~70% | FastAPI · Ollama · LangChain · ChromaDB | Private |
+| 🏛️ **GovGenie** | Developed an AI-powered RFP Generator automating proposals from PDF/DOCX inputs, integrating RAG for experience retrieva  | FastAPI · Ollama · LangChain · ChromaDB | Private |
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaitanyaEswarRajeshJakki/video_to_narrative) |
 | 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaitanyaEswarRajeshJakki/Skill_Matrix_App) |
@@ -259,6 +259,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 - **[AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs)** — AppNova AI documentation: 12-agent LLM platform, architecture diagrams, migration guides
 - **[gemini-youtube-automation](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation)** ★268 — Autonomous AI video generator & YouTube publisher
 - **[ai-content-bot](https://github.com/ChaitanyaEswarRajeshJakki/ai-content-bot)** — Daily AI/Tech news → Gemini script → Edge TTS → vertical video → YouTube Shorts + Instagram Reels
+- **[ChaitanyaEswarRajeshJakki](https://github.com/ChaitanyaEswarRajeshJakki/ChaitanyaEswarRajeshJakki)** — Chaitanya's GitHub profile README, showcasing his AI, Azure, and Python expertise.
 - **[ModernizeAI](https://github.com/ChaitanyaEswarRajeshJakki/ModernizeAI)** — AI-assisted platform to modernize workflows and generate applications.
 - **[GovGenie](https://github.com/ChaitanyaEswarRajeshJakki/GovGenie)** — AI assistant for RFP generation and resume-to-template processing.
 - **[AriesGPT](https://github.com/ChaitanyaEswarRajeshJakki/AriesGPT)** — AI platform for law enforcement: deblurring, video narrative, crime mapping, voice assistant.
