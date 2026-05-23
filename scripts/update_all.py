@@ -439,11 +439,28 @@ def readme_rebuild_repo_overview(content, repos):
             desc = desc[:87] + "…"
         return f'- **[{r["name"]}](https://github.com/{USERNAME}/{r["name"]})**{stars} — {desc}'
 
+    # Build private section: curated entries first, then any API-discovered
+    # private repos not already in the curated list
+    curated_private_names = {name for name, _ in PRIVATE_REPOS_OVERVIEW}
+    api_private = [
+        r for r in repos
+        if r["private"]
+        and r["name"] not in curated_private_names
+        and r["name"] not in SKIP_REPOS
+        and r["name"] not in SKIP_OVERVIEW
+        and not _DATE_IN_NAME.search(r["name"])
+    ]
+
     lines = ["## 🎯 Repository Overview", ""]
     lines += ["### 🤖 AI / GenAI Projects (Public)"]
     lines += [fmt(r) for r in ai_repos]
     lines += ["", "### 🤖 AI / GenAI Projects (Private / In Development)"]
     lines += [f"- **{name}** — {desc}" for name, desc in PRIVATE_REPOS_OVERVIEW]
+    for r in api_private:
+        desc = (r.get("description") or "").strip()
+        if len(desc) > 90:
+            desc = desc[:87] + "…"
+        lines.append(f"- **{r['name']}** — {desc}" if desc else f"- **{r['name']}**")
     if web_repos:
         lines += ["", "### 🖥️ Web & Visualization"]
         lines += [fmt(r) for r in web_repos]
@@ -548,6 +565,31 @@ def infographic_add_project_card(content, repo_name, subtitle, desc, stack_tags,
         return content.replace(marker, card + marker, 1), True
     return content, False
 
+def infographic_fix_private_card_links(content, private_names):
+    """Patch any existing cards for private repos that still have a public GitHub link.
+
+    Replaces 'View on GitHub →' anchor with a greyed-out 'Private Repository' span.
+    Needed because cards generated before the is_private fix have the wrong footer.
+    """
+    changed = False
+    for name in private_names:
+        if f'<!-- {name} -->' not in content:
+            continue
+        pattern = (
+            rf'(<!-- {re.escape(name)} -->.*?<div class="proj-footer">)'
+            rf'<a href="https://github\.com/[^"]*"[^>]*>[^<]*</a>'
+            rf'(</div>)'
+        )
+        replacement = (
+            r'\1<span class="proj-link" style="opacity:.5;cursor:default">'
+            r'Private Repository</span>\2'
+        )
+        new, n = re.subn(pattern, replacement, content, flags=re.DOTALL)
+        if n:
+            content = new
+            changed = True
+    return content, changed
+
 # ─── 4. Build PDF ─────────────────────────────────────────────────────────────
 def build_pdf():
     log("\n── Building resume PDF ──")
@@ -600,62 +642,95 @@ def main():
     readme_content, top_changed = readme_update_most_starred(readme_content, repos)
     log(f"  {'Updated' if top_changed else 'No change'}.")
 
+    # ── Fix infographic cards that were generated before the is_private fix ────
+    log("\n── Fixing private-repo infographic cards ──")
+    private_names = [r["name"] for r in repos if r["private"]]
+    infographic_content, fixed = infographic_fix_private_card_links(
+        infographic_content, private_names)
+    log(f"  {'Fixed stale public links on private cards.' if fixed else 'No stale links found.'}")
+
     # ── Detect new repos (scoped to All Repositories table) ─────────────────
     log("\n── Checking for new repos ──")
     mentioned = readme_find_mentioned_repos(readme_content)
-    new_repos = [r for r in repos
-                 if r["name"] not in mentioned
-                 and r["name"] not in SKIP_REPOS
-                 and not _DATE_IN_NAME.search(r["name"])
-                 and not r["private"]]
 
-    if not new_repos:
+    def _is_new(r):
+        return (r["name"] not in mentioned
+                and r["name"] not in SKIP_REPOS
+                and not _DATE_IN_NAME.search(r["name"]))
+
+    new_public_repos  = [r for r in repos if _is_new(r) and not r["private"]]
+    new_private_repos = [r for r in repos if _is_new(r) and r["private"]]
+
+    if not new_public_repos and not new_private_repos:
         log("  No new repos.")
-    else:
-        log(f"  New repos: {[r['name'] for r in new_repos]}")
-        for repo in new_repos:
-            name = repo["name"]
-            log(f"  → Processing '{name}' …")
 
-            # Fetch shared context once for all downstream generators
-            commits  = fetch_recent_commits(name)
-            readme_t = fetch_repo_readme(name)
+    def _process_new_repo(repo, is_private):
+        name = repo["name"]
+        log(f"  → Processing '{'🔒 ' if is_private else ''}{name}' …")
 
-            # README table row
-            table_row, _ = generate_new_repo_entry(repo)
-            if table_row:
-                readme_content, ok = readme_insert_after(
-                    readme_content,
-                    rf'\| 📱 \*\*AI Content Bot\*\*[^\n]*\n',
-                    table_row)
-                log(f"    README table row: {'added' if ok else 'anchor missing'}.")
+        commits  = fetch_recent_commits(name)
+        readme_t = fetch_repo_readme(name)
 
-            # README detailed breakdown (<details> section)
-            breakdown = generate_new_repo_breakdown(repo, commits, readme_t)
-            if breakdown:
-                readme_content, ok = readme_insert_detailed_breakdown(
-                    readme_content, name, breakdown)
-                log(f"    README breakdown: {'added' if ok else 'already exists or </details> missing'}.")
+        # README table row
+        table_row, _ = generate_new_repo_entry(repo)
+        if table_row:
+            if is_private:
+                # Replace the generated GitHub URL with "Private"
+                table_row = re.sub(
+                    r'\[.*?\]\(https://github\.com/[^\)]+\)\s*\|',
+                    'Private |', table_row)
+            readme_content_ref[0], ok = readme_insert_after(
+                readme_content_ref[0],
+                rf'\| 📱 \*\*AI Content Bot\*\*[^\n]*\n',
+                table_row)
+            log(f"    README table row: {'added' if ok else 'anchor missing'}.")
 
-            # Resume data
-            bullets = generate_new_project_bullets(name, commits, readme_t)
-            if bullets:
-                desc  = repo.get("description") or name
-                stack = ", ".join(repo.get("topics", [])) or "Python"
-                resume_add_project(resume_data, name, desc, stack, "2025", bullets)
-                log(f"    Resume project entry added ({len(bullets)} bullets).")
+        # README detailed breakdown (<details> section)
+        breakdown = generate_new_repo_breakdown(repo, commits, readme_t)
+        if breakdown:
+            if is_private:
+                # Strip the public badge/link line from the breakdown
+                breakdown = re.sub(
+                    r'\[!\[Repo\]\([^\)]+\)\]\([^\)]+\)\n?', '', breakdown).strip()
+            readme_content_ref[0], ok = readme_insert_detailed_breakdown(
+                readme_content_ref[0], name, breakdown)
+            log(f"    README breakdown: {'added' if ok else 'already exists or </details> missing'}.")
 
-            # Infographic card — public repos only (already filtered), no private link needed
-            if GEMINI_KEY or ANTHROPIC_KEY:
-                desc_text  = (repo.get("description") or
-                              f"Automated {name.replace('-', ' ')} pipeline.")
-                topics     = repo.get("topics") or []
-                stack_tags = " · ".join(topics[:6]) if topics else "Python · GitHub Actions"
-                infographic_content, ok = infographic_add_project_card(
-                    infographic_content, name, desc_text, desc_text, stack_tags,
-                    is_private=repo["private"],
-                )
-                log(f"    Infographic card: {'added' if ok else 'already exists or anchor missing'}.")
+        # Resume data
+        bullets = generate_new_project_bullets(name, commits, readme_t)
+        if bullets:
+            desc  = repo.get("description") or name
+            stack = ", ".join(repo.get("topics", [])) or "Python"
+            resume_add_project(resume_data, name, desc, stack, "2025", bullets)
+            log(f"    Resume project entry added ({len(bullets)} bullets).")
+
+        # Infographic card
+        desc_text  = (repo.get("description") or
+                      f"Automated {name.replace('-', ' ')} pipeline.")
+        topics     = repo.get("topics") or []
+        stack_tags = " · ".join(topics[:6]) if topics else "Python · GitHub Actions"
+        infographic_content_ref[0], ok = infographic_add_project_card(
+            infographic_content_ref[0], name, desc_text, desc_text, stack_tags,
+            is_private=is_private,
+        )
+        log(f"    Infographic card: {'added' if ok else 'already exists or anchor missing'}.")
+
+    # Use mutable containers so the nested function can update the outer strings
+    readme_content_ref      = [readme_content]
+    infographic_content_ref = [infographic_content]
+
+    if new_public_repos:
+        log(f"  New public repos: {[r['name'] for r in new_public_repos]}")
+        for repo in new_public_repos:
+            _process_new_repo(repo, is_private=False)
+
+    if new_private_repos:
+        log(f"  New private repos: {[r['name'] for r in new_private_repos]}")
+        for repo in new_private_repos:
+            _process_new_repo(repo, is_private=True)
+
+    readme_content      = readme_content_ref[0]
+    infographic_content = infographic_content_ref[0]
 
     # ── Analyse / fix descriptions for all known projects ────────────────────
     if GEMINI_KEY or ANTHROPIC_KEY:
