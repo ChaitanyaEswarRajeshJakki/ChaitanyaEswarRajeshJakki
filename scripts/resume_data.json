@@ -174,7 +174,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "Engineered AppNovaAI to modernize legacy codebases into runnable target stacks, leveraging Claude Code agents to produce detailed audits, build manifests, and migration blueprints.",
+        "Engineered AppNovaAI modernizes legacy codebases using Claude Code agents for audits, automated manifests, migration blueprints, parallel codegen, and re-run management.",
         "Implemented advanced features in AppNovaAI including auto-generated build manifests and parallel chunk code generation, while resolving critical UI and pipeline stability issues."
       ]
     },
