@@ -259,6 +259,11 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 - **[AppNova_Docs](https://github.com/ChaituRajSagar/AppNova_Docs)** — AppNova AI documentation: 12-agent LLM platform, architecture diagrams, migration guides
 - **[gemini-youtube-automation](https://github.com/ChaituRajSagar/gemini-youtube-automation)** ★268 — Autonomous AI video generator & YouTube publisher
 - **[ai-content-bot](https://github.com/ChaituRajSagar/ai-content-bot)** — Daily AI/Tech news → Gemini script → Edge TTS → vertical video → YouTube Shorts + Instagram Reels
+- **[ModernizeAI](https://github.com/ChaituRajSagar/ModernizeAI)** — AI-assisted platform to modernize workflows and generate applications.
+- **[GovGenie](https://github.com/ChaituRajSagar/GovGenie)** — AI assistant for RFP generation and resume-to-template processing.
+- **[AriesGPT](https://github.com/ChaituRajSagar/AriesGPT)** — AI platform for law enforcement: deblurring, video narrative, crime mapping, voice assistant.
+- **[AppNova_Working_09-04-2026](https://github.com/ChaituRajSagar/AppNova_Working_09-04-2026)** — AI-powered platform for codebase intelligence, migration, and analysis.
+- **[AppNovaAI](https://github.com/ChaituRajSagar/AppNovaAI)** — AI studio converting legacy codebases to runnable, modern target stacks.
 - **[video_to_narrative](https://github.com/ChaituRajSagar/video_to_narrative)** ★2 — Surveillance video → law-enforcement incident report
 - **[Skill_Matrix_App](https://github.com/ChaituRajSagar/Skill_Matrix_App)** ★3 — Resume → HR skill matrix via local RAG
 
