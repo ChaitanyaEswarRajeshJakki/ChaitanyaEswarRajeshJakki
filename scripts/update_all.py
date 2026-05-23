@@ -41,7 +41,7 @@ BUILD_PDF     = ROOT / "scripts" / "build_pdf.py"
 USERNAME       = "ChaitanyaEswarRajeshJakki"
 GEMINI_MODEL   = "gemini-2.5-flash"
 CLAUDE_MODEL   = "claude-haiku-4-5-20251001"
-COMMIT_DAYS    = 30          # how far back to look for commits
+COMMIT_DAYS    = 14          # how far back to look for commits
 SKIP_REPOS     = {"Chaitanya", "opencv", "GFPGAN"}
 # Skip repos whose names contain a date (e.g. AppNova_Working_09-04-2026)
 _DATE_IN_NAME  = re.compile(r'\d{2}-\d{2}-\d{4}')
