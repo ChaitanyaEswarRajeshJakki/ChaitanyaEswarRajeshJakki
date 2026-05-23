@@ -71,9 +71,10 @@ def gh(path, params=None):
 
 def _gemini(prompt):
     try:
-        import google.generativeai as genai
-        genai.configure(api_key=GEMINI_KEY)
-        return genai.GenerativeModel(GEMINI_MODEL).generate_content(prompt).text.strip()
+        from google import genai
+        client = genai.Client(api_key=GEMINI_KEY)
+        response = client.models.generate_content(model=GEMINI_MODEL, contents=prompt)
+        return response.text.strip()
     except Exception as e:
         log(f"  [Gemini error] {e}")
         return None
@@ -466,7 +467,7 @@ def main():
 
         for repo in repos:
             name = repo["name"]
-            if name in SKIP_REPOS or name not in known_projects:
+            if name in SKIP_REPOS or _DATE_IN_NAME.search(name) or name not in known_projects:
                 continue
             commits = fetch_recent_commits(name)
             if not commits:

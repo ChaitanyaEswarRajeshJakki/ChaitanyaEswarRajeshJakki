@@ -24,7 +24,7 @@ jobs:
         run: |
           pip install --quiet \
             requests \
-            google-generativeai \
+            google-genai \
             anthropic \
             reportlab
 
