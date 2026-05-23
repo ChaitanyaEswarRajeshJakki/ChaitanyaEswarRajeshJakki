@@ -47,6 +47,27 @@ SKIP_REPOS     = {"Chaitanya", "opencv", "GFPGAN"}
 # Skip repos whose names contain a date (e.g. AppNova_Working_09-04-2026)
 _DATE_IN_NAME  = re.compile(r'\d{2}-\d{2}-\d{4}')
 
+# ─── Experience calculation ───────────────────────────────────────────────────
+WATI_START_YEAR, WATI_START_MONTH = 2021, 8
+PRIOR_EMPLOYMENT_MONTHS = 14  # Macray Technologies 6M + Eastern Petro 8M
+
+def _compute_it_exp():
+    """Return (years, months) of IT experience since WATI start."""
+    now = datetime.now(timezone.utc)
+    total_months = (now.year - WATI_START_YEAR) * 12 + (now.month - WATI_START_MONTH)
+    return total_months // 12, total_months % 12
+
+def _fmt_exp_short(y, m):
+    return f"{y}Y {m}M" if m else f"{y}Y"
+
+def _fmt_exp_long(y, m):
+    return f"{y} years {m} months" if m else f"{y} years"
+
+def _total_exp_years():
+    """Total paid employment (prior non-IT + WATI), rounded to nearest year."""
+    it_y, it_m = _compute_it_exp()
+    return round((it_y * 12 + it_m + PRIOR_EMPLOYMENT_MONTHS) / 12)
+
 # ─── Repository Overview categorisation ──────────────────────────────────────
 # Repos in these sets are placed in their own group in the Overview section.
 # Everything else that is public, non-fork, non-skipped → AI / GenAI group.
@@ -482,6 +503,12 @@ def infographic_update_stat(content, label, new_value):
     new = re.sub(pattern, lambda m: f'{m.group(1)}{new_value}{m.group(2)}', content)
     return new, new != content
 
+def infographic_update_stat_text(content, label, new_value):
+    """Like infographic_update_stat but matches any text in stat-num, not just digits."""
+    pattern = rf'(<div class="stat-num">)[^<]+(<\/div>\s*<div class="stat-label">{re.escape(label)}<\/div>)'
+    new = re.sub(pattern, lambda m: f'{m.group(1)}{new_value}{m.group(2)}', content)
+    return new, new != content
+
 def infographic_update_project_desc(content, proj_title, new_desc):
     """Replace proj-desc text for a given project title."""
     pattern = (
@@ -782,6 +809,69 @@ def main():
     log("\n── Updating timestamp ──")
     readme_content, ts_changed = readme_update_timestamp(readme_content)
     log(f"  {'Updated' if ts_changed else 'No change'}.")
+
+    # ── Update experience durations ──────────────────────────────────────────
+    log("\n── Updating experience durations ──")
+    it_y, it_m   = _compute_it_exp()
+    it_short     = _fmt_exp_short(it_y, it_m)
+    it_long      = _fmt_exp_long(it_y, it_m)
+    total_yrs    = _total_exp_years()
+
+    # resume_data.json: it_experience field
+    cur_it_exp = resume_data["experience"][0].get("it_experience", "")
+    if cur_it_exp != it_long:
+        resume_data["experience"][0]["it_experience"] = it_long
+        log(f"  resume_data.json it_experience: {cur_it_exp!r} → {it_long!r}")
+    else:
+        log(f"  resume_data.json it_experience: unchanged ({it_long})")
+
+    # resume_data.json: summary sentence
+    new_summary = re.sub(
+        r'\d+ years(?: \d+ months)? of hands-on IT experience',
+        f'{it_long} of hands-on IT experience',
+        resume_data["summary"],
+    )
+    if new_summary != resume_data["summary"]:
+        resume_data["summary"] = new_summary
+        log(f"  resume_data.json summary updated to {it_long}.")
+    else:
+        log(f"  resume_data.json summary: unchanged.")
+
+    # infographic.html: hero subtitle
+    new_html = re.sub(
+        r'\d+Y(?: \d+M)? IT experience · \d+ years total work experience',
+        f'{it_short} IT experience · {total_yrs} years total work experience',
+        infographic_content,
+    )
+    if new_html != infographic_content:
+        log(f"  infographic.html hero → {it_short} · {total_yrs} years")
+    else:
+        log(f"  infographic.html hero: unchanged.")
+    infographic_content = new_html
+
+    # infographic.html: IT Experience stat card (non-numeric value like "4Y 9M")
+    infographic_content, stat_it_changed = infographic_update_stat_text(
+        infographic_content, "IT Experience", it_short)
+    log(f"  infographic.html IT Experience stat → {it_short}" if stat_it_changed
+        else f"  infographic.html IT Experience stat: unchanged.")
+
+    # infographic.html: Years Work Experience stat card
+    infographic_content, stat_total_changed = infographic_update_stat(
+        infographic_content, "Years Work Experience", total_yrs)
+    log(f"  infographic.html Years Work Experience stat → {total_yrs}" if stat_total_changed
+        else f"  infographic.html Years Work Experience stat: unchanged.")
+
+    # README.md: IT experience reference
+    new_readme = re.sub(
+        r'\*\*\d+Y(?: \d+M)?\*\* hands-on IT experience',
+        f'**{it_short}** hands-on IT experience',
+        readme_content,
+    )
+    if new_readme != readme_content:
+        log(f"  README.md IT experience → {it_short}")
+    else:
+        log(f"  README.md IT experience: unchanged.")
+    readme_content = new_readme
 
     # ── Write files ──────────────────────────────────────────────────────────
     log("\n── Writing files ──")
