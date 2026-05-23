@@ -77,7 +77,7 @@
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaituRajSagar/video_to_narrative) |
 | 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaituRajSagar/Skill_Matrix_App) |
-| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★268](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
+| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★273](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
 | 📱 **AI Content Bot** | Daily AI/Tech news → Gemini script → Edge TTS voiceover → vertical video → YouTube Shorts + Instagram Reels, fully automated via GitHub Actions | Gemini 2.5 Flash · Edge TTS · MoviePy · FFmpeg · Pexels · Cloudinary · GitHub Actions | [ai-content-bot](https://github.com/ChaituRajSagar/ai-content-bot) |
 | 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
 | 🖼️ **Interactive Resume** | Live interactive career infographic — skills, projects, timeline | HTML · CSS · JavaScript | [interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic) |
@@ -245,8 +245,8 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 ## 📊 GitHub Activity
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Public%20Repos-10-10B981?style=for-the-badge&logo=github"/>
-  <img src="https://img.shields.io/badge/Most%20Starred-gemini--youtube--automation%20%E2%98%85268-FFD700?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Public%20Repos-6-10B981?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Most%20Starred-gemini--youtube--automation%20%E2%98%85273-FFD700?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Primary%20Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Focus%20Areas-AI%20%26%20Cloud-FF6B35?style=for-the-badge"/>
 </p>
