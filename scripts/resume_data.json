@@ -174,7 +174,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "Engineered AppNovaAI modernizes legacy codebases using Claude Code agents for enhanced code review, automated manifests, migration blueprints, parallel codegen, and re-run management.",
+        "Engineered AppNovaAI modernizes legacy codebases using Claude Code agents for code review, manifests, blueprints, parallel codegen, and staleness-aware re-run management.",
         "Implemented advanced features in AppNovaAI including auto-generated build manifests and parallel chunk code generation, while resolving critical UI and pipeline stability issues."
       ]
     },
@@ -206,7 +206,7 @@
       "stack": "ai, angular, chromadb, fastapi, langchain, local-llm, ollama, rag, resume-parser, rfp-generator",
       "year": "2025",
       "bullets": [
-        "Developed an AI-powered RFP Generator automating proposal drafts from PDF/DOCX inputs, integrating RAG for agency experience retrieval and section export.",
+        "Developed an AI-powered RFP Generator automating proposals from PDF/DOCX inputs, integrating RAG for experience retrieval and section export, now with Linux deployment.",
         "Engineered a Skill Matrix Filler leveraging LLMs to auto-populate resume data into DOCX templates, generating contextual content for placeholders.",
         "Built a full-stack AI platform, GovGenie, automating RFP responses and resume population using a local LLM (Ollama), eliminating external API costs."
       ]
@@ -219,6 +219,17 @@
       "bullets": [
         "Developed a full-stack AI-assisted application generator using Angular 18 and Python FastAPI, leveraging Ollama for starter generation.",
         "Designed an Angular UI to configure application generation, prompting FastAPI to produce stack-specific artifacts and package them into a downloadable ZIP."
+      ]
+    },
+    {
+      "name": "ChaitanyaEswarRajeshJakki",
+      "subtitle": "Config files for my GitHub profile.",
+      "stack": "config, github-config",
+      "year": "2025",
+      "bullets": [
+        "Dynamically generates an interactive career infographic, leveraging AI to showcase skills, projects, and achievements from public and private repositories.",
+        "Corrected GitHub Pages path and updated project username, ensuring proper deployment and improved project accessibility.",
+        "Upgraded to google-genai SDK and optimized commit analysis logic, enhancing internal profile update processes."
       ]
     }
   ],
