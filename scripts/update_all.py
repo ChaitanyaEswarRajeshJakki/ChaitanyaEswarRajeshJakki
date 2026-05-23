@@ -83,11 +83,11 @@ def claude(prompt):
 def fetch_repos():
     repos, page = [], 1
     while True:
-        batch = gh(f"/users/{USERNAME}/repos",
-                   {"per_page": 100, "page": page, "type": "owner"})
+        batch = gh("/user/repos",
+                   {"per_page": 100, "page": page, "type": "owner", "affiliation": "owner"})
         if not batch:
             break
-        repos.extend(r for r in batch if not r["private"] and not r["fork"])
+        repos.extend(r for r in batch if not r["fork"])
         if len(batch) < 100:
             break
         page += 1
@@ -361,7 +361,7 @@ def main():
     # ── Fetch repos ─────────────────────────────────────────────────────────
     log("\n── Fetching repos ──")
     repos = fetch_repos()
-    log(f"  {len(repos)} public non-fork repos found.")
+    log(f"  {len(repos)} non-fork repos found ({sum(1 for r in repos if not r['private'])} public, {sum(1 for r in repos if r['private'])} private).")
     repo_map = {r["name"]: r for r in repos}
 
     # ── Star counts ─────────────────────────────────────────────────────────
@@ -371,9 +371,9 @@ def main():
 
     # ── Repo count badge ────────────────────────────────────────────────────
     log("\n── Updating public repo count ──")
-    pub_count = len(repos)
+    pub_count = sum(1 for r in repos if not r["private"])
     readme_content, count_changed = readme_update_repo_count(readme_content, pub_count)
-    log(f"  Count: {pub_count} {'(updated)' if count_changed else '(no change)'}.")
+    log(f"  Count: {pub_count} public {'(updated)' if count_changed else '(no change)'}.")
 
     infographic_content, _ = infographic_update_cert_repos(
         infographic_content, pub_count)
