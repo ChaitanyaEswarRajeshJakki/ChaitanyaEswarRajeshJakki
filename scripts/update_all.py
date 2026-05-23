@@ -371,8 +371,8 @@ def main():
 
     # ── Repo count badge ────────────────────────────────────────────────────
     log("\n── Updating public repo count ──")
-    readme_content, count_changed, pub_count = readme_update_repo_count(
-        readme_content, len(repos))
+    pub_count = len(repos)
+    readme_content, count_changed = readme_update_repo_count(readme_content, pub_count)
     log(f"  Count: {pub_count} {'(updated)' if count_changed else '(no change)'}.")
 
     infographic_content, _ = infographic_update_cert_repos(
