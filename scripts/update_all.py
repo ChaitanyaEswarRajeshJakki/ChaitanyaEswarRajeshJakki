@@ -4,8 +4,8 @@ Profile auto-updater — triggered manually via workflow_dispatch.
 
 Pipeline:
   1. GitHub API  → fetch all public repos (stars, metadata, recent commits)
-  2. Claude      → analyse commits per repo, decide what changed, generate
-                   updated project descriptions / new repo entries
+  2. AI (Gemini primary, Claude fallback) → analyse commits per repo, decide
+     what changed, generate updated project descriptions / new repo entries
   3. Patch       → README.md  (star counts, new repos, descriptions, timestamp)
                    infographic.html  (project card descriptions, stat numbers)
                    scripts/resume_data.json  (project bullets)
@@ -13,11 +13,13 @@ Pipeline:
 
 Secrets (set in repo Settings → Secrets → Actions):
   GITHUB_TOKEN      — auto-provided by Actions (needs contents: write)
-  ANTHROPIC_API_KEY — for commit analysis and new-repo description generation
+  GEMINI_API_KEY    — primary AI provider (Google Gemini 2.5 Flash)
+  ANTHROPIC_API_KEY — fallback AI provider (Claude Haiku) if Gemini unavailable
 
 Run locally:
   export GITHUB_TOKEN=ghp_...
-  export ANTHROPIC_API_KEY=sk-ant-...
+  export GEMINI_API_KEY=AIza...        # primary
+  export ANTHROPIC_API_KEY=sk-ant-...  # fallback (optional)
   cd <repo-root>
   python scripts/update_all.py
 """
@@ -37,11 +39,13 @@ BUILD_PDF     = ROOT / "scripts" / "build_pdf.py"
 
 # ─── Config ───────────────────────────────────────────────────────────────────
 USERNAME       = "ChaituRajSagar"
-CLAUDE_MODEL   = "claude-haiku-4-5-20251001"   # fast + cheap for text generation
+GEMINI_MODEL   = "gemini-2.5-flash"
+CLAUDE_MODEL   = "claude-haiku-4-5-20251001"
 COMMIT_DAYS    = 30          # how far back to look for commits
 SKIP_REPOS     = {"ChaituRajSagar", "opencv", "GFPGAN"}
 
 GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
+GEMINI_KEY     = os.environ.get("GEMINI_API_KEY", "")
 ANTHROPIC_KEY  = os.environ.get("ANTHROPIC_API_KEY", "")
 
 GH_HEADERS = {
@@ -63,9 +67,16 @@ def gh(path, params=None):
     r.raise_for_status()
     return r.json()
 
-def claude(prompt):
-    if not ANTHROPIC_KEY:
+def _gemini(prompt):
+    try:
+        import google.generativeai as genai
+        genai.configure(api_key=GEMINI_KEY)
+        return genai.GenerativeModel(GEMINI_MODEL).generate_content(prompt).text.strip()
+    except Exception as e:
+        log(f"  [Gemini error] {e}")
         return None
+
+def _claude(prompt):
     try:
         import anthropic
         client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
@@ -78,6 +89,17 @@ def claude(prompt):
     except Exception as e:
         log(f"  [Claude error] {e}")
         return None
+
+def ai_call(prompt):
+    """Try Gemini first; fall back to Claude if unavailable."""
+    if GEMINI_KEY:
+        result = _gemini(prompt)
+        if result:
+            return result
+    if ANTHROPIC_KEY:
+        log("  [AI] Gemini unavailable, trying Claude fallback…")
+        return _claude(prompt)
+    return None
 
 # ─── 1. GitHub data fetch ─────────────────────────────────────────────────────
 def fetch_repos():
@@ -124,10 +146,10 @@ def fetch_repo_readme(repo_name):
     except Exception:
         return ""
 
-# ─── 2. Gemini analysis ───────────────────────────────────────────────────────
+# ─── 2. AI analysis ──────────────────────────────────────────────────────────
 def analyse_commits_for_project(repo_name, commits, current_description):
-    """Return (updated_description, changed: bool) or (None, False) if Claude unavailable."""
-    if not ANTHROPIC_KEY or not commits:
+    """Return (updated_description, changed: bool) or (None, False) if no AI key set."""
+    if not (GEMINI_KEY or ANTHROPIC_KEY) or not commits:
         return None, False
 
     commit_text = "\n".join(
@@ -152,14 +174,14 @@ def analyse_commits_for_project(repo_name, commits, current_description):
         - Do NOT add quotes or explanation.
     """).strip()
 
-    result = claude(prompt)
+    result = ai_call(prompt)
     if result and result.upper() != "UNCHANGED" and result != current_description:
         return result, True
     return current_description, False
 
 
 def generate_new_repo_entry(repo):
-    """Use Claude to create README table row + overview line for a brand-new repo."""
+    """Use AI to create README table row + overview line for a brand-new repo."""
     name   = repo["name"]
     desc   = repo["description"] or ""
     readme = fetch_repo_readme(name)
@@ -180,7 +202,7 @@ def generate_new_repo_entry(repo):
         {readme[:1500]}
     """).strip()
 
-    result = claude(prompt)
+    result = ai_call(prompt)
     if not result:
         return None, None
     lines       = [l.strip() for l in result.splitlines() if l.strip()]
@@ -191,7 +213,7 @@ def generate_new_repo_entry(repo):
 
 def generate_new_project_bullets(repo_name, commits, readme_text):
     """Generate resume bullet points for a brand-new project."""
-    if not ANTHROPIC_KEY:
+    if not (GEMINI_KEY or ANTHROPIC_KEY):
         return []
     commit_text = "\n".join(f"  [{c['date']}] {c['message']}" for c in commits[:10])
     prompt = textwrap.dedent(f"""
@@ -205,7 +227,7 @@ def generate_new_project_bullets(repo_name, commits, readme_text):
         README excerpt:
         {readme_text[:1500]}
     """).strip()
-    result = claude(prompt)
+    result = ai_call(prompt)
     if not result:
         return []
     return [l.lstrip("•-– ").strip() for l in result.splitlines() if l.strip()]
@@ -418,7 +440,7 @@ def main():
                 log(f"    Resume project entry added ({len(bullets)} bullets).")
 
             # Infographic card
-            if ANTHROPIC_KEY:
+            if GEMINI_KEY or ANTHROPIC_KEY:
                 desc_text = (repo.get("description") or
                              f"Automated {name.replace('-',' ')} pipeline.")
                 infographic_content, ok = infographic_add_project_card(
@@ -428,7 +450,7 @@ def main():
                 log(f"    Infographic card: {'added' if ok else 'anchor missing'}.")
 
     # ── Analyse commits for existing projects ────────────────────────────────
-    if ANTHROPIC_KEY:
+    if GEMINI_KEY or ANTHROPIC_KEY:
         log("\n── Analysing commits for existing projects ──")
         # Map README repo names to infographic proj titles and resume project names
         known_projects = {p["name"]: p for p in resume_data["projects"]}
@@ -468,7 +490,7 @@ def main():
             else:
                 log(f"  [{name}] No meaningful change.")
     else:
-        log("\n── Skipping commit analysis (ANTHROPIC_API_KEY not set) ──")
+        log("\n── Skipping commit analysis (no AI key set) ──")
 
     # ── Timestamp ────────────────────────────────────────────────────────────
     log("\n── Updating timestamp ──")

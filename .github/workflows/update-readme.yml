@@ -24,12 +24,14 @@ jobs:
         run: |
           pip install --quiet \
             requests \
+            google-generativeai \
             anthropic \
             reportlab
 
       - name: Run updater
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/update_all.py
 
