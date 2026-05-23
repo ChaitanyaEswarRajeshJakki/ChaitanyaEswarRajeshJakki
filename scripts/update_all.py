@@ -43,6 +43,9 @@ GEMINI_MODEL   = "gemini-2.5-flash"
 CLAUDE_MODEL   = "claude-haiku-4-5-20251001"
 COMMIT_DAYS    = 30          # how far back to look for commits
 SKIP_REPOS     = {"ChaituRajSagar", "opencv", "GFPGAN"}
+# Also skip repos whose names look like dated working copies (e.g. AppNova_Working_09-04-2026)
+import re as _re
+_DATE_IN_NAME  = _re.compile(r'\d{2}-\d{2}-\d{4}')
 
 GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
 GEMINI_KEY     = os.environ.get("GEMINI_API_KEY", "")
@@ -342,15 +345,19 @@ NEW_CARD_TEMPLATE = """
 """
 
 def infographic_add_project_card(content, repo_name, subtitle, desc, stack_tags):
-    tags_html = "".join(f'<span class="tag">{t.strip()}</span>' for t in stack_tags.split("·"))
+    # Avoid duplicates — check if a card for this repo already exists
+    if f'<!-- {repo_name} -->' in content:
+        return content, False
+    tags_html = "".join(f'<span class="tag">{t.strip()}</span>'
+                        for t in stack_tags.split("·") if t.strip())
     card = NEW_CARD_TEMPLATE.format(
         name=repo_name, subtitle=subtitle, desc=desc,
         emoji="🤖", tags=tags_html, username=USERNAME, repo=repo_name
     )
-    # Insert before </div>\n</section> (end of projects grid)
-    marker = "  </div>\n</section>"
+    # Insert before the anchor comment placed at end of Featured Projects grid
+    marker = "    <!-- /projects-grid -->"
     if marker in content:
-        return content.replace(marker, card + "  </div>\n</section>", 1), True
+        return content.replace(marker, card + marker, 1), True
     return content, False
 
 # ─── 4. Build PDF ─────────────────────────────────────────────────────────────
@@ -404,7 +411,9 @@ def main():
     log("\n── Checking for new repos ──")
     mentioned = readme_find_mentioned_repos(readme_content)
     new_repos = [r for r in repos
-                 if r["name"] not in mentioned and r["name"] not in SKIP_REPOS]
+                 if r["name"] not in mentioned
+                 and r["name"] not in SKIP_REPOS
+                 and not _DATE_IN_NAME.search(r["name"])]
 
     if not new_repos:
         log("  No new repos.")
@@ -443,11 +452,12 @@ def main():
             if GEMINI_KEY or ANTHROPIC_KEY:
                 desc_text = (repo.get("description") or
                              f"Automated {name.replace('-',' ')} pipeline.")
+                topics = repo.get("topics") or []
+                stack_tags = " · ".join(topics[:6]) if topics else "Python · GitHub Actions"
                 infographic_content, ok = infographic_add_project_card(
-                    infographic_content, name, desc_text,
-                    desc_text, repo.get("description") or "Python · GitHub Actions"
+                    infographic_content, name, desc_text, desc_text, stack_tags
                 )
-                log(f"    Infographic card: {'added' if ok else 'anchor missing'}.")
+                log(f"    Infographic card: {'added' if ok else 'already exists or anchor missing'}.")
 
     # ── Analyse commits for existing projects ────────────────────────────────
     if GEMINI_KEY or ANTHROPIC_KEY:
