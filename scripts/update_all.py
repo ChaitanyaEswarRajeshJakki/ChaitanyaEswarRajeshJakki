@@ -4,9 +4,10 @@ Profile auto-updater — triggered manually via workflow_dispatch.
 
 Pipeline:
   1. GitHub API  → fetch all public repos (stars, metadata, recent commits)
-  2. AI (Gemini primary, Claude fallback) → analyse commits per repo, decide
-     what changed, generate updated project descriptions / new repo entries
-  3. Patch       → README.md  (star counts, new repos, descriptions, timestamp)
+  2. AI (Gemini primary, Claude fallback) → analyse commits + README per repo,
+     decide what changed, generate updated descriptions / new repo entries
+  3. Patch       → README.md  (star counts, new repos, descriptions, timestamp,
+                               Repository Overview rebuilt from API)
                    infographic.html  (project card descriptions, stat numbers)
                    scripts/resume_data.json  (project bullets)
   4. Build       → regenerate dated resume PDF via build_pdf.py
@@ -45,6 +46,21 @@ COMMIT_DAYS    = 14          # how far back to look for commits
 SKIP_REPOS     = {"Chaitanya", "opencv", "GFPGAN"}
 # Skip repos whose names contain a date (e.g. AppNova_Working_09-04-2026)
 _DATE_IN_NAME  = re.compile(r'\d{2}-\d{2}-\d{4}')
+
+# ─── Repository Overview categorisation ──────────────────────────────────────
+# Repos in these sets are placed in their own group in the Overview section.
+# Everything else that is public, non-fork, non-skipped → AI / GenAI group.
+CV_REPOS      = {"video_to_frames", "GFPGAN", "opencv", "video_to_narrative"}
+WEB_REPOS     = {"interactive-resume-infographic"}
+SKIP_OVERVIEW = {"ChaitanyaEswarRajeshJakki"}   # profile README repo itself
+
+# Private / in-development repos to list manually in Repository Overview.
+PRIVATE_REPOS_OVERVIEW = [
+    ("AriesGPT",        "5-microservice AI platform: VoiceBot, Video-to-Narrative, GFPGAN, DeblurGANv2, Aries GPT"),
+    ("GovGenie",        "RAG-powered RFP response generator for government bids"),
+    ("ReferenceFiller", "LLM + ChromaDB DOCX template automation"),
+    ("SmartHire AI",    "AI hiring platform with TalentCore React Native mobile app"),
+]
 
 GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
 GEMINI_KEY     = os.environ.get("GEMINI_API_KEY", "")
@@ -128,7 +144,7 @@ def fetch_recent_commits(repo_name, since_days=COMMIT_DAYS):
                 "sha":     c["sha"][:7],
                 "message": c["commit"]["message"].splitlines()[0],
                 "date":    c["commit"]["author"]["date"][:10],
-                "files":   [],   # filled lazily only if Gemini is available
+                "files":   [],
             }
             for c in commits
         ]
@@ -150,26 +166,36 @@ def fetch_repo_readme(repo_name):
         return ""
 
 # ─── 2. AI analysis ──────────────────────────────────────────────────────────
-def analyse_commits_for_project(repo_name, commits, current_description):
-    """Return (updated_description, changed: bool) or (None, False) if no AI key set."""
-    if not (GEMINI_KEY or ANTHROPIC_KEY) or not commits:
-        return None, False
+def analyse_repo_description(repo_name, commits, current_description, readme_text=""):
+    """Return (updated_description, changed: bool).
 
-    commit_text = "\n".join(
-        f"  [{c['date']}] {c['message']}" for c in commits
+    Runs even when there are no recent commits — uses README content as
+    additional context so truncated or stale descriptions still get fixed.
+    """
+    if not (GEMINI_KEY or ANTHROPIC_KEY):
+        return current_description, False
+
+    commit_text = (
+        "\n".join(f"  [{c['date']}] {c['message']}" for c in commits)
+        if commits else "  (no recent commits)"
     )
     prompt = textwrap.dedent(f"""
         You are maintaining a GitHub profile README for a developer called Chaitanya.
-        Below is the current one-sentence description for the project "{repo_name}" and the
-        recent commit history. If the commits reveal meaningful new features, new tech, or
-        significantly improved functionality that is NOT already reflected in the description,
-        return a single updated sentence (max 25 words). Otherwise return the word UNCHANGED.
+        Below is the current one-sentence description for the project "{repo_name}",
+        its recent commit history, and a README excerpt.
+
+        If the current description is incomplete, truncated, or outdated compared to
+        what the README / commits reveal, return a single updated sentence (max 25 words).
+        Otherwise return the word UNCHANGED.
 
         Current description:
         {current_description}
 
         Recent commits (last {COMMIT_DAYS} days):
         {commit_text}
+
+        README excerpt:
+        {readme_text[:800] if readme_text else '(not available)'}
 
         Rules:
         - Return ONLY the updated sentence or the word UNCHANGED.
@@ -237,8 +263,25 @@ def generate_new_project_bullets(repo_name, commits, readme_text):
 
 # ─── 3a. Patch README ─────────────────────────────────────────────────────────
 def readme_find_mentioned_repos(content):
-    return set(re.findall(
-        rf'github\.com/{re.escape(USERNAME)}/([A-Za-z0-9_.-]+)', content))
+    """Find repos already present in the All Repositories TABLE only.
+
+    Bug fix: previously scanned the entire README, so repos appearing in the
+    Repository Overview section were considered 'already handled' and never
+    inserted into the All Repositories table.
+    """
+    # Extract only the All Repositories table section
+    table_match = re.search(
+        r'## 🛠️ All Repositories\n(.*?)(?=\n##|\Z)',
+        content, re.DOTALL
+    )
+    table_section = table_match.group(0) if table_match else content
+
+    # Repos with a github.com link in the table
+    by_url = set(re.findall(
+        rf'github\.com/{re.escape(USERNAME)}/([A-Za-z0-9_.-]+)', table_section))
+    # Repos listed without a link (Private / In Development) — bold name in first cell
+    by_table = set(re.findall(r'\|\s*[^\|]*\*\*([A-Za-z0-9_.-]+)\*\*\s*\|', table_section))
+    return by_url | by_table
 
 def readme_update_stars(content, repos):
     changed_any = False
@@ -263,6 +306,21 @@ def readme_update_repo_count(content, count):
     new = re.sub(r'Public%20Repos-\d+-', f'Public%20Repos-{count}-', content)
     return new, new != content
 
+def readme_update_most_starred(content, repos):
+    """Update the Most Starred badge to the current top public repo."""
+    public = [r for r in repos if not r["private"]]
+    if not public:
+        return content, False
+    top   = max(public, key=lambda r: r["stargazers_count"])
+    bname = top["name"].replace("-", "--")   # shields.io doubles hyphens
+    stars = top["stargazers_count"]
+    new = re.sub(
+        r'Most%20Starred-[A-Za-z0-9%._-]+%20%E2%98%85\d+-FFD700',
+        f'Most%20Starred-{bname}%20%E2%98%85{stars}-FFD700',
+        content,
+    )
+    return new, new != content
+
 def readme_update_timestamp(content):
     now = datetime.now(timezone.utc).strftime("%B %Y")
     new = re.sub(r'Last Updated: [^<\n]+', f'Last Updated: {now}', content)
@@ -270,7 +328,6 @@ def readme_update_timestamp(content):
 
 def readme_update_project_desc(content, repo_name, new_desc):
     """Replace the table cell description for repo_name."""
-    # Table row pattern: | emoji **repo_name** | <desc> | stack | link |
     pattern = (
         rf'(\|\s*[^\|]*\*\*{re.escape(repo_name)}\*\*\s*\|)\s*[^\|]+?'
         rf'(\s*\|\s*[^\|]+\|\s*[^\|]+\|)'
@@ -285,7 +342,58 @@ def readme_insert_after(content, anchor_pattern, new_line):
         return content[:pos] + new_line + "\n" + content[pos:], True
     return content, False
 
-# ─── 3b. Patch infographic ────────────────────────────────────────────────────
+# ─── 3b. Repository Overview — full rebuild ───────────────────────────────────
+def readme_rebuild_repo_overview(content, repos):
+    """Fully regenerate the ## 🎯 Repository Overview section from live GitHub data.
+
+    Repos are grouped:
+      1. AI / GenAI Projects (Public)  — all public non-fork, non-CV, non-web repos
+      2. AI / GenAI Projects (Private) — PRIVATE_REPOS_OVERVIEW constant
+      3. Web & Visualization           — WEB_REPOS constant
+      4. Computer Vision & Media       — CV_REPOS constant
+    """
+    public = [r for r in repos if not r["private"] and not r["fork"]]
+
+    ai_repos = sorted(
+        [r for r in public
+         if r["name"] not in CV_REPOS
+         and r["name"] not in WEB_REPOS
+         and r["name"] not in SKIP_OVERVIEW
+         and r["name"] not in SKIP_REPOS
+         and not _DATE_IN_NAME.search(r["name"])],
+        key=lambda x: -x["stargazers_count"],
+    )
+    cv_repos  = sorted([r for r in public if r["name"] in CV_REPOS],
+                       key=lambda x: x["name"])
+    web_repos = [r for r in public if r["name"] in WEB_REPOS]
+
+    def fmt(r):
+        stars = f" ★{r['stargazers_count']}" if r["stargazers_count"] else ""
+        desc  = (r.get("description") or "").strip()
+        if len(desc) > 90:
+            desc = desc[:87] + "…"
+        return f'- **[{r["name"]}](https://github.com/{USERNAME}/{r["name"]})**{stars} — {desc}'
+
+    lines = ["## 🎯 Repository Overview", ""]
+    lines += ["### 🤖 AI / GenAI Projects (Public)"]
+    lines += [fmt(r) for r in ai_repos]
+    lines += ["", "### 🤖 AI / GenAI Projects (Private / In Development)"]
+    lines += [f"- **{name}** — {desc}" for name, desc in PRIVATE_REPOS_OVERVIEW]
+    if web_repos:
+        lines += ["", "### 🖥️ Web & Visualization"]
+        lines += [fmt(r) for r in web_repos]
+    if cv_repos:
+        lines += ["", "### 🎥 Computer Vision & Media"]
+        lines += [fmt(r) for r in cv_repos]
+
+    new_section = "\n".join(lines)
+    new, n = re.subn(
+        r'## 🎯 Repository Overview\n[\s\S]*?(?=\n---)',
+        new_section, content, count=1,
+    )
+    return new, n > 0
+
+# ─── 3c. Patch infographic ────────────────────────────────────────────────────
 def infographic_update_stat(content, label, new_value):
     """Update a .stat-num div that precedes a .stat-label containing `label`."""
     pattern = rf'(<div class="stat-num">)\d+(<\/div>\s*<div class="stat-label">{re.escape(label)}<\/div>)'
@@ -311,7 +419,7 @@ def infographic_update_cert_repos(content, count):
         lambda m: f'{m.group(1)}{count}{m.group(2)}', content)
     return new, new != content
 
-# ─── 3c. Patch resume JSON ────────────────────────────────────────────────────
+# ─── 3d. Patch resume JSON ────────────────────────────────────────────────────
 def resume_update_project_bullets(data, proj_name, new_bullets):
     for proj in data["projects"]:
         if proj["name"] == proj_name:
@@ -328,7 +436,7 @@ def resume_add_project(data, repo_name, subtitle, stack, year, bullets):
         "bullets": bullets,
     })
 
-# ─── 3d. Infographic — add new project card ───────────────────────────────────
+# ─── 3e. Infographic — add new project card ───────────────────────────────────
 NEW_CARD_TEMPLATE = """
     <!-- {name} -->
     <div class="proj-card">
@@ -345,7 +453,6 @@ NEW_CARD_TEMPLATE = """
 """
 
 def infographic_add_project_card(content, repo_name, subtitle, desc, stack_tags):
-    # Avoid duplicates — check if a card for this repo already exists
     if f'<!-- {repo_name} -->' in content:
         return content, False
     tags_html = "".join(f'<span class="tag">{t.strip()}</span>'
@@ -354,7 +461,6 @@ def infographic_add_project_card(content, repo_name, subtitle, desc, stack_tags)
         name=repo_name, subtitle=subtitle, desc=desc,
         emoji="🤖", tags=tags_html, username=USERNAME, repo=repo_name
     )
-    # Insert before the anchor comment placed at end of Featured Projects grid
     marker = "    <!-- /projects-grid -->"
     if marker in content:
         return content.replace(marker, card + marker, 1), True
@@ -380,12 +486,12 @@ def main():
     log("═══════════════════════════════════════════")
 
     # ── Load files ──────────────────────────────────────────────────────────
-    readme_content     = README.read_text(encoding="utf-8")
+    readme_content      = README.read_text(encoding="utf-8")
     infographic_content = INFOGRAPHIC.read_text(encoding="utf-8")
-    resume_data        = json.loads(RESUME_DATA.read_text(encoding="utf-8"))
-    readme_original    = readme_content
+    resume_data         = json.loads(RESUME_DATA.read_text(encoding="utf-8"))
+    readme_original     = readme_content
     infographic_original = infographic_content
-    resume_original    = json.dumps(resume_data, indent=2)
+    resume_original     = json.dumps(resume_data, indent=2)
 
     # ── Fetch repos ─────────────────────────────────────────────────────────
     log("\n── Fetching repos ──")
@@ -407,13 +513,19 @@ def main():
     infographic_content, _ = infographic_update_cert_repos(
         infographic_content, pub_count)
 
-    # ── Detect new repos ────────────────────────────────────────────────────
+    # ── Most-starred badge ──────────────────────────────────────────────────
+    log("\n── Updating most-starred badge ──")
+    readme_content, top_changed = readme_update_most_starred(readme_content, repos)
+    log(f"  {'Updated' if top_changed else 'No change'}.")
+
+    # ── Detect new repos (scoped to All Repositories table) ─────────────────
     log("\n── Checking for new repos ──")
     mentioned = readme_find_mentioned_repos(readme_content)
     new_repos = [r for r in repos
                  if r["name"] not in mentioned
                  and r["name"] not in SKIP_REPOS
-                 and not _DATE_IN_NAME.search(r["name"])]
+                 and not _DATE_IN_NAME.search(r["name"])
+                 and not r["private"]]
 
     if not new_repos:
         log("  No new repos.")
@@ -428,79 +540,76 @@ def main():
             if table_row:
                 readme_content, ok = readme_insert_after(
                     readme_content,
-                    rf'\| 🎬 \*\*AI Content Bot\*\*[^\n]*\n',
+                    rf'\| 📱 \*\*AI Content Bot\*\*[^\n]*\n',
                     table_row)
                 log(f"    README table row: {'added' if ok else 'anchor missing'}.")
-            if overview_line:
-                readme_content, ok = readme_insert_after(
-                    readme_content,
-                    rf'- \*\*\[ai-content-bot\][^\n]*\n',
-                    overview_line)
-                log(f"    README overview line: {'added' if ok else 'anchor missing'}.")
 
             # Resume data
             commits  = fetch_recent_commits(name)
             readme_t = fetch_repo_readme(name)
             bullets  = generate_new_project_bullets(name, commits, readme_t)
             if bullets:
-                desc = repo.get("description") or name
+                desc  = repo.get("description") or name
                 stack = ", ".join(repo.get("topics", [])) or "Python"
                 resume_add_project(resume_data, name, desc, stack, "2025", bullets)
                 log(f"    Resume project entry added ({len(bullets)} bullets).")
 
             # Infographic card
             if GEMINI_KEY or ANTHROPIC_KEY:
-                desc_text = (repo.get("description") or
-                             f"Automated {name.replace('-',' ')} pipeline.")
-                topics = repo.get("topics") or []
+                desc_text  = (repo.get("description") or
+                              f"Automated {name.replace('-', ' ')} pipeline.")
+                topics     = repo.get("topics") or []
                 stack_tags = " · ".join(topics[:6]) if topics else "Python · GitHub Actions"
                 infographic_content, ok = infographic_add_project_card(
                     infographic_content, name, desc_text, desc_text, stack_tags
                 )
                 log(f"    Infographic card: {'added' if ok else 'already exists or anchor missing'}.")
 
-    # ── Analyse commits for existing projects ────────────────────────────────
+    # ── Analyse / fix descriptions for all known projects ────────────────────
     if GEMINI_KEY or ANTHROPIC_KEY:
-        log("\n── Analysing commits for existing projects ──")
-        # Map README repo names to infographic proj titles and resume project names
+        log("\n── Analysing descriptions for known projects ──")
         known_projects = {p["name"]: p for p in resume_data["projects"]}
 
         for repo in repos:
             name = repo["name"]
             if name in SKIP_REPOS or _DATE_IN_NAME.search(name) or name not in known_projects:
                 continue
-            commits = fetch_recent_commits(name)
-            if not commits:
-                continue
+
+            commits  = fetch_recent_commits(name)
+            readme_t = fetch_repo_readme(name)   # always fetch for full context
+
+            # Enrich top commit with changed files
+            if commits:
+                commits[0]["files"] = fetch_commit_files(name, commits[0]["sha"])
 
             proj     = known_projects[name]
             cur_desc = proj["bullets"][0] if proj["bullets"] else ""
 
-            # Fetch file list for top commit only (to enrich the analysis)
-            if commits:
-                commits[0]["files"] = fetch_commit_files(name, commits[0]["sha"])
+            new_desc, changed = analyse_repo_description(
+                name, commits, cur_desc, readme_t)
 
-            new_desc, changed = analyse_commits_for_project(name, commits, cur_desc)
             if changed:
                 log(f"  [{name}] Description updated.")
                 log(f"    OLD: {cur_desc[:80]}…")
                 log(f"    NEW: {new_desc[:80]}…")
 
-                # Update resume JSON first bullet
                 if proj["bullets"]:
                     proj["bullets"][0] = new_desc
 
-                # Update README table description
                 readme_content, _ = readme_update_project_desc(
                     readme_content, name, new_desc[:120])
 
-                # Update infographic proj-desc
                 infographic_content, _ = infographic_update_project_desc(
                     infographic_content, name, new_desc)
             else:
                 log(f"  [{name}] No meaningful change.")
     else:
-        log("\n── Skipping commit analysis (no AI key set) ──")
+        log("\n── Skipping description analysis (no AI key set) ──")
+
+    # ── Rebuild Repository Overview from live GitHub data ────────────────────
+    log("\n── Rebuilding Repository Overview ──")
+    readme_content, overview_ok = readme_rebuild_repo_overview(readme_content, repos)
+    log(f"  {'Rebuilt' if overview_ok else 'Section anchor not found — skipped'}.")
 
     # ── Timestamp ────────────────────────────────────────────────────────────
     log("\n── Updating timestamp ──")
