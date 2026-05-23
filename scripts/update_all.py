@@ -38,7 +38,7 @@ RESUME_DATA   = ROOT / "scripts" / "resume_data.json"
 BUILD_PDF     = ROOT / "scripts" / "build_pdf.py"
 
 # ─── Config ───────────────────────────────────────────────────────────────────
-USERNAME       = "Chaitanya"
+USERNAME       = "ChaitanyaEswarRajeshJakki"
 GEMINI_MODEL   = "gemini-2.5-flash"
 CLAUDE_MODEL   = "claude-haiku-4-5-20251001"
 COMMIT_DAYS    = 30          # how far back to look for commits
