@@ -195,7 +195,7 @@
       "stack": "angular, cors, deblurganv2, environmentvariables, fastapi, gfpgan, git, gpt, httpclient, monorepo, nlp, python, routing, scss, speechtotext, submodules, texttospeech, typescript, videotonarrative, voicebot",
       "year": "2025",
       "bullets": [
-        "Developed AriesGPT, an AI-powered law enforcement and investigation platform on Angular and FastAPI, integrating voice, NL\u2192SQL crime intelligence, mapping, deblur, and narrative.",
+        "Developed AriesGPT, an AI-powered Angular+FastAPI monorepo for law enforcement with voice, NL\u2192SQL (Groq+ChromaDB), mapping, deblur, and narrative.",
         "Implemented specialized AI modules for facial/vehicle deblur (GFPGAN, DeblurGANv2) and AI-generated incident narratives from frame-by-frame video captioning.",
         "Engineered a NL\u2192SQL query engine over criminal records using Groq and ChromaDB, and a criminal intelligence database via Claude API."
       ]
@@ -252,6 +252,39 @@
         "Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career infographic with detailed breakdowns, and automated updates.",
         "Configured and maintained GitHub Pages hosting, correcting subdomain spellings and repository paths for accurate profile deployment.",
         "Implemented automation for profile updates based on repository commits, ensuring content remained current and synchronized."
+      ]
+    },
+    {
+      "name": "AppNovaAI",
+      "subtitle": "AI-driven code modernization studio \u2014 drives Claude Code headless through a DAG of 14 specialist agents to convert legacy codebases into runnable target stacks.",
+      "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
+      "year": "2025",
+      "bullets": [
+        "Developed AppNovaAI, a code modernization studio leveraging Claude Code and AI agents to transform legacy codebases into runnable target stacks with full audit trails.",
+        "Engineered AppNovaAI to automatically generate architecture diagrams, security audits, and migration blueprints, producing comprehensive .md, .docx, and .pdf reports.",
+        "Optimized AppNovaAI's codegen pipeline with parallel chunk waves and deterministic file_map backfill, while enhancing UI and automated build manifest generation."
+      ]
+    },
+    {
+      "name": "ModernizeAI",
+      "subtitle": "ModernizeAI is a full-stack AI-assisted platform to modernize workflows and applications with a Python backend, TypeScript frontend, and intelligent automation.",
+      "stack": "angular, batchfile, bootstrap, css, fastapi, html, numpy, pandas, python, react, scikit-learn, typescript",
+      "year": "2025",
+      "bullets": [
+        "Developed a local full-stack AI-assisted starter generation tool using Angular 18, Python FastAPI, and Ollama, packaging diverse technology stacks into downloadable ZIPs.",
+        "Implemented backend logic to generate tabular data, UI, middle-tier, and backend artifacts, packaging all outputs into a downloadable ZIP based on user selections.",
+        "Enabled users via an Angular UI to select preferred technology stacks (UI, middle-tier, backend) for AI-assisted code generation and automated deployment packaging."
+      ]
+    },
+    {
+      "name": "Skill_Matrix_Streamlit_App",
+      "subtitle": "AI-powered skill matrix filler using Streamlit, FastAPI, ChromaDB RAG, and local Ollama LLM \u2014 no cloud API keys needed.",
+      "stack": "chromadb, document-automation, fastapi, llm, local-llm, ollama, python, rag, resume, skill-matrix, streamlit",
+      "year": "2025",
+      "bullets": [
+        "Developed an AI-powered Streamlit app to parse resume data, fill document templates, and answer questions via RAG with a local Ollama LLM.",
+        "Implemented RAG Q&A functionality using ChromaDB for vector search, enabling natural-language queries grounded in document content; ensured secure session isolation.",
+        "Engineered a full-stack architecture with a Streamlit frontend and FastAPI backend, leveraging a local Ollama LLM to eliminate cloud API dependencies."
       ]
     }
   ],

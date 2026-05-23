@@ -72,13 +72,16 @@
 | Project | What it does | Stack | Repository |
 |---|---|---|---|
 | 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases; FastAPI + React/TypeScript/Vite full-stack | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
-| 🎙️ **AriesGPT** | Developed AriesGPT, an AI-powered law enforcement and investigation platform on Angular and FastAPI, integrating voice,     | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
+| 🎙️ **AriesGPT** | Developed AriesGPT, an AI-powered Angular+FastAPI monorepo for law enforcement with voice, NL→SQL (Groq+ChromaDB), mappi      | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
 | 🏛️ **GovGenie** | AI assistant automating RFP generation and resume population using local LLMs, with RAG for experience retrieval, update    | FastAPI · Ollama · LangChain · ChromaDB | Private |
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaitanyaEswarRajeshJakki/video_to_narrative) |
 | 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaitanyaEswarRajeshJakki/Skill_Matrix_App) |
 | 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★273](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation) |
 | 📱 **AI Content Bot** | Daily AI/Tech news → Gemini script → Edge TTS voiceover → vertical video → YouTube Shorts + Instagram Reels, fully automated via GitHub Actions | Gemini 2.5 Flash · Edge TTS · MoviePy · FFmpeg · Pexels · Cloudinary · GitHub Actions | [ai-content-bot](https://github.com/ChaitanyaEswarRajeshJakki/ai-content-bot) |
+| 🤖 **Skill_Matrix_Streamlit_App** | Developed an AI-powered Streamlit app to parse resume data, fill document templates, and answer questions via RAG with a  | Streamlit · FastAPI · Ollama | Private |
+| 🤖 **ModernizeAI** | Developed a local full-stack AI-assisted starter generation tool using Angular 18, Python FastAPI, and Ollama, packaging  | Python · Angular · AI (Ollama) | Private |
+| 🚀 **AppNovaAI** | An AI-driven studio that modernizes legacy codebases into runnable target stacks using specialist agents. | Python · FastAPI · Claude Code | Private |
 | 👋 **ChaitanyaEswarRajeshJakki** | Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career     | Python · Azure · AI/ML | [ChaitanyaEswarRajeshJakki](https://github.com/ChaitanyaEswarRajeshJakki/ChaitanyaEswarRajeshJakki) |
 | 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
 | 🖼️ **Interactive Resume** | Live interactive career infographic — skills, projects, timeline | HTML · CSS · JavaScript | [interactive-resume-infographic](https://github.com/ChaitanyaEswarRajeshJakki/interactive-resume-infographic) |
@@ -189,6 +192,30 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 
 [![Repo](https://img.shields.io/badge/GitHub-opencv-2E75B6?style=flat-square&logo=github)](https://github.com/ChaitanyaEswarRajeshJakki/opencv)
 
+
+### 🚀 AppNovaAI — AI-driven code modernization studio
+**AI-driven studio modernizes legacy codebases into runnable target stacks with specialist agents.**
+
+-   **Core Functionality:** AI-driven studio modernizes legacy codebases into runnable target stacks via 14 specialist agents.
+-   **Comprehensive Output:** Generates architecture diagrams, security audits, migration blueprints, and reports in multiple formats.
+-   **Advanced Pipelines:** Features parallel chunk codegen, auto-generated build manifests, and enhanced reporting UI.
+
+
+### 🤖 ModernizeAI — AI-assisted platform to modernize workflows and apps
+**ModernizeAI is a full-stack, AI-assisted platform to modernize workflows and applications with Python, TypeScript, and intelligent automation.**
+
+- **Stack:** Angular 18 frontend, Python FastAPI backend, and Ollama AI (`llama3.2`).
+- **Key Capabilities:** AI-assisted generation of application artifacts (UI, middle-tier, backend) and tabular data.
+- **Output:** Packages downloadable ZIPs containing generated application code and helper launch scripts.
+
+
+### 🤖 Skill_Matrix_Streamlit_App — AI-powered skill matrix filler, fully local
+**An AI application to fill skill matrices from resumes using Streamlit, FastAPI, ChromaDB RAG, and local Ollama.**
+
+- **Core Functionality:** Automatically fills skill matrix and general DOCX templates from AI-parsed resume data.
+- **Technology Stack:** Built with a Streamlit frontend, FastAPI backend, ChromaDB for RAG, and a local Ollama LLM.
+- **Key Advantage:** Achieves all AI inference locally, completely eliminating the need for cloud API keys.
+
 </details>
 
 ---
@@ -266,6 +293,10 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 - **GovGenie** — RAG-powered RFP response generator for government bids
 - **ReferenceFiller** — LLM + ChromaDB DOCX template automation
 - **SmartHire AI** — AI hiring platform with TalentCore React Native mobile app
+- **ai-content-bot** — Fully automated bot that posts daily AI & Tech news as YouTube Shorts and Instagram Ree…
+- **AppNovaAI** — AI-driven code modernization studio — drives Claude Code headless through a DAG of 14 s…
+- **ModernizeAI** — ModernizeAI is a full-stack AI-assisted platform to modernize workflows and application…
+- **Skill_Matrix_Streamlit_App** — AI-powered skill matrix filler using Streamlit, FastAPI, ChromaDB RAG, and local Ollama…
 
 ### 🎥 Computer Vision & Media
 - **[video_to_frames](https://github.com/ChaitanyaEswarRajeshJakki/video_to_frames)** — 
