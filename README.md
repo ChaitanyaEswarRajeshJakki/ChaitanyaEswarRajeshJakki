@@ -72,14 +72,14 @@
 | Project | What it does | Stack | Repository |
 |---|---|---|---|
 | 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases; FastAPI + React/TypeScript/Vite full-stack | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
-| 🎙️ **AriesGPT** | Developed AriesGPT, an AI-powered law enforcement and investigation platform on Angular and FastAPI, integrating voice,   | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
+| 🎙️ **AriesGPT** | Developed AriesGPT, an AI-powered law enforcement and investigation platform on Angular and FastAPI, integrating voice,     | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
 | 🏛️ **GovGenie** | AI assistant automating RFP generation and resume population using local LLMs, with RAG for experience retrieval, update    | FastAPI · Ollama · LangChain · ChromaDB | Private |
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaitanyaEswarRajeshJakki/video_to_narrative) |
 | 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaitanyaEswarRajeshJakki/Skill_Matrix_App) |
 | 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★273](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation) |
 | 📱 **AI Content Bot** | Daily AI/Tech news → Gemini script → Edge TTS voiceover → vertical video → YouTube Shorts + Instagram Reels, fully automated via GitHub Actions | Gemini 2.5 Flash · Edge TTS · MoviePy · FFmpeg · Pexels · Cloudinary · GitHub Actions | [ai-content-bot](https://github.com/ChaitanyaEswarRajeshJakki/ai-content-bot) |
-| 👋 **ChaitanyaEswarRajeshJakki** | Chaitanya Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career infographic,   | Python · Azure · AI/ML | [ChaitanyaEswarRajeshJakki](https://github.com/ChaitanyaEswarRajeshJakki/ChaitanyaEswarRajeshJakki) |
+| 👋 **ChaitanyaEswarRajeshJakki** | Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career     | Python · Azure · AI/ML | [ChaitanyaEswarRajeshJakki](https://github.com/ChaitanyaEswarRajeshJakki/ChaitanyaEswarRajeshJakki) |
 | 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
 | 🖼️ **Interactive Resume** | Live interactive career infographic — skills, projects, timeline | HTML · CSS · JavaScript | [interactive-resume-infographic](https://github.com/ChaitanyaEswarRajeshJakki/interactive-resume-infographic) |
 | 🖼️ **GFPGAN** | Real-world face restoration algorithms — used in AriesGPT facial enhancement | Python · PyTorch · Deep Learning | [GFPGAN](https://github.com/ChaitanyaEswarRajeshJakki/GFPGAN) |

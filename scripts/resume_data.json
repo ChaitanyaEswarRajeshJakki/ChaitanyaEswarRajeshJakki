@@ -174,7 +174,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "AppNovaAI modernizes legacy codebases via Claude agents, providing runnable projects, architecture diagrams, security audits, detailed blueprints, and comprehensive reports.",
+        "AppNovaAI modernizes legacy codebases via Claude agents, providing runnable projects with build manifests, architecture diagrams, security audits, blueprints, and reports.",
         "Implemented advanced features in AppNovaAI including auto-generated build manifests and parallel chunk code generation, while resolving critical UI and pipeline stability issues."
       ]
     },
@@ -195,7 +195,7 @@
       "stack": "angular, cors, deblurganv2, environmentvariables, fastapi, gfpgan, git, gpt, httpclient, monorepo, nlp, python, routing, scss, speechtotext, submodules, texttospeech, typescript, videotonarrative, voicebot",
       "year": "2025",
       "bullets": [
-        "Developed AriesGPT, an AI-powered law enforcement and investigation platform on Angular and FastAPI, integrating voice, crime intelligence, mapping, deblur, and narrative.",
+        "Developed AriesGPT, an AI-powered law enforcement and investigation platform on Angular and FastAPI, integrating voice, NL\u2192SQL crime intelligence, mapping, deblur, and narrative.",
         "Implemented specialized AI modules for facial/vehicle deblur (GFPGAN, DeblurGANv2) and AI-generated incident narratives from frame-by-frame video captioning.",
         "Engineered a NL\u2192SQL query engine over criminal records using Groq and ChromaDB, and a criminal intelligence database via Claude API."
       ]
@@ -217,7 +217,7 @@
       "stack": "angular, batchfile, bootstrap, css, fastapi, html, numpy, pandas, python, react, scikit-learn, typescript",
       "year": "2025",
       "bullets": [
-        "Developed a full-stack AI-assisted application generator with Angular 18, Python FastAPI, optional Streamlit UI, Ollama, and downloadable app packaging.",
+        "Developed a full-stack AI-assisted generator for multi-stack apps, data, and validation, using Angular 18, FastAPI, Streamlit, Ollama, and downloadable packaging.",
         "Designed an Angular UI to configure application generation, prompting FastAPI to produce stack-specific artifacts and package them into a downloadable ZIP."
       ]
     },
@@ -249,7 +249,7 @@
       "stack": "config, github-config",
       "year": "2025",
       "bullets": [
-        "Chaitanya Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career infographic, and automated updates.",
+        "Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career infographic with detailed breakdowns, and automated updates.",
         "Configured and maintained GitHub Pages hosting, correcting subdomain spellings and repository paths for accurate profile deployment.",
         "Implemented automation for profile updates based on repository commits, ensuring content remained current and synchronized."
       ]
