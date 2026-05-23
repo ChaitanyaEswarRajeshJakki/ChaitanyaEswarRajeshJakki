@@ -43,9 +43,8 @@ GEMINI_MODEL   = "gemini-2.5-flash"
 CLAUDE_MODEL   = "claude-haiku-4-5-20251001"
 COMMIT_DAYS    = 30          # how far back to look for commits
 SKIP_REPOS     = {"ChaituRajSagar", "opencv", "GFPGAN"}
-# Also skip repos whose names look like dated working copies (e.g. AppNova_Working_09-04-2026)
-import re as _re
-_DATE_IN_NAME  = _re.compile(r'\d{2}-\d{2}-\d{4}')
+# Skip repos whose names contain a date (e.g. AppNova_Working_09-04-2026)
+_DATE_IN_NAME  = re.compile(r'\d{2}-\d{2}-\d{4}')
 
 GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
 GEMINI_KEY     = os.environ.get("GEMINI_API_KEY", "")
