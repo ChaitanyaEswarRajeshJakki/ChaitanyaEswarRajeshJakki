@@ -78,6 +78,7 @@
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaituRajSagar/video_to_narrative) |
 | 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaituRajSagar/Skill_Matrix_App) |
 | 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★268](https://github.com/ChaituRajSagar/gemini-youtube-automation) |
+| 📱 **AI Content Bot** | Daily AI/Tech news → Gemini script → Edge TTS voiceover → vertical video → YouTube Shorts + Instagram Reels, fully automated via GitHub Actions | Gemini 2.5 Flash · Edge TTS · MoviePy · FFmpeg · Pexels · Cloudinary · GitHub Actions | [ai-content-bot](https://github.com/ChaituRajSagar/ai-content-bot) |
 | 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
 | 🖼️ **Interactive Resume** | Live interactive career infographic — skills, projects, timeline | HTML · CSS · JavaScript | [interactive-resume-infographic](https://github.com/ChaituRajSagar/interactive-resume-infographic) |
 | 🖼️ **GFPGAN** | Real-world face restoration algorithms — used in AriesGPT facial enhancement | Python · PyTorch · Deep Learning | [GFPGAN](https://github.com/ChaituRajSagar/GFPGAN) |
@@ -141,6 +142,20 @@
 - Evolved into a modular AI Educational Template with dedicated stages for curriculum, slides, code demos, animations, and narration
 
 [![Repo](https://img.shields.io/badge/GitHub-gemini--youtube--automation-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/gemini-youtube-automation)
+
+### 📱 AI Content Bot — Daily AI/Tech News Video Pipeline
+**Fully automated daily pipeline** that fetches trending AI & Tech news, produces a short-form vertical video with voiceover and animated captions, and posts it to YouTube Shorts and Instagram Reels — hands-free.
+
+[![Daily Post](https://github.com/ChaituRajSagar/ai-content-bot/actions/workflows/daily_post.yml/badge.svg)](https://github.com/ChaituRajSagar/ai-content-bot/actions/workflows/daily_post.yml)
+
+- **News sourcing:** TechCrunch, VentureBeat, The Hacker News, AI News RSS feeds
+- **Content generation:** Gemini 2.5 Flash writes 45-second script, Instagram caption, 20 hashtags, and a smart Pexels search keyword
+- **Voiceover:** Microsoft Edge TTS with gTTS fallback; word-level timing for animated captions
+- **Video production:** 3 Pexels stock clips (topic-matched) + title overlay + word-synced animated captions → 1080×1920 vertical video via MoviePy + FFmpeg
+- **Publishing:** YouTube Shorts (YouTube Data API v3) + Cloudinary CDN → Instagram Reels (Instagram Graph API)
+- **Auto-Fix Agent:** On pipeline failure, Gemini 2.5 Flash diagnoses the logs, patches source files, and opens a PR automatically
+
+[![Repo](https://img.shields.io/badge/GitHub-ai--content--bot-2E75B6?style=flat-square&logo=github)](https://github.com/ChaituRajSagar/ai-content-bot)
 
 ### 💼 SmartHire AI — AI Hiring Platform (In Development)
 **Full-stack recruitment platform** with FastAPI backend and TalentCore React Native/Expo mobile app.
@@ -230,7 +245,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 ## 📊 GitHub Activity
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Public%20Repos-9-10B981?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Public%20Repos-10-10B981?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Most%20Starred-gemini--youtube--automation%20%E2%98%85268-FFD700?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Primary%20Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Focus%20Areas-AI%20%26%20Cloud-FF6B35?style=for-the-badge"/>
@@ -243,6 +258,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 ### 🤖 AI / GenAI Projects (Public)
 - **[AppNova_Docs](https://github.com/ChaituRajSagar/AppNova_Docs)** — AppNova AI documentation: 12-agent LLM platform, architecture diagrams, migration guides
 - **[gemini-youtube-automation](https://github.com/ChaituRajSagar/gemini-youtube-automation)** ★268 — Autonomous AI video generator & YouTube publisher
+- **[ai-content-bot](https://github.com/ChaituRajSagar/ai-content-bot)** — Daily AI/Tech news → Gemini script → Edge TTS → vertical video → YouTube Shorts + Instagram Reels
 - **[video_to_narrative](https://github.com/ChaituRajSagar/video_to_narrative)** ★2 — Surveillance video → law-enforcement incident report
 - **[Skill_Matrix_App](https://github.com/ChaituRajSagar/Skill_Matrix_App)** ★3 — Resume → HR skill matrix via local RAG
 
