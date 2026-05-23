@@ -1,0 +1,182 @@
+{
+  "header": {
+    "name": "JAKKI CHAITANYA ESWAR RAJESH",
+    "title": "AI Engineer  |  Azure Data Engineer  |  Python Developer",
+    "phone": "+91 9908856899",
+    "email": "chaitanyaeswar.rajesh@gmail.com",
+    "location": "Hyderabad, India",
+    "links": "LinkedIn  |  GitHub: github.com/ChaituRajSagar  |  AppNova AI  |  AriesGPT"
+  },
+  "summary": "Microsoft Certified Azure Data Engineer Associate (DP-203) with 4 years 9 months of hands-on IT experience building production Generative AI systems, voice AI pipelines, and cloud-scale ETL pipelines. Currently leading development of AppNova AI — an enterprise-grade, full-stack multi-agent LLM platform with FastAPI, React/TypeScript, LangGraph, ChromaDB RAG, and 5 LLM providers (Claude, Gemini, Groq, Ollama). Also built AriesGPT — a 5-microservice AI platform including a production VoiceBot (Whisper STT + Groq LLaMA 3 + gTTS TTS) with async FastAPI endpoints and structured JSON outputs. Proven track record architecting 30+ Azure Data Factory ETL pipelines for U.S. government agencies, reducing data processing time by 50%. Available for remote or Hyderabad-based AI Engineer and Azure Data Engineer roles.",
+  "skills": {
+    "AI & LLMs": "LangChain, LangGraph, Multi-Agent Orchestration, RAG, Prompt Engineering (CoT, ReAct, Few-Shot), Claude, Gemini, Groq (LLaMA 3), Ollama, Whisper (STT), gTTS (TTS), Edge TTS, Voice Pipeline Design, ViT-GPT2, Hugging Face Transformers, Sentence Transformers",
+    "Vector Databases": "ChromaDB, Semantic Search, Embedding Pipelines, Corpus Deduplication, Content Fingerprinting",
+    "Cloud & Azure": "Azure Data Factory (ADF), Azure Data Lake Gen2, Azure SQL Database, Azure Key Vault, Azure VMs, Azure Elastic Pools, Azure Logic Apps, Azure Storage",
+    "Programming": "Python (Advanced), FastAPI, Flask, asyncio, Pydantic, SQL, Bash, REST APIs, Structured JSON Outputs, Confidence Thresholds, Escalation Logic",
+    "Data Engineering": "ETL Pipeline Design, ADF Mapping Data Flows, Cloud Migration (On-Prem → Azure), Data Warehousing, Data Validation & Transformation, Data Modeling",
+    "AI/ML Libraries": "OpenCV, FFmpeg, MoviePy, Pillow, scikit-learn, pandas, NumPy, PyTorch (inference), python-docx, PyMuPDF, gTTS, GFPGAN, DeblurGANv2",
+    "DevOps & Tools": "GitHub Actions (CI/CD), Docker (basic), SSE Streaming, Loguru, Git, React (TypeScript/Vite), Angular (frontend integration), Uvicorn",
+    "Certifications": "Azure Data Engineer Associate — DP-203 (Microsoft)"
+  },
+  "experience": [
+    {
+      "title": "Senior Data Engineer & AI Automation Specialist",
+      "company": "West Advanced Technologies India Pvt. Ltd.",
+      "location": "Hyderabad",
+      "period": "Aug 2021 – Present",
+      "it_experience": "4 years 9 months",
+      "sections": [
+        {
+          "heading": "AI & GenAI Application Development",
+          "bullets": [
+            "Built AppNova AI — an enterprise full-stack multi-agent platform using FastAPI (backend) + React/TypeScript/Vite (frontend), with 12 specialized LangGraph agents (architecture, code-analysis, code-generation, business-rules, security, DevOps, documentation, testing, data-migration, UI/UX, integration, migration-planner) that analyse legacy codebases and generate structured modernisation reports as DOCX/PDF exports.",
+            "Implemented a 5-provider LLM cascade (Claude Sonnet, Gemini Flash, Groq LLaMA 3, Ollama) with per-key round-robin rotation across 25+ API keys, rate-limit detection, automatic provider fallback, and content-fingerprint caching — achieving near-zero idle time across all concurrent agents.",
+            "Designed ChromaDB-backed RAG pipeline with corpus deduplication, AST-based file summaries, and semantic search — allowing agents to retrieve code-relevant context in under 200ms regardless of project size.",
+            "Built AriesGPT — an Angular + FastAPI AI monorepo with 5 independent microservices: VoiceBot (Whisper STT + Groq LLaMA 3 + gTTS TTS), Video to Narrative (OpenCV + ViT-GPT2 + Whisper + Groq), Facial Deblur (GFPGAN), Vehicle Deblur (DeblurGANv2), and Aries GPT conversational assistant — all integrated into a single Angular dashboard.",
+            "VoiceBot pipeline: browser audio input → Whisper speech-to-text transcription → Groq LLaMA 3 intent understanding and response generation with structured JSON outputs → gTTS text-to-speech synthesis returned to frontend; built with async FastAPI endpoints, strict request/response schemas, and escalation logic for failed transcription or LLM timeouts.",
+            "Deployed GovGenie — a RAG-powered RFP response generator (Ollama + LangChain + ChromaDB) that retrieves past proposal language semantically and auto-populates government RFP templates, reducing bid writing time by ~70%.",
+            "Built Reference Filler — a FastAPI + ChromaDB document automation system that parses uploaded resumes with LLM, extracts structured data, and fills DOCX templates — replacing a manual 45-minute HR task with a 2-minute automated workflow.",
+            "Implemented CI/CD pipelines using GitHub Actions for zero-downtime automated deployment of all AI applications."
+          ]
+        },
+        {
+          "heading": "Azure Data Factory & ETL Pipeline Engineering",
+          "bullets": [
+            "Architected 30+ production ADF pipelines for U.S. government clients (Contra Costa County, California State Agencies, LA County) ingesting high-volume RMS records into Azure SQL Database and Data Lake with zero data loss.",
+            "Designed end-to-end ETL workflows using Mapping Data Flows, Lookup activities, and parameterized Linked Services — achieving 50% faster data processing versus the prior manual batch process.",
+            "Automated validation, deduplication, and transformation logic in ADF, cutting manual data review effort by 40% and providing real-time pipeline health visibility via Azure Monitor alerts.",
+            "Led ARIES cloud migration — moved a large-scale criminal justice system (40+ tables, multi-million row datasets) from on-premises SQL Server to Azure Cloud with zero data loss and a full lineage audit trail.",
+            "Maintained Linked Services, Integration Runtimes, and self-hosted IR configurations across Azure SQL, SFTP, REST, and Blob sources with secure credential management via Azure Key Vault."
+          ]
+        }
+      ]
+    }
+  ],
+  "prior_history": {
+    "intro": "The following section documents my background before entering the IT industry in 2021. These roles are included for transparency and completeness. They are non-IT positions and are not relevant to my technical capabilities.",
+    "roles": [
+      {
+        "title": "Career Transition & Self-Directed Learning",
+        "period": "Dec 2018 – Jul 2021 (2 years 8 months)",
+        "bullets": [
+          "Completed self-directed study in Python, SQL, and cloud data engineering fundamentals including the COVID-19 pandemic period (2020–2021).",
+          "Earned Microsoft Azure Data Engineer Associate (DP-203) certification — foundation for joining WATI in August 2021."
+        ]
+      },
+      {
+        "title": "Office Co-Ordinator",
+        "company": "Eastern Petro Technologies India Pvt. Ltd.",
+        "location": "Kakinada",
+        "period": "Apr 2018 – Nov 2018",
+        "note": "Non-IT role — included for employment history completeness | EPFO verified",
+        "bullets": [
+          "Managed quotations, purchase orders, and cross-departmental coordination reporting to the CEO."
+        ]
+      },
+      {
+        "title": "Process Associate",
+        "company": "Macray Technologies Pvt. Ltd.",
+        "location": "Kakinada",
+        "period": "Oct 2016 – Mar 2017",
+        "note": "Non-IT role — earliest career position | Small unregistered firm, no EPFO",
+        "bullets": [
+          "U.S. solar energy market cold calling and customer acquisition for Home Solar Solutions, West Palm Beach, Florida."
+        ]
+      }
+    ]
+  },
+  "projects": [
+    {
+      "name": "VoiceBot",
+      "subtitle": "End-to-End Voice Assistant Microservice",
+      "stack": "FastAPI · Whisper · Groq LLaMA 3 · gTTS · Angular",
+      "year": "2025",
+      "bullets": [
+        "Built production voice assistant as part of AriesGPT monorepo: speech captured via browser → Whisper STT transcription → Groq LLaMA 3 response generation with structured JSON output → gTTS voice synthesis returned to Angular frontend.",
+        "Implemented async FastAPI endpoints with strict request/response schemas, confidence threshold logic, and escalation handling for failed transcription or LLM timeouts — designed for production reliability.",
+        "Pipeline built for extensibility: fallback responses, error state management, and per-request logging via rotating file handlers."
+      ]
+    },
+    {
+      "name": "AppNova AI",
+      "subtitle": "Enterprise Multi-Agent Code Modernisation Platform",
+      "stack": "FastAPI · React/TypeScript/Vite · LangGraph · Claude · Gemini · Groq · ChromaDB · asyncio · SSE",
+      "year": "2025 – Present",
+      "bullets": [
+        "Production-grade full-stack AI platform (200+ files) where 12 specialized LangGraph agents run in parallel to analyse legacy codebases and produce structured modernisation reports exported as DOCX and PDF.",
+        "Engineered 5-provider LLM cascade with automatic key rotation across 25+ API keys — agents never stall on rate-limits.",
+        "SHA-256 content-fingerprint caching lets repeated uploads skip all LLM calls entirely, serving ChromaDB results in seconds.",
+        "SSE streaming with fan-out queue architecture, real-time agent thinking logs, per-agent cancellation, and Spectator Mode."
+      ]
+    },
+    {
+      "name": "AriesGPT",
+      "subtitle": "Angular + FastAPI AI Monorepo",
+      "stack": "Angular · FastAPI · GFPGAN · DeblurGANv2 · Whisper · ViT-GPT2 · Groq",
+      "year": "2025",
+      "bullets": [
+        "Unified Angular + FastAPI workspace with 5 independent AI microservices: VoiceBot, Video to Narrative, Aries GPT assistant, GFPGAN facial deblur, and DeblurGANv2 vehicle deblur.",
+        "Each service runs independently with its own venv and requirements; CORS handled via environment-based origin configuration."
+      ]
+    },
+    {
+      "name": "Video to Narrative",
+      "subtitle": "Surveillance Video Summarisation App",
+      "stack": "Flask · OpenCV · Whisper · ViT-GPT2 · Groq (LLaMA 3)",
+      "year": "Completed 2025",
+      "bullets": [
+        "Flask AI app: extracts frames with OpenCV at configurable intervals, generates per-frame captions via ViT-GPT2, transcribes audio with Whisper, then uses Groq LLaMA 3 to produce both plain-English and formal law-enforcement incident summaries as structured JSON.",
+        "GPU/CPU auto-detection via PyTorch; automatic cleanup of frames and uploaded video post-processing."
+      ]
+    },
+    {
+      "name": "GovGenie",
+      "subtitle": "AI-Powered RFP Response Generator",
+      "stack": "FastAPI · Ollama (LLaMA 3.1) · LangChain · ChromaDB · Hugging Face",
+      "year": "2025",
+      "bullets": [
+        "RAG system that reads an uploaded government RFP PDF, retrieves semantically similar past proposal sections from ChromaDB, and drafts section-by-section responses — reducing RFP writing effort by ~70%.",
+        "ConversationBufferMemory for follow-up clause questions; per-stage token metrics via tiktoken for cost visibility."
+      ]
+    },
+    {
+      "name": "ReferenceFiller",
+      "subtitle": "Automated DOCX Template Population",
+      "stack": "FastAPI · ChromaDB · Ollama · python-docx · Jinja2",
+      "year": "2025",
+      "bullets": [
+        "HR uploads resume + template → LLM extracts structured candidate data → fills DOCX via semantic field mapping — turning 45-minute manual task into 2-minute automated workflow."
+      ]
+    },
+    {
+      "name": "Gemini YouTube Automation Bot",
+      "subtitle": "Autonomous AI Video Publisher",
+      "stack": "Python · Gemini · MoviePy · gTTS · GitHub Actions · YouTube Data API",
+      "year": "Personal",
+      "bullets": [
+        "Fully autonomous pipeline: Gemini generates SEO-optimised scripts → gTTS voiceover → MoviePy video composition → YouTube Data API auto-publish — entire workflow runs on GitHub Actions cron, no server required."
+      ]
+    },
+    {
+      "name": "AI Content Bot",
+      "subtitle": "Fully Automated Daily AI/Tech Video Pipeline",
+      "stack": "Python · Gemini 2.5 Flash · Microsoft Edge TTS · MoviePy · FFmpeg · Pexels API · Cloudinary · YouTube Data API · Instagram Graph API · GitHub Actions",
+      "year": "2025 – Present",
+      "bullets": [
+        "Fully automated daily pipeline: fetches trending AI & Tech news from RSS feeds (TechCrunch, VentureBeat, The Hacker News, AI News) → Gemini 2.5 Flash generates a 45-second script, Instagram caption, 20 hashtags, and a topic-matched Pexels search keyword → Microsoft Edge TTS generates voiceover with word-level timing for animated captions → MoviePy + FFmpeg assembles 3 Pexels stock clips into a 1080×1920 vertical video with animated word-synced captions and title overlay.",
+        "Publishes automatically to YouTube Shorts (YouTube Data API v3) and Instagram Reels (Cloudinary CDN + Instagram Graph API) — 100% hands-free via GitHub Actions daily cron at 6:00 AM IST.",
+        "Built a Gemini 2.5 Flash auto-fix agent: on pipeline failure, downloads the job log, analyses it alongside all source files, and opens a pull request with patched code automatically — no manual intervention required."
+      ]
+    }
+  ],
+  "education": [
+    "B.Tech, Mechanical Engineering  |  GIET College of Engineering, Rajahmundry  |  May 2015",
+    "Microsoft Certified: Azure Data Engineer Associate (DP-203)  |  Microsoft"
+  ],
+  "government_clients": [
+    "<b>Contra Costa County, California</b> — ADF pipelines for RMS data migration; 30+ entity tables synced between legacy on-prem SQL Server and Azure SQL Database.",
+    "<b>California State Agencies</b> — Parameterized ADF pipelines for real-time reporting and compliance data supporting multiple agencies from a single pipeline template.",
+    "<b>Los Angeles County</b> — BEAGLE system optimization and ARIES cloud migration; delivered improved query performance, compliance audit trails, and documented DR/rollback procedures.",
+    "<b>WATI (Government Contractor)</b> — GovGenie RFP automation platform; reduced proposal preparation from 5+ days to under 24 hours for standard government bid responses."
+  ]
+}

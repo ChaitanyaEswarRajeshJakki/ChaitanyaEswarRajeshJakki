@@ -1,8 +1,7 @@
-name: Update Profile README
+name: Update Profile (README + Infographic + Resume PDF)
 
+# Run manually from the Actions tab whenever you want to sync all profiles.
 on:
-  schedule:
-    - cron: '0 2 * * *'
   workflow_dispatch:
 
 permissions:
@@ -11,26 +10,38 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Update timestamp
-        run: |
-          TIMESTAMP=$(date -u '+%B %Y')
-          if [ -f "README.md" ]; then
-            if grep -q "Last Updated:" README.md; then
-              sed -i "s|Last Updated: [^<]*|Last Updated: $TIMESTAMP|" README.md
-            else
-              echo "" >> README.md
-              echo "<p align=\"center\"><i>Last Updated: $TIMESTAMP</i></p>" >> README.md
-            fi
-          fi
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Commit and push
+      - name: Install dependencies
         run: |
-          git config user.name "GitHub Actions"
+          pip install --quiet \
+            requests \
+            google-generativeai \
+            reportlab
+
+      - name: Run updater
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/update_all.py
+
+      - name: Commit & push changes
+        run: |
+          git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "docs: update README timestamp"
+          git add README.md \
+                  interactive-resume-infographic/infographic.html \
+                  scripts/resume_data.json \
+                  "Jakki_Chaitanya_Eswar_Rajesh_*.pdf"
+          # Exit cleanly if nothing changed
+          git diff --cached --quiet && echo "Nothing to commit." && exit 0
+          git commit -m "chore: auto-update profiles from repo commits [skip ci]"
           git push
