@@ -195,7 +195,7 @@
       "stack": "angular, cors, deblurganv2, environmentvariables, fastapi, gfpgan, git, gpt, httpclient, monorepo, nlp, python, routing, scss, speechtotext, submodules, texttospeech, typescript, videotonarrative, voicebot",
       "year": "2025",
       "bullets": [
-        "Developed AriesGPT, an AI-powered Angular+FastAPI monorepo for law enforcement with voice, NL\u2192SQL (Groq+ChromaDB), mapping, deblur, and narrative.",
+        "Developed AriesGPT, an AI-powered Angular+FastAPI monorepo for law enforcement and investigation with voice, NL\u2192SQL, mapping, deblur, crime intelligence, and narrative.",
         "Implemented specialized AI modules for facial/vehicle deblur (GFPGAN, DeblurGANv2) and AI-generated incident narratives from frame-by-frame video captioning.",
         "Engineered a NL\u2192SQL query engine over criminal records using Groq and ChromaDB, and a criminal intelligence database via Claude API."
       ]
@@ -206,7 +206,7 @@
       "stack": "ai, angular, chromadb, fastapi, langchain, local-llm, ollama, rag, resume-parser, rfp-generator",
       "year": "2025",
       "bullets": [
-        "AI assistant automating RFP generation and resume population using local LLMs, with RAG for experience retrieval, updated UI, and Linux deployment.",
+        "AI assistant automating RFP and resume population with local LLMs (no API costs), RAG for experience, updated UI, and Linux deployment.",
         "Engineered a Skill Matrix Filler leveraging LLMs to auto-populate resume data into DOCX templates, generating contextual content for placeholders.",
         "Built a full-stack AI platform, GovGenie, automating RFP responses and resume population using a local LLM (Ollama), eliminating external API costs."
       ]
@@ -263,6 +263,17 @@
         "Developed an AI-powered Streamlit app to parse resume data, fill document templates, and answer questions via RAG with a local Ollama LLM.",
         "Implemented RAG Q&A functionality using ChromaDB for vector search, enabling natural-language queries grounded in document content; ensured secure session isolation.",
         "Engineered a full-stack architecture with a Streamlit frontend and FastAPI backend, leveraging a local Ollama LLM to eliminate cloud API dependencies."
+      ]
+    },
+    {
+      "name": "instagram-god-bot",
+      "subtitle": "Automated bot that posts daily Bhagavad Gita verses as Instagram Reels in Hindi, Telugu & English using Gemini AI, Google TTS, Pexels, and FFmpeg",
+      "stack": "automation, bhagavad-gita, cloudinary, content-automation, daily-posts, ffmpeg, gemini-ai, github-actions, hindi, instagram-bot, krishna, multilingual, python, spiritual-content, spiritual-instagram-reels, telugu",
+      "year": "2025",
+      "bullets": [
+        "Automated GitHub Actions bot publishes daily Bhagavad Gita Reels in Hindi, Telugu, English, using Gemini AI, Google TTS, and Cloudinary.",
+        "Engineered a multilingual video generation pipeline for Instagram Reels, integrating Pillow for pixel-accurate text overlay and FFmpeg for H.264 video composition, ensuring Indic script rendering.",
+        "Designed a hands-free automated pipeline to post daily Instagram Reels, utilizing Gemini AI for content, Google TTS for voiceovers, and Instagram Graph API for publishing."
       ]
     }
   ],
