@@ -3,7 +3,7 @@
     "name": "JAKKI CHAITANYA ESWAR RAJESH",
     "title": "AI Engineer  |  Azure Data Engineer  |  Python Developer",
     "phone": "+91 9908856899",
-    "email": "chaitanyaeswar.rajesh@gmail.com",
+    "email": "chaitanyarajesh.sagar@gmail.com",
     "location": "Hyderabad, India",
     "links": "LinkedIn  |  GitHub: github.com/ChaitanyaEswarRajeshJakki  |  AppNova AI  |  AriesGPT"
   },
@@ -20,7 +20,7 @@
   },
   "experience": [
     {
-      "title": "Senior Data Engineer & AI Automation Specialist",
+      "title": "AI Engineer & Azure Data Engineer",
       "company": "West Advanced Technologies India Pvt. Ltd.",
       "location": "Hyderabad",
       "period": "Aug 2021 \u2013 Present",
@@ -222,17 +222,6 @@
       ]
     },
     {
-      "name": "ChaitanyaEswarRajeshJakki",
-      "subtitle": "Config files for my GitHub profile.",
-      "stack": "config, github-config",
-      "year": "2025",
-      "bullets": [
-        "Dynamically generates an interactive career infographic, leveraging dual AI (Gemini, Claude) to showcase skills, projects, and achievements from public and private repositories.",
-        "Corrected GitHub Pages path and updated project username, ensuring proper deployment and improved project accessibility.",
-        "Upgraded to google-genai SDK and optimized commit analysis logic, enhancing internal profile update processes."
-      ]
-    },
-    {
       "name": "Skill_Matrix_Streamlit_App",
       "subtitle": "AI-powered skill matrix filler using Streamlit, FastAPI, ChromaDB RAG, and local Ollama LLM \u2014 no cloud API keys needed.",
       "stack": "chromadb, document-automation, fastapi, llm, local-llm, ollama, python, rag, resume, skill-matrix, streamlit",
@@ -241,17 +230,6 @@
         "Developed an AI-powered Streamlit/FastAPI app using local Ollama and ChromaDB to parse resumes, fill templates, and provide RAG Q&A.",
         "Engineered robust resume parsing from DOCX/PDF via sequential prompting, integrated ChromaDB for RAG Q&A, and enabled browser preview and download of filled documents.",
         "Implemented session isolation with unique IDs and dedicated ChromaDB collections per upload, ensuring data privacy and preventing cross-session data leakage."
-      ]
-    },
-    {
-      "name": "ChaitanyaEswarRajeshJakki",
-      "subtitle": "Config files for my GitHub profile.",
-      "stack": "config, github-config",
-      "year": "2025",
-      "bullets": [
-        "Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career infographic with detailed breakdowns, and automated updates.",
-        "Configured and maintained GitHub Pages hosting, correcting subdomain spellings and repository paths for accurate profile deployment.",
-        "Implemented automation for profile updates based on repository commits, ensuring content remained current and synchronized."
       ]
     },
     {
