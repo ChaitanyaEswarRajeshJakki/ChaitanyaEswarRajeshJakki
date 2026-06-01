@@ -7,7 +7,7 @@
     "location": "Hyderabad, India",
     "links": "LinkedIn  |  GitHub: github.com/ChaitanyaEswarRajeshJakki  |  AppNova AI  |  AriesGPT"
   },
-  "summary": "Microsoft Certified Azure Data Engineer Associate (DP-203) with 4 years 9 months of hands-on IT experience building production Generative AI systems, voice AI pipelines, and cloud-scale ETL pipelines. Currently leading development of AppNova AI \u2014 an enterprise-grade, full-stack multi-agent LLM platform with FastAPI, React/TypeScript, LangGraph, ChromaDB RAG, and 5 LLM providers (Claude, Gemini, Groq, Ollama). Also built AriesGPT \u2014 a 5-microservice AI platform including a production VoiceBot (Whisper STT + Groq LLaMA 3 + gTTS TTS) with async FastAPI endpoints and structured JSON outputs. Proven track record architecting 30+ Azure Data Factory ETL pipelines for U.S. government agencies, reducing data processing time by 50%. Available for remote or Hyderabad-based AI Engineer and Azure Data Engineer roles.",
+  "summary": "Microsoft Certified Azure Data Engineer Associate (DP-203) with 4 years 10 months of hands-on IT experience building production Generative AI systems, voice AI pipelines, and cloud-scale ETL pipelines. Currently leading development of AppNova AI \u2014 an enterprise-grade, full-stack multi-agent LLM platform with FastAPI, React/TypeScript, LangGraph, ChromaDB RAG, and 5 LLM providers (Claude, Gemini, Groq, Ollama). Also built AriesGPT \u2014 a 5-microservice AI platform including a production VoiceBot (Whisper STT + Groq LLaMA 3 + gTTS TTS) with async FastAPI endpoints and structured JSON outputs. Proven track record architecting 30+ Azure Data Factory ETL pipelines for U.S. government agencies, reducing data processing time by 50%. Available for remote or Hyderabad-based AI Engineer and Azure Data Engineer roles.",
   "skills": {
     "AI & LLMs": "LangChain, LangGraph, Multi-Agent Orchestration, RAG, Prompt Engineering (CoT, ReAct, Few-Shot), Claude, Gemini, Groq (LLaMA 3), Ollama, Whisper (STT), gTTS (TTS), Edge TTS, Voice Pipeline Design, ViT-GPT2, Hugging Face Transformers, Sentence Transformers",
     "Vector Databases": "ChromaDB, Semantic Search, Embedding Pipelines, Corpus Deduplication, Content Fingerprinting",
@@ -24,7 +24,7 @@
       "company": "West Advanced Technologies India Pvt. Ltd.",
       "location": "Hyderabad",
       "period": "Aug 2021 \u2013 Present",
-      "it_experience": "4 years 9 months",
+      "it_experience": "4 years 10 months",
       "sections": [
         {
           "heading": "AI & GenAI Application Development",
@@ -238,7 +238,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "Developed AppNovaAI, a code modernization studio leveraging Claude Code and AI agents to transform legacy codebases into runnable target stacks with full audit trails.",
+        "AppNovaAI, a code modernization studio, leverages Claude Code and AI agents to transform legacy codebases into refined, runnable target stacks with full audit trails.",
         "Engineered AppNovaAI to automatically generate architecture diagrams, security audits, and migration blueprints, producing comprehensive .md, .docx, and .pdf reports.",
         "Optimized AppNovaAI's codegen pipeline with parallel chunk waves and deterministic file_map backfill, while enhancing UI and automated build manifest generation."
       ]
@@ -271,7 +271,7 @@
       "stack": "automation, bhagavad-gita, cloudinary, content-automation, daily-posts, ffmpeg, gemini-ai, github-actions, hindi, instagram-bot, krishna, multilingual, python, spiritual-content, spiritual-instagram-reels, telugu",
       "year": "2025",
       "bullets": [
-        "Automated GitHub Actions bot publishes daily Bhagavad Gita Reels in Hindi, Telugu, English, using Gemini AI, Google TTS, and Cloudinary.",
+        "Automated GitHub Actions bot publishes daily multilingual Bhagavad Gita Reels and YouTube Shorts with Gemini AI, Google TTS, Pillow, FFmpeg, Cloudinary.",
         "Engineered a multilingual video generation pipeline for Instagram Reels, integrating Pillow for pixel-accurate text overlay and FFmpeg for H.264 video composition, ensuring Indic script rendering.",
         "Designed a hands-free automated pipeline to post daily Instagram Reels, utilizing Gemini AI for content, Google TTS for voiceovers, and Instagram Graph API for publishing."
       ]
