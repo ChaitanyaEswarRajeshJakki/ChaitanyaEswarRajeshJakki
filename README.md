@@ -44,7 +44,7 @@
 
 ### 🔷 AppNova AI — Enterprise Multi-Agent Code Modernisation Platform
 
-> Full-stack AI platform (FastAPI + React/TypeScript/Vite) with 12 specialized LangGraph agents running in parallel to analyse legacy codebases and generate structured modernisation reports
+> Full-stack AI platform (FastAPI + React/TypeScript/Vite) with 13 specialized LangGraph agents running in parallel to analyse legacy codebases and generate structured modernisation reports
 
 - **Agents:** Architecture · Code-Analysis · Code-Generation · Business-Rules · Security · DevOps · Documentation · Testing · Data-Migration · UI/UX · Integration · Migration-Planner
 - **Backend:** FastAPI + LangGraph + asyncio + SSE real-time streaming
