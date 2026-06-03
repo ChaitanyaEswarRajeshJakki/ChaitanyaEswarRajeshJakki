@@ -94,7 +94,7 @@
 <summary><b>📂 Detailed Project Breakdowns (click to expand)</b></summary>
 
 ### 🤖 AppNova AI — Enterprise Code Modernization
-**Full-stack AI-driven code modernization studio** with 12 specialist LangGraph agents running in parallel. FastAPI backend + React/TypeScript/Vite frontend.
+**Full-stack AI-driven code modernization studio** with 13 specialist LangGraph agents running in parallel. FastAPI backend + React/TypeScript/Vite frontend.
 
 - **Agent Specialization:** Architecture · Code-Analysis · Code-Generation · Business-Rules · Security · DevOps · Documentation · Testing · Data-Migration · UI/UX · Integration · Migration-Planner
 - **Real-time Streaming:** SSE fan-out queue with per-agent cancellation and Spectator Mode
