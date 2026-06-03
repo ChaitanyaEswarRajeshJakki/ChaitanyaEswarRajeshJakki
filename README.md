@@ -316,7 +316,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 ## 💡 Key Highlights
 
 🔬 **AI Research & Production Systems**
-- 12-agent LLM orchestration with SSE streaming and zero-downtime fallback across 5 LLM providers
+- 13-agent LLM orchestration with SSE streaming and zero-downtime fallback across 5 LLM providers
 - RAG pipelines with semantic search, corpus deduplication, and SHA-256 fingerprinting
 - End-to-end voice AI pipeline: Whisper STT → Groq LLaMA 3 → gTTS TTS
 
