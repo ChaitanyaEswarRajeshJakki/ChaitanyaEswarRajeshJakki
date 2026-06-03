@@ -71,7 +71,7 @@
 
 | Project | What it does | Stack | Repository |
 |---|---|---|---|
-| 🤖 **AppNova AI** | 12 LangGraph agents analyze legacy codebases; FastAPI + React/TypeScript/Vite full-stack | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
+| 🤖 **AppNova AI** | Full-stack AI platform with 13 Claude-driven LangGraph agents for legacy code modernization, producing runnable projects  | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
 | 🎙️ **AriesGPT** | Developed AriesGPT, an AI-powered Angular+FastAPI monorepo for law enforcement and investigation with voice, NL→SQL, map       | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
 | 🏛️ **GovGenie** | Full-stack AI platform automating RFP response generation and resume population with local LLMs (no API costs) and RAG f      | FastAPI · Ollama · LangChain · ChromaDB | Private |
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
@@ -80,9 +80,9 @@
 | 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★279](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation) |
 | 📱 **AI Content Bot** | Daily AI/Tech news → Gemini script → Edge TTS voiceover → vertical video → YouTube Shorts + Instagram Reels, fully automated via GitHub Actions | Gemini 2.5 Flash · Edge TTS · MoviePy · FFmpeg · Pexels · Cloudinary · GitHub Actions | [ai-content-bot](https://github.com/ChaitanyaEswarRajeshJakki/ai-content-bot) |
 | 🙏 **instagram-god-bot** | Automated GitHub Actions bot publishes daily Bhagavad Gita verses in Hindi, Telugu, English as Reels/Shorts using Gemini     | Gemini AI · Google TTS · FFmpeg | Private |
-| 🤖 **Skill_Matrix_Streamlit_App** | Developed an AI-powered Streamlit app to parse resume data, fill document templates, and answer questions via RAG with a  | Streamlit · FastAPI · Ollama | Private |
+| 🤖 **Skill_Matrix_Streamlit_App** | AI-powered Streamlit app using FastAPI, ChromaDB, and local Ollama LLM to parse resumes, fill templates, and answer ques   | Streamlit · FastAPI · Ollama | Private |
 | 🤖 **ModernizeAI** | A local full-stack AI-assisted starter generation tool with Angular 18, FastAPI, Ollama, and optional Streamlit, packagi   | Python · Angular · AI (Ollama) | Private |
-| 🚀 **AppNovaAI** | AppNovaAI leverages Claude Code and RAG agents to modernize legacy code into runnable, audited target stacks, with inter    | Python · FastAPI · Claude Code | Private |
+| 🚀 **AppNovaAI** | AppNovaAI modernizes legacy code into runnable, audited stacks using Claude Code, DAG-driven RAG agents, guardrails, and     | Python · FastAPI · Claude Code | Private |
 | 👋 **ChaitanyaEswarRajeshJakki** | Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career     | Python · Azure · AI/ML | [ChaitanyaEswarRajeshJakki](https://github.com/ChaitanyaEswarRajeshJakki/ChaitanyaEswarRajeshJakki) |
 | 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
 | 🖼️ **Interactive Resume** | Live interactive career infographic — skills, projects, timeline | HTML · CSS · JavaScript | [interactive-resume-infographic](https://github.com/ChaitanyaEswarRajeshJakki/interactive-resume-infographic) |
