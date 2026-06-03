@@ -206,7 +206,7 @@
       "stack": "ai, angular, chromadb, fastapi, langchain, local-llm, ollama, rag, resume-parser, rfp-generator",
       "year": "2025",
       "bullets": [
-        "AI assistant automating RFP and resume population with local LLMs (no API costs), RAG for experience, updated UI, and Linux deployment.",
+        "Full-stack AI platform automating RFP response generation and resume population with local LLMs (no API costs) and RAG for experience.",
         "Engineered a Skill Matrix Filler leveraging LLMs to auto-populate resume data into DOCX templates, generating contextual content for placeholders.",
         "Built a full-stack AI platform, GovGenie, automating RFP responses and resume population using a local LLM (Ollama), eliminating external API costs."
       ]
@@ -238,7 +238,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "AppNovaAI, a code modernization studio, leverages Claude Code and AI agents to transform legacy codebases into refined, runnable target stacks with full audit trails.",
+        "AppNovaAI leverages Claude Code and RAG agents to modernize legacy code into runnable, audited target stacks, with interactive dev and retest capabilities.",
         "Engineered AppNovaAI to automatically generate architecture diagrams, security audits, and migration blueprints, producing comprehensive .md, .docx, and .pdf reports.",
         "Optimized AppNovaAI's codegen pipeline with parallel chunk waves and deterministic file_map backfill, while enhancing UI and automated build manifest generation."
       ]
@@ -249,7 +249,7 @@
       "stack": "angular, batchfile, bootstrap, css, fastapi, html, numpy, pandas, python, react, scikit-learn, typescript",
       "year": "2025",
       "bullets": [
-        "Developed a local full-stack AI-assisted starter generation tool using Angular 18, Python FastAPI, and Ollama, packaging diverse technology stacks into downloadable ZIPs.",
+        "A local full-stack AI-assisted starter generation tool with Angular 18, FastAPI, Ollama, and optional Streamlit, packaging diverse stacks into ZIPs.",
         "Implemented backend logic to generate tabular data, UI, middle-tier, and backend artifacts, packaging all outputs into a downloadable ZIP based on user selections.",
         "Enabled users via an Angular UI to select preferred technology stacks (UI, middle-tier, backend) for AI-assisted code generation and automated deployment packaging."
       ]
@@ -271,7 +271,7 @@
       "stack": "automation, bhagavad-gita, cloudinary, content-automation, daily-posts, ffmpeg, gemini-ai, github-actions, hindi, instagram-bot, krishna, multilingual, python, spiritual-content, spiritual-instagram-reels, telugu",
       "year": "2025",
       "bullets": [
-        "Automated GitHub Actions bot publishes daily multilingual Bhagavad Gita Reels and YouTube Shorts with Gemini AI, Google TTS, Pillow, FFmpeg, Cloudinary.",
+        "Automated GitHub Actions bot publishes daily Bhagavad Gita verses in Hindi, Telugu, English as Reels/Shorts using Gemini AI, Google TTS, Pillow, FFmpeg, Cloudinary.",
         "Engineered a multilingual video generation pipeline for Instagram Reels, integrating Pillow for pixel-accurate text overlay and FFmpeg for H.264 video composition, ensuring Indic script rendering.",
         "Designed a hands-free automated pipeline to post daily Instagram Reels, utilizing Gemini AI for content, Google TTS for voiceovers, and Instagram Graph API for publishing."
       ]
