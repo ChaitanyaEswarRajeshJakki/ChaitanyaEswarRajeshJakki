@@ -47,6 +47,12 @@ SKIP_REPOS     = {"Chaitanya", "opencv", "GFPGAN"}
 # Skip repos whose names contain a date (e.g. AppNova_Working_09-04-2026)
 _DATE_IN_NAME  = re.compile(r'\d{2}-\d{2}-\d{4}')
 
+# Public docs repos that represent a private project in resume_data.json.
+# Key = GitHub repo name, Value = project name as it appears in resume_data.json / README.md
+REPO_TO_PROJECT = {
+    "AppNova_Docs": "AppNova AI",
+}
+
 # ─── Experience calculation ───────────────────────────────────────────────────
 WATI_START_YEAR, WATI_START_MONTH = 2021, 8
 PRIOR_EMPLOYMENT_MONTHS = 14  # Macray Technologies 6M + Eastern Petro 8M
@@ -765,8 +771,10 @@ def main():
         known_projects = {p["name"]: p for p in resume_data["projects"]}
 
         for repo in repos:
-            name = repo["name"]
-            if name in SKIP_REPOS or _DATE_IN_NAME.search(name) or name not in known_projects:
+            name     = repo["name"]
+            # Resolve docs repos to their logical project name (e.g. AppNova_Docs → AppNova AI)
+            proj_name = REPO_TO_PROJECT.get(name, name)
+            if name in SKIP_REPOS or _DATE_IN_NAME.search(name) or proj_name not in known_projects:
                 continue
 
             commits  = fetch_recent_commits(name)
@@ -776,14 +784,14 @@ def main():
             if commits:
                 commits[0]["files"] = fetch_commit_files(name, commits[0]["sha"])
 
-            proj     = known_projects[name]
+            proj     = known_projects[proj_name]
             cur_desc = proj["bullets"][0] if proj["bullets"] else ""
 
             new_desc, changed = analyse_repo_description(
-                name, commits, cur_desc, readme_t)
+                proj_name, commits, cur_desc, readme_t)
 
             if changed:
-                log(f"  [{name}] Description updated.")
+                log(f"  [{proj_name}] Description updated (via repo '{name}').")
                 log(f"    OLD: {cur_desc[:80]}…")
                 log(f"    NEW: {new_desc[:80]}…")
 
@@ -791,12 +799,12 @@ def main():
                     proj["bullets"][0] = new_desc
 
                 readme_content, _ = readme_update_project_desc(
-                    readme_content, name, new_desc[:120])
+                    readme_content, proj_name, new_desc[:120])
 
                 infographic_content, _ = infographic_update_project_desc(
-                    infographic_content, name, new_desc)
+                    infographic_content, proj_name, new_desc)
             else:
-                log(f"  [{name}] No meaningful change.")
+                log(f"  [{proj_name}] No meaningful change.")
     else:
         log("\n── Skipping description analysis (no AI key set) ──")
 
