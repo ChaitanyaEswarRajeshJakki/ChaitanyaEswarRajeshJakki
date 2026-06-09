@@ -103,7 +103,7 @@
       "stack": "FastAPI \u00b7 React/TypeScript/Vite \u00b7 LangGraph \u00b7 Claude \u00b7 Gemini \u00b7 Groq \u00b7 ChromaDB \u00b7 asyncio \u00b7 SSE",
       "year": "2025 \u2013 Present",
       "bullets": [
-        "Full-stack AI platform with 13 Claude-driven LangGraph agents for legacy code modernization, producing runnable projects, audits, and .md/.docx/.pdf reports.",
+        "Full-stack AI platform with 13 Claude-driven LangGraph agents for legacy code modernization, producing runnable projects, audits, and reports, leveraging Claude Max for zero API spend.",
         "Engineered 5-provider LLM cascade with automatic key rotation across 25+ API keys \u2014 agents never stall on rate-limits.",
         "SHA-256 content-fingerprint caching lets repeated uploads skip all LLM calls entirely, serving ChromaDB results in seconds.",
         "SSE streaming with fan-out queue architecture, real-time agent thinking logs, per-agent cancellation, and Spectator Mode."
@@ -238,7 +238,7 @@
       "stack": "architecture-diagrams-generation, claude-max, code-generation-ai-agents, dag-scheduler, developer-tools, docx-export, llm-orchestration-agentic-ai, mermaid-diagrams, pdf-export, security-auditing-tool, self-hosted, self-hosted-ai, self-hosted-runner, sse-streaming, static-analysis",
       "year": "2025",
       "bullets": [
-        "AppNovaAI modernizes legacy code into runnable, audited stacks using Claude Code, DAG-driven RAG agents, guardrails, and interactive retest loops.",
+        "AppNovaAI modernizes legacy code into runnable, audited stacks line-by-line using Claude Code, DAG-driven RAG agents, guardrails, and comprehensive reports.",
         "Engineered AppNovaAI to automatically generate architecture diagrams, security audits, and migration blueprints, producing comprehensive .md, .docx, and .pdf reports.",
         "Optimized AppNovaAI's codegen pipeline with parallel chunk waves and deterministic file_map backfill, while enhancing UI and automated build manifest generation."
       ]
