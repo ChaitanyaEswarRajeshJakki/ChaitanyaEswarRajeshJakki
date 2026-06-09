@@ -277,6 +277,22 @@ def generate_new_project_bullets(repo_name, commits, readme_text):
         for a new project called "{repo_name}". Use only the info below. No intro text,
         no numbering — output bare bullet content lines separated by newlines.
 
+        MEASURABLE RESULTS (required): at least one bullet MUST include a concrete,
+        quantified outcome. Priority order:
+          1. A real metric stated in the commits/README (e.g. "reduced X by 70%",
+             "under 200ms", "45-minute task to 2 minutes").
+          2. If no metric exists, quantify verifiable scope instead — counts of
+             agents/services/microservices/API keys/supported languages, file or
+             record volumes, latency, or number of automated steps.
+        Do NOT invent percentages or savings figures that the context cannot support.
+        Prefer an honest scope number over a fabricated percentage.
+
+        VERB VARIETY (required): start each bullet with a DIFFERENT strong action verb.
+        Avoid the overused set [Built, Implemented, Designed, Developed, Engineered,
+        Created, Powered]. Prefer varied verbs such as: Architected, Automated,
+        Accelerated, Reduced, Streamlined, Optimised, Orchestrated, Delivered,
+        Integrated, Migrated, Deployed, Led, Scaled, Unified, Refactored, Pioneered.
+
         Recent commits:
         {commit_text}
 
@@ -331,6 +347,10 @@ def generate_new_repo_breakdown(repo, commits, readme_text):
         - Pick a fitting emoji for the ### heading.
         - Bold labels on bullet points (e.g. **Stack:**, **Key Feature:**).
         - Keep it factual — do NOT invent features not present in the context.
+        - Include at least one quantified detail (a real metric from the context, or a
+          verifiable scope number like agent/service count, latency, or file volume).
+          Never fabricate percentages the context cannot support.
+        - Vary the opening verbs; avoid repeating Built/Implemented/Designed/Engineered.
         - Do NOT wrap the output in code fences or add any preamble.
     """).strip()
 
@@ -542,7 +562,24 @@ def resume_update_project_bullets(data, proj_name, new_bullets):
             return True
     return False
 
+def _norm_proj_name(name):
+    """Normalise a repo/project name for duplicate detection.
+
+    'AppNovaAI', 'AppNova_AI' and 'AppNova AI' all collapse to the same key, so a
+    repo is never added as a second project that already exists under a variant
+    spelling (the cause of the duplicate-bullet ATS findings).
+    """
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
+
 def resume_add_project(data, repo_name, subtitle, stack, year, bullets):
+    # Idempotency guard: skip if a project with this name (or a spelling variant,
+    # or its mapped logical name) is already present.
+    target = _norm_proj_name(REPO_TO_PROJECT.get(repo_name, repo_name))
+    existing = {_norm_proj_name(p["name"]) for p in data["projects"]}
+    if target in existing:
+        log(f"    Resume project '{repo_name}' already present — skipped (no duplicate added).")
+        return False
     data["projects"].append({
         "name": repo_name,
         "subtitle": subtitle,
@@ -550,6 +587,7 @@ def resume_add_project(data, repo_name, subtitle, stack, year, bullets):
         "year": year,
         "bullets": bullets,
     })
+    return True
 
 # ─── 3e. Infographic — add new project card ───────────────────────────────────
 _CARD_PUBLIC = """
@@ -732,8 +770,13 @@ def main():
         # Resume data
         bullets = generate_new_project_bullets(name, commits, readme_t)
         if bullets:
-            desc  = repo.get("description") or name
-            stack = ", ".join(repo.get("topics", [])) or "Python"
+            # Subtitle: short, clean — never the full GitHub blurb.
+            raw_desc = (repo.get("description") or name).strip()
+            desc = raw_desc if len(raw_desc) <= 70 else raw_desc[:67].rstrip() + "…"
+            # Stack: at most 6 topics joined with ' · ' (avoids dumping the raw,
+            # comma-separated topic list that ATS flags as repeated phrases).
+            topics = repo.get("topics", [])[:6]
+            stack  = " · ".join(topics) if topics else "Python"
             resume_add_project(resume_data, name, desc, stack, "2025", bullets)
             log(f"    Resume project entry added ({len(bullets)} bullets).")
 

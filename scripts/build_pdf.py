@@ -39,12 +39,12 @@ def make_styles():
         "contact": ParagraphStyle("contact", fontName=R, fontSize=9,  leading=12,
                                   alignment=TA_CENTER, spaceAfter=4,
                                   textColor=colors.HexColor("#333333")),
-        "section": ParagraphStyle("section", fontName=B, fontSize=10, leading=14,
-                                  spaceBefore=8, spaceAfter=3),
-        "body":    ParagraphStyle("body",    fontName=R, fontSize=9,  leading=13,
-                                  spaceAfter=2),
-        "bullet":  ParagraphStyle("bullet",  fontName=R, fontSize=9,  leading=13,
-                                  spaceAfter=2, leftIndent=12, firstLineIndent=-6),
+        "section": ParagraphStyle("section", fontName=B, fontSize=10, leading=13,
+                                  spaceBefore=6, spaceAfter=2),
+        "body":    ParagraphStyle("body",    fontName=R, fontSize=9,  leading=12,
+                                  spaceAfter=1),
+        "bullet":  ParagraphStyle("bullet",  fontName=R, fontSize=9,  leading=12,
+                                  spaceAfter=1, leftIndent=12, firstLineIndent=-6),
         "subhead": ParagraphStyle("subhead", fontName=B, fontSize=9,  leading=13,
                                   spaceAfter=1, spaceBefore=4),
         "proj":    ParagraphStyle("proj",    fontName=B, fontSize=9,  leading=13,
@@ -59,7 +59,9 @@ def hr():
                       spaceAfter=4, spaceBefore=2)
 
 def section(text, s):
-    return Paragraph(f"&#9632; {text}", s["section"])
+    # Plain bold uppercase header — no decorative glyph, so ATS text extraction
+    # reads clean section names (the old &#9632; / ■ marker garbled parsing).
+    return Paragraph(text, s["section"])
 
 def bullet(text, s):
     return Paragraph(f"• {text}", s["bullet"])
@@ -76,8 +78,8 @@ def build(output_path=None):
 
     doc = SimpleDocTemplate(
         str(out), pagesize=A4,
-        leftMargin=1.6*cm, rightMargin=1.6*cm,
-        topMargin=1.4*cm,  bottomMargin=1.4*cm,
+        leftMargin=1.5*cm, rightMargin=1.5*cm,
+        topMargin=1.1*cm,  bottomMargin=1.1*cm,
     )
     story = []
     h = data["header"]
